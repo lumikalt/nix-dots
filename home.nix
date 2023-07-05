@@ -18,7 +18,7 @@
     material-icons
 
     # programming
-    git
+    git gh # need gh for git auth
     ripgrep
     vscode emacs neovim micro
     nil statix

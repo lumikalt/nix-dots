@@ -12,7 +12,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/NUR";
-    stylix.url = "github:SomeGuyNamedMy/stylix/wallpaper-refactor";
+    stylix.url = "github:danth/stylix";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
   };
 
@@ -41,7 +41,7 @@
       specialArgs = { inherit inputs outputs; };
 
       modules = [
-        # stylix.homeManagerModules.stylix
+        stylix.homeManagerModules.stylix
         # nur.hmModules.nur
         hyprland.nixosModules.default
         { programs.hyprland.enable=true; }
@@ -51,9 +51,9 @@
         home-manager.nixosModules.home-manager
         {
           home-manager = {
-	        useGlobalPkgs = true;
+            useGlobalPkgs = true;
             useUserPackages = true;
-            users.lumi.imports = [./home.nix];
+            users.lumi.imports = [ ./home.nix ];
           };
         }
       ];
