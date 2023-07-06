@@ -1,20 +1,17 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{ config, pkgs, ... }: {
   home.username = "lumi";
-  home.stateVersion = "23.05";
+  home.stateVersion = "23.11";
+
+  programs.home-manager.enable = true;
 
   imports = [
     ./modules
+    ./modules/shell.nix
   ];
 
   home.packages = with pkgs; [
     # shell
-    fish
-    bat exa
-    kitty
+    bat
 
     # fonts
     noto-fonts noto-fonts-cjk noto-fonts-emoji
@@ -31,7 +28,7 @@
 
     # rice
     mako libnotify
-    hyprpaper hyprpicker
+    hyprpicker
     swayidle swaylock
     grim slurp wl-clipboard
     bemenu

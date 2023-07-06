@@ -1,13 +1,4 @@
-{
-  pkgs,
-  config,
-  lib,
-  ...
-}: {
-  programs.discord = {
-    enable = true;
-  };
-
+{ pkgs, config, lib, ... }: {
   nixpkgs.overlays = let
     myOverlay = self: super: {
       discord = super.discord.override {
