@@ -2,5 +2,6 @@
   imports = [
     ./boot.nix
     ./hyprland.nix
+    ./wallpaper.nix
   ];
 }
