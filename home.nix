@@ -6,6 +6,10 @@
   home.username = "lumi";
   home.stateVersion = "23.05";
 
+  imports = [
+    ./modules
+  ];
+
   home.packages = with pkgs; [
     # shell
     fish

@@ -1,15 +1,6 @@
-{
-  pkgs,
-  config,
-  lib,
-  stylix,
-  ...
-}: {
+{ pkgs, config, lib, ... }: {
   imports = [
     # ./chatting.nix
     ./shell.nix
-    ./hyprland.nix
-    ./boot.nix
-    ./wallpaper.nix
   ];
 }

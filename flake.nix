@@ -47,9 +47,7 @@
         { programs.hyprland.enable=true; }
 
         stylix.nixosModules.stylix
-        #({ stylix, ... }: import ./modules/wallpaper.nix {
-        #  inherit pkgs lib stylix;
-        #})
+        ./sysModules
 
         ./config.nix
 
