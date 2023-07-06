@@ -1,6 +1,6 @@
 { pkgs, config, lib, ... }: {
   imports = [
-    # ./chatting.nix
+    ./chatting.nix
     ./shell.nix
   ];
 }

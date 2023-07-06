@@ -4,6 +4,7 @@
       discord = super.discord.override {
         withOpenASAR = true;
         withVencord = true;
+        nss = pkgs.nss_3_91;
       };
     };
   in [myOverlay];
