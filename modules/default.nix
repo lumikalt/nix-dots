@@ -10,5 +10,6 @@
     ./shell.nix
     ./hyprland.nix
     ./boot.nix
+    ./wallpaper.nix
   ];
 }

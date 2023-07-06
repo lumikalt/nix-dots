@@ -33,10 +33,8 @@
     bemenu
 
     # audio
-    pamixer
-    playerctl
-    vlc
-    mpv
+    pamixer playerctl
+    vlc mpv
 
     # browser
     firefox
@@ -59,6 +57,6 @@
   };
 
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
   };
 }
