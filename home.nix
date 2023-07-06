@@ -2,12 +2,11 @@
   home.username = "lumi";
   home.stateVersion = "23.11";
 
-  programs.home-manager.enable = true;
-
   imports = [
     ./modules
-    ./modules/shell.nix
   ];
+
+  nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
     # shell
@@ -21,7 +20,7 @@
     # programming
     git gh # need gh for git auth
     ripgrep
-    vscode emacs neovim micro
+    vscode neovim micro
     nil statix
     cargo rustc rust-analyzer rustfmt
     ghc stack haskell-language-server

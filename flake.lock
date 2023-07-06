@@ -258,15 +258,16 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1688308288,
-        "narHash": "sha256-dahwZIc0zGgGMKR/j1SJjYhaoGJTHJUse8CzC8DUyV0=",
-        "owner": "danth",
+        "lastModified": 1688379945,
+        "narHash": "sha256-K+A0kLa7akoURp0vOAjrrgnTv+yFdZI7DdSLZiryMQs=",
+        "owner": "SomeGuyNamedMy",
         "repo": "stylix",
-        "rev": "35cab8eb76c1d3672b2b290a64f357847c30d090",
+        "rev": "8883d8ed6966f3cc67f4fe195c7115ade7324a80",
         "type": "github"
       },
       "original": {
-        "owner": "danth",
+        "owner": "SomeGuyNamedMy",
+        "ref": "wallpaper-refactor",
         "repo": "stylix",
         "type": "github"
       }

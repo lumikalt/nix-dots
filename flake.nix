@@ -54,7 +54,7 @@
         home-manager.nixosModules.home-manager
         {
           home-manager = {
-            useGlobalPkgs = true;
+            # useGlobalPkgs = true;
             useUserPackages = true;
             users.lumi.imports = [ ./home.nix ];
           };
