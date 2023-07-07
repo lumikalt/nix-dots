@@ -11,7 +11,10 @@
           before-sleep "swaylock -f -c 000000" &
 
         # Misc
-        wl-paste -t text --watch clipman store &
+        wl-clipboard-history -t &
+        
+        # Wallpaper
+        hyprpaper &
       '';
     }
     {

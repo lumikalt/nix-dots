@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  imports = [ ./emacs ];
+  # imports = [ ./emacs ];
 
   programs.git = {
     enable = true;
@@ -19,7 +19,6 @@
     defaultEditor = true;
     settings = {
       editor = {
-        line-number = "relative";
         lsp = {
           enable = true;
           display-messages = true;
@@ -28,7 +27,18 @@
         };
         auto-completion = true;
         auto-format = true;
+        
+        cursor-shape = {
+          insert = "bar";
+          select = "underline";
+          normal = "block";
+        };
         mouse = true;
+        ident-guides.render = true;
+        cursorline = true;
+        color-modes = true;
+        line-number = "relative";
+        bufferline = "multiple";
       };
       keys.normal = {
         space.space = "file_picker";
