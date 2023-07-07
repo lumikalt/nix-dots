@@ -20,8 +20,8 @@
     {
       xdg.configFile."hypr/hyprpaper.conf".text = ''
         ipc = off
-        preload = ~/flakes/assets/wallpaper/wallpaper.png
-	wallpaper = eDP-1,~/flakes/assets/wallpapers/wallpaper.png
+        preload = ~/flakes/assets/wallpapers/wallpaper.png
+        wallpaper = eDP-1,~/flakes/assets/wallpapers/wallpaper.png
       '';
     }
     {
