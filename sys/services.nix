@@ -40,5 +40,7 @@
 
     # Bluetooth
     blueman.enable = true;
+
+    gnome.gnome-keyring.enable = true;
   };
 }

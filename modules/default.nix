@@ -5,11 +5,12 @@
     ./chatting.nix
     ./env.nix
     ./gtk.nix
-    # ./hyprland.nix
     ./media.nix
     ./mime.nix
     ./programming.nix
     ./shell.nix
     ./sway.nix
+
+    ../sys/fonts.nix
   ];
 }
