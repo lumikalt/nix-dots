@@ -56,12 +56,12 @@
           home-manager = {
             # useGlobalPkgs = true;
             useUserPackages = true;
-            users.lumi: {...} = {
+            users.lumi = {...}: {
 	      imports = [
 	        nix-doom-emacs.hmModule
 	        ./home.nix
 	      ];
-	    }
+	    };
           };
         }
       ];

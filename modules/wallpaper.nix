@@ -1,6 +1,6 @@
 { pkgs, lib, stylix, ... }: {
   stylix = {
-    image = ../assets/wallpapers/darksnow.png;
+    image = ../assets/wallpapers/wallpaper.png;
     polarity = "dark";
     fonts = {
       serif = {

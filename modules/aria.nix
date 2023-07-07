@@ -4,7 +4,7 @@
     enable = true;
 
     settings = {
-      dir = "home/lumi/dl";
+      dir = "/home/lumi/dl";
       file-allocation = "none";
       log-level = "warn";
       split = "10";

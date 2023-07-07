@@ -1,4 +1,6 @@
-{ config, pkgs, lib, ... }: {
+{ pkgs, ... }: {
+  # imports = [ ./emacs ];
+
   programs.git = {
     enable = true;
     package = pkgs.gitFull;
@@ -21,7 +23,7 @@
         lsp = {
           enable = true;
           display-messages = true;
-          display-inline-hints = true;
+          display-inlay-hints = true;
           snippets = true;
         };
         auto-completion = true;
@@ -33,11 +35,5 @@
         esc = [ "collapse_selection" "keep_primary_selection" ];
       };
     };
-  };
-
-  services.emacs.enable = true;
-  programs.doom-emacs = {
-    enable = true;
-    doomPrivateDir = ./doom.d
   };
 }

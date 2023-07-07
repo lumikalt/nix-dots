@@ -10,7 +10,5 @@
     ./programming.nix
     ./shell.nix
     ./sway.nix
-
-    ../sys/fonts.nix
   ];
 }
