@@ -13,7 +13,7 @@
     };
     nur.url = "github:nix-community/NUR";
     stylix.url = "github:danth/stylix";
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
+    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
   };
 
   outputs = {
@@ -23,7 +23,7 @@
     hyprland,
     nur,
     stylix,
-    emacs-overlay,
+    nix-doom-emacs,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -31,7 +31,6 @@
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
-      overlays = [ emacs-overlay.overlays.default ];
     };
     inherit (nixpkgs) lib;
   in {
@@ -57,7 +56,12 @@
           home-manager = {
             # useGlobalPkgs = true;
             useUserPackages = true;
-            users.lumi.imports = [ ./home.nix ];
+            users.lumi: {...} = {
+	      imports = [
+	        nix-doom-emacs.hmModule
+	        ./home.nix
+	      ];
+	    }
           };
         }
       ];
