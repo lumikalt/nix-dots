@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  # imports = [ ./emacs ];
+  imports = [ ./emacs ];
 
   programs.git = {
     enable = true;
