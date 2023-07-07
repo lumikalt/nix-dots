@@ -53,6 +53,9 @@
 
     # work
     libreoffice
+
+    # browser
+    tor-browser-bundle-bin
   ];
 
   home.file = {
