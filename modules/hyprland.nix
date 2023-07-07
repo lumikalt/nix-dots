@@ -1,35 +1,17 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}: {
+{ config, pkgs, inputs, ... }: {
   home-manager.sharedModules = [
     {
       xdg.configFile."hypr/autostart".text = ''
         #!/usr/bin/bash
 
-        # Variables
-        config=/home/lumi/.config/hypr/
-
-        # Notifications
-        dunst &
-
         # Lock
         swayidle -w \
           timeout 300 "swaylock -f -c 000000" \
-          timeout 315 "hyprctl dispatch dms off" resume "hyprctl dispatch dms on" \
+          timeout 315 "hyprctl dispatch dpms off" resume "hyprctl dispatch dpms on" \
           before-sleep "swaylock -f -c 000000" &
 
-        # Waybar
-        # waybar &
-
-        # Wallpaper
-        hyprpaper &
-
         # Misc
-        # udiskie --tray &
-        wl-clipboard-history -t &
+        wl-paste -t text --watch clipman store &
       '';
     }
     {
@@ -81,6 +63,8 @@
 
         decoration {
             rounding=5
+            multisample_edges=true
+            dim_inactive=true
 
             blur=2
             blur_size=2 # minimum 1

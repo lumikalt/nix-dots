@@ -9,38 +9,49 @@
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
-    # shell
-    bat
-
     # fonts
     noto-fonts noto-fonts-cjk noto-fonts-emoji
     nerdfonts
     material-icons
 
     # programming
-    git gh # need gh for git auth
-    ripgrep
-    vscode neovim micro
+    tree-sitter
+    vscode gedit
     nil statix
     cargo rustc rust-analyzer rustfmt
     ghc stack haskell-language-server
 
     # rice
-    mako libnotify
+    libnotify
+    libsixel brightnessctl
     hyprpicker
-    swayidle swaylock
-    grim slurp wl-clipboard
+    swayidle swaylock swaybg
+    grim slurp wl-clipboard wtype
     bemenu
+    
+    # theming
+    gruvbox-gtk-theme
+    orchis-theme
+    bibata-cursors
+    papirus-icon-theme
 
-    # audio
+    # media
     pamixer playerctl
-    vlc mpv
+    vlc
+    qbittorrent
 
-    # browser
-    firefox
+    # env
+    xfce.thunar
+    
+    # cli
+    jq fzf btop grc unzip rsync ffmpeg feh
+    aspell aspellDicts.en-science aspellDicts.en hunspell hunspellDicts.en-us
 
     # chatting
-    discord
+    discord # FIXME: add some matrix client
+
+    # work
+    libreoffice
   ];
 
   home.file = {
@@ -57,6 +68,14 @@
   };
 
   home.sessionVariables = {
-    EDITOR = "nvim";
+    # EDITOR = "${lib.getExe helix}"; -> managed by the program
+    TERM = "xterm-kitty";
+    BROWSER = "firefox";
+    # Locale
+    LANG = "en_US.UTF-8";
+    LC_ALL = "en_US.UTF-8";
+    # Wayland
+    NIXOS_OZONE_WL = "1";
+    MOZ_ENABLE_WAYLAND = "1";
   };
 }

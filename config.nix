@@ -1,35 +1,31 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}: {
+{ config, pkgs, inputs, ... }: {
   imports = [
     ./hardware.nix
+    ./sys
   ];
 
   nix = {
     settings = {
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = [ "nix-command" "flakes" ];
 
-      # Haskell
-      # trusted-public-keys = ["hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="];
-      # substitutors = ["https://cache.iog.io"];
+      auto-optimise-store = true;
+      max-jobs = "auto";
     };
 
     gc = {
       automatic = true;
-      dates = "weekly";
+      dates = "daily";
       randomizedDelaySec = "10m";
+      options = "--delete-older-than 7d";
     };
   };
 
-  nixpkgs.config.allowUnfree = true;
+  zramSwap.enable = true;
 
-  networking = {
-    hostName = "wumi";
-    networkmanager.enable = true;
-  };
+  system.stateVersion = "23.11";
+
+
+  ### user
 
   time.timeZone = "Europe/Lisbon";
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -38,41 +34,18 @@
   users.users.lumi = {
     description = "Lumi Kalt";
     isNormalUser = true;
-    extraGroups = ["wheel" "audio" "video" "networkmanager"];
+    extraGroups = [ "wheel" "audio" "video" "networkmanager" "power" "nix" ];
     shell = pkgs.fish;
   };
 
   programs.fish.enable = true;
 
   environment.systemPackages = with pkgs; [
-    git
+    gitFull
     fish
     neovim
     nixUnstable # flakes etc.
   ];
 
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
-
-  services.dbus.implementation = "broker";
-
-  systemd.services.systemd-journal-flush.enable = false;
-
-  zramSwap.enable = true;
-
-  hardware.opengl = {
-    enable = true;
-    extraPackages = [pkgs.vaapiIntel];
-    driSupport32Bit = true;
-  };
-
-  system.stateVersion = "23.05";
+  nixpkgs.config.allowUnfree = true;
 }

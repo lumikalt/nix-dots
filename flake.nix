@@ -44,10 +44,11 @@
         nur.hmModules.nur
 
         hyprland.nixosModules.default
-        { programs.hyprland.enable=true; }
+        { programs.hyprland.enable = true; }
+        ./modules/hyprland.nix
 
         stylix.nixosModules.stylix
-        ./sysModules
+        ./modules/wallpaper.nix
 
         ./config.nix
 
