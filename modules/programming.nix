@@ -31,11 +31,10 @@
         cursor-shape = {
           insert = "bar";
           select = "underline";
-          normal = "block";
         };
         mouse = true;
         indent-guides.render = true;
-        cursorline = true;
+        cursorline = false;
         color-modes = true;
         line-number = "relative";
         bufferline = "multiple";
