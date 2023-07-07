@@ -34,7 +34,7 @@
           normal = "block";
         };
         mouse = true;
-        ident-guides.render = true;
+        indent-guides.render = true;
         cursorline = true;
         color-modes = true;
         line-number = "relative";

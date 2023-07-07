@@ -25,7 +25,7 @@
     # rice
     libnotify
     libsixel brightnessctl
-    hyprpicker
+    hyprpicker hyprpaper
     swayidle swaylock swaybg
     grim slurp wl-clipboard wtype
     bemenu
