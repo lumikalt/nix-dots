@@ -1,23 +1,6 @@
 { ... }: {
   home-manager.sharedModules = [
     {
-      xdg.configFile."hypr/autostart".text = ''
-        #!/usr/bin/bash
-
-        # Lock
-        swayidle -w \
-          timeout 300 "swaylock -f -c 000000" \
-          timeout 315 "hyprctl dispatch dpms off" resume "hyprctl dispatch dpms on" \
-          before-sleep "swaylock -f -c 000000" &
-
-        # Misc
-        # wl-clipboard-history -t &
-        
-        # Wallpaper
-        hyprpaper &
-      '';
-    }
-    {
       xdg.configFile."hypr/hyprpaper.conf".text = ''
         ipc = off
         preload = ~/flakes/assets/wallpapers/wallpaper.png
@@ -28,7 +11,7 @@
       xdg.configFile."hypr/hyprland.conf".text = ''
         monitor=,preferred,auto,1
 
-        exec-once=$HOME/.config/hypr/autostart
+        exec-once=hyprpaper &
 
         input {
             kb_file=
