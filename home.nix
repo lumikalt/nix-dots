@@ -16,7 +16,7 @@
     noto-fonts noto-fonts-cjk noto-fonts-emoji
     unifont symbola maple-mono
     (nerdfonts.override { fonts = [ "Hasklig" ]; })
-    material-icons
+    material-icons emacs-all-the-icons-fonts
 
     # programming
     tree-sitter

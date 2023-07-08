@@ -2,7 +2,7 @@
   fonts = {
     fonts = with pkgs; [
       noto-fonts unifont
-      symbola noto-fonts-emoji maple-mono
+      symbola noto-fonts-emoji maple-mono emacs-all-the-icons-fonts
       (nerdfonts.override { fonts = [ "Hasklig" ]; })
     ];
 
