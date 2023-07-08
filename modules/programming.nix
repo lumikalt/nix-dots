@@ -43,7 +43,7 @@
 
         shell = [ "fish" "-c" ];
 
-        status-line = {
+        statusline = {
           center = [ "version-control" ];
         };
       };

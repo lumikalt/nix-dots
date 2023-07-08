@@ -13,7 +13,7 @@
       "cgroup_no_v1=all"
       "systemd.unified_cgroup_hierarchy=yes"
       "console=tty1"
-      "mitigations=on"
+      "mitigations=off"
       "nowatchdog"
       "tsc=reliable"
       "b43.allhwsupport=1"
