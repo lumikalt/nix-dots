@@ -27,6 +27,7 @@
         };
         auto-completion = true;
         auto-format = true;
+        completion-replace = true;
         
         cursor-shape = {
           insert = "bar";
@@ -38,6 +39,13 @@
         color-modes = true;
         line-number = "relative";
         bufferline = "multiple";
+        true-color = true;
+
+        shell = [ "fish" "-c" ];
+
+        status-line = {
+          center = [ "version-control" ];
+        };
       };
       keys.normal = {
         space.space = "file_picker";

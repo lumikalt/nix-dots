@@ -5,7 +5,7 @@
 
     settings = {
       dir = "/home/lumi/dl";
-      file-allocation = "none";
+      file-allocation = "falloc";
       log-level = "warn";
       split = "10";
       max-connection-per-server = 10;
