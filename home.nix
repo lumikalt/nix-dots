@@ -7,12 +7,15 @@
     ./modules
   ];
 
+  fonts.fontconfig.enable = true;
+
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
     # fonts
     noto-fonts noto-fonts-cjk noto-fonts-emoji
-    nerdfonts
+    unifont symbola maple-mono
+    (nerdfonts.override { fonts = [ "Hasklig" ]; })
     material-icons
 
     # programming
