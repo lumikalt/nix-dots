@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }: {
+{ ... }: {
   home-manager.sharedModules = [
     {
       xdg.configFile."hypr/autostart".text = ''
@@ -11,7 +11,7 @@
           before-sleep "swaylock -f -c 000000" &
 
         # Misc
-        wl-clipboard-history -t &
+        # wl-clipboard-history -t &
         
         # Wallpaper
         hyprpaper &
@@ -125,7 +125,7 @@
         bind=SUPER,F,fullscreen
         bind=SUPER,D,exec,bemenu-run -p "run: "
         bind=SUPER,P,pseudo,
-        bind=,Print,exec,grim -g "$(slurp)" - | wl-copy
+        bind=,Print,exec,grim -g "$(slurp)" - | wl-copy -t image/png
         bind=SUPER,z,exec,waybar &
         bind=SUPER,x,exec,pkill waybar
 

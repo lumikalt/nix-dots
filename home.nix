@@ -48,7 +48,7 @@
     xfce.thunar
     
     # cli
-    jq fzf btop grc unzip rsync ffmpeg feh
+    jq fzf btop grc unzip rsync ffmpeg feh fd
     aspell aspellDicts.en-science aspellDicts.en hunspell hunspellDicts.en-us
 
     # chatting
