@@ -20,7 +20,7 @@
 
     # programming
     tree-sitter
-    vscode gedit
+    vscode gedit emacs
     nil statix
     cargo rustc rust-analyzer rustfmt
     ghc stack haskell-language-server
