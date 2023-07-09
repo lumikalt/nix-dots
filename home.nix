@@ -42,7 +42,7 @@
     # media
     pamixer playerctl
     vlc
-    qbittorrent
+    qbittorrent transmission
 
     # env
     xfce.thunar
