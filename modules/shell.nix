@@ -4,6 +4,8 @@
 
     interactiveShellInit = ''
       set fish_greeting # Disable greeting.
+
+      set -p PATH $HOME/.config/emacs/bin
     '';
 
     shellInit = ''
