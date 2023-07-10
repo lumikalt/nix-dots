@@ -22,14 +22,14 @@
     tree-sitter
     vscode gedit emacs
     nil statix
-    cargo rustc rust-analyzer rustfmt
-    ghc stack haskell-language-server
+    # cargo rustc rust-analyzer rustfmt
+    # ghc stack haskell-language-server
 
     # rice
     libnotify
     libsixel brightnessctl
     hyprpicker hyprpaper
-    swayidle swaylock swaybg
+    swayidle swaylock
     grim slurp wl-clipboard wtype
     bemenu
     
@@ -42,7 +42,7 @@
     # media
     pamixer playerctl
     vlc
-    qbittorrent transmission
+    qbittorrent
 
     # env
     xfce.thunar
