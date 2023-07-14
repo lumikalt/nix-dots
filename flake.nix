@@ -11,9 +11,13 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nur.url = "github:nix-community/NUR";
     stylix.url = "github:danth/stylix";
-    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
 
   outputs = {
@@ -21,9 +25,10 @@
     nixpkgs,
     home-manager,
     hyprland,
+    hyprland-contrib,
     nur,
     stylix,
-    nix-doom-emacs,
+    nix-vscode-extensions,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -42,10 +47,6 @@
       modules = [
         nur.hmModules.nur
 
-        hyprland.nixosModules.default
-        { programs.hyprland.enable = true; }
-        ./modules/hyprland.nix
-
         stylix.nixosModules.stylix
         ./modules/wallpaper.nix
 
@@ -57,14 +58,30 @@
             # useGlobalPkgs = true;
             useUserPackages = true;
             users.lumi = {...}: {
-	      imports = [
-	        nix-doom-emacs.hmModule
-	        ./home.nix
-	      ];
-	    };
+              imports = [
+                # hm modules
+                hyprland.homeManagerModules.default
+
+                ./home.nix
+              ];
+            };
           };
         }
       ];
     };
+  };
+
+  nixConfig = {
+    extra-substituters = [
+      "https://nix-community.cachix.org"
+      "https://helix.cachix.org"
+      "https://hyprland.cachix.org"
+    ];
+
+    extra-trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+    ];
   };
 }

@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, inputs, ... }: {
   home.username = "lumi";
   home.homeDirectory = lib.mkForce /home/lumi;
   home.stateVersion = "23.11";
@@ -45,8 +45,8 @@
     qbittorrent
 
     # env
-    xfce.thunar
-    
+    xfce.thunar xdg-utils
+        
     # cli
     jq fzf btop grc unzip rsync ffmpeg feh fd
     aspell aspellDicts.en-science aspellDicts.en hunspell hunspellDicts.en-us

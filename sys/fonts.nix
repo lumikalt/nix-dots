@@ -1,9 +1,10 @@
 { pkgs, ... }: {
   fonts = {
     fonts = with pkgs; [
-      noto-fonts unifont
-      symbola noto-fonts-emoji maple-mono emacs-all-the-icons-fonts
+      noto-fonts noto-fonts-cjk noto-fonts-emoji
+      unifont symbola maple-mono
       (nerdfonts.override { fonts = [ "Hasklig" ]; })
+      material-icons emacs-all-the-icons-fonts
     ];
 
     enableDefaultFonts = true;
@@ -12,7 +13,7 @@
       defaultFonts = {
         monospace = [
           "Code D OnePiece"
-          "Hasklig"
+          "Hasklug Nerd Font" # ... why is it not the same name.
           "Noto Color Emoji"
         ];
         sansSerif = [ "Code D Haki" "Noto Sans" "Unifont"];

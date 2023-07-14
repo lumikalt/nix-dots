@@ -6,6 +6,16 @@
     defaultTimeout = 5000;
   };
 
+  services.poweralertd.enable = true;
+
+  # systemd.user.services = {
+  #   pipewire.wantedBy = ["default.target"];
+  #   pipewire-pulse = {
+  #     path = [ pkgs.pulseaudio ];
+  #     wantedBy = ["default.target"];
+  #   };
+  # };
+
   qt = {
     enable = true;
 

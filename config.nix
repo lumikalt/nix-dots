@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   imports = [
-    ./hardware.nix
+    /etc/nixos/hardware-configuration.nix # nixOS default
     ./sys
   ];
 
@@ -10,11 +10,13 @@
 
       auto-optimise-store = true;
       max-jobs = "auto";
+
+      builders-use-substitutes = true;
     };
 
     gc = {
       automatic = true;
-      dates = "daily";
+      dates = "weekly";
       randomizedDelaySec = "10m";
       options = "--delete-older-than 7d";
     };

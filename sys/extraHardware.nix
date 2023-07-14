@@ -5,7 +5,6 @@
       vaapiIntel
       libvdpau-va-gl
       intel-media-driver
-      vaapiIntel
     ];
     driSupport32Bit = true;
   };

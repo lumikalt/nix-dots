@@ -3,11 +3,13 @@
     ./aria.nix
     ./browsers.nix
     ./chatting.nix
+    ./cli.nix
     ./env.nix
+    ./hyprland.nix
     ./media.nix
     ./mime.nix
     ./programming.nix
-    ./shell.nix
     ./sway.nix
+    ./terminal.nix
   ];
 }

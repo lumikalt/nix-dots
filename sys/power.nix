@@ -1,4 +1,27 @@
-{ config, pkgs, lib, ... }: {
+{ pkgs, lib, inputs, ... }: let
+  programs = lib.makeBinPath [ inputs.hyprland.packages.${pkgs.system}.default ];
+
+  plugged = pkgs.writeShellScript "plugged" ''
+    export PATH=$PATH:${programs}
+    export HYPRLAND_INSTANCE_SIGNATURE=$(ls -w1 /tmp/hypr | tail -1)
+
+    # systemctl --user --machine=1000@ start syncthing
+    hyprctl --batch 'keyword decoration:drop_shadow 1 ; keyword animations:enabled 1'
+  '';
+
+  unplugged = pkgs.writeShellScript "unplugged" ''
+    export PATH=$PATH:${programs}
+    export HYPRLAND_INSTANCE_SIGNATURE=$(ls -w1 /tmp/hypr | tail -1)
+
+    # systemctl --user --machine=1000@ stop syncthing
+    hyprctl --batch 'keyword decoration:drop_shadow 0 ; keyword animations:enabled 0'
+  '';
+in {
+  services.udev.extraRules = ''
+    SUBSYSTEM=="power_supply", ATTR{online}=="1", RUN+="${plugged}"      
+    SUBSYSTEM=="power_supply", ATTR{online}=="0", RUN+="${unplugged}"      
+  '';
+
   services = {
     auto-cpufreq.enable = true;
     thermald.enable = true;

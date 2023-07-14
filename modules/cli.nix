@@ -3,13 +3,9 @@
     enable = true;
 
     interactiveShellInit = ''
-      set fish_greeting # Disable greeting.
+      set fish_greeting
 
       set -p PATH $HOME/.config/emacs/bin
-    '';
-
-    shellInit = ''
-      set -g theme_nerd_fonts yes
     '';
 
     plugins = [
@@ -35,14 +31,6 @@
 
   programs.starship.enable = true;
 
-  programs.kitty = {
-    enable = true;
-
-    shellIntegration.enableFishIntegration = true;
-
-
-  };
-
   programs.exa = {
     enable = true;
 
@@ -58,9 +46,11 @@
   };
 
   programs.lf.enable = true;
+
   programs.bat = {
     enable = true;
     extraPackages = with pkgs.bat-extras; [ batdiff batman batgrep batwatch ];
   };
+
   programs.ripgrep.enable = true;
 }

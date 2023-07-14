@@ -13,11 +13,11 @@
       };
       monospace = {
         package = (pkgs.nerdfonts.override { fonts = [ "Hasklig" ]; });
-        name = "Hasklig";
+        name = "Hasklug Nerd Font";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
-	name = "Noto Color Emoji";
+        name = "Noto Color Emoji";
       };
       sizes = {
         desktop = 12;

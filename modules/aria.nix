@@ -22,7 +22,7 @@
       bt-min-crypto-level = "arc4";
       bt-require-crypto = "true";
       follow-torrent = "mem";
-      seed-ratio = "100";
+      seed-ratio = "1";
       seed-time = "0";
       socket-recv-buffer-size = "1M";
       event-poll = "epoll";

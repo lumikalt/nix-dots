@@ -1,5 +1,4 @@
 { pkgs, ... }: {
-  # imports = [ ./emacs ];
   services.emacs.enable = true;
 
   programs.git = {
