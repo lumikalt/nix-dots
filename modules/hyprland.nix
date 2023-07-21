@@ -1,8 +1,8 @@
 { pkgs, lib, inputs, ... }: {
   xdg.configFile."hypr/hyprpaper.conf".text = ''
     ipc = off
-    preload = ~/flakes/assets/wallpapers/wallpaper
-    wallpaper = eDP-1,~/flakes/assets/wallpapers/wallpaper
+    preload = ~/flakes/assets/wallpapers/wallpaper.png
+    wallpaper = eDP-1,~/flakes/assets/wallpapers/wallpaper.png
   '';
 
   # home.packages = [
