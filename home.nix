@@ -14,7 +14,7 @@
   home.packages = with pkgs; [
     # fonts
     noto-fonts noto-fonts-cjk noto-fonts-emoji
-    unifont symbola maple-mono
+    unifont symbola
     (nerdfonts.override { fonts = [ "Hasklig" ]; })
     material-icons emacs-all-the-icons-fonts
 
@@ -29,7 +29,7 @@
     libnotify
     libsixel brightnessctl
     hyprpicker hyprpaper
-    swayidle swaylock
+    swayidle
     grim slurp wl-clipboard wtype
     bemenu
     
@@ -48,11 +48,12 @@
     xfce.thunar xdg-utils
         
     # cli
-    jq fzf btop grc unzip rsync ffmpeg feh fd
+    jq fzf btop grc unzip rsync ffmpeg feh fd file
     aspell aspellDicts.en-science aspellDicts.en hunspell hunspellDicts.en-us
 
     # chatting
-    discord # FIXME: add some matrix client
+    discord
+    # FIXME: add some matrix client
 
     # work
     libreoffice

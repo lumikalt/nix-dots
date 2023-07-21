@@ -1,8 +1,8 @@
 { pkgs, lib, inputs, ... }: {
   xdg.configFile."hypr/hyprpaper.conf".text = ''
     ipc = off
-    preload = ~/flakes/assets/wallpapers/wallpaper.png
-    wallpaper = eDP-1,~/flakes/assets/wallpapers/wallpaper.png
+    preload = ~/flakes/assets/wallpapers/wallpaper
+    wallpaper = eDP-1,~/flakes/assets/wallpapers/wallpaper
   '';
 
   # home.packages = [
@@ -11,6 +11,8 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+
+    systemdIntegration = true;
 
     extraConfig = ''
       monitor=,preferred,auto,1
@@ -109,7 +111,7 @@
       windowrule=workspace 1,^(kitty)$
       windowrule=workspace 1,^(code)$
       windowrule=workspace 2,^(firefox)$
-      windowrulev2 = workspace 2, title:^(.*(Disc|WebC)ord.*)$
+      windowrulev2 = workspace 3, title:^(.*(Disc|WebC)ord.*)$
       windowrule=float,^(thunar)$
 
       # fix xwayland apps
@@ -122,8 +124,8 @@
       bind=SUPER,F,fullscreen
       bind=SUPER,D,exec,bemenu-run -p "run: "
       bind=SUPER,P,pseudo,
-      # bind=,Print,exec,grim -g "$(slurp)" - | wl-copy -t image/png
-      bind=,Print,exec,grimblast --notify copysave area
+      bind=,Print,exec,grim -g "$(slurp)" - | wl-copy -t image/png
+      # bind=,Print,exec,grimblast --notify copysave area
       bind=SUPER,z,exec,waybar &
       bind=SUPER,x,exec,pkill waybar
 
@@ -215,4 +217,14 @@
   };
 
   systemd.user.services.swayidle.Install.WantedBy = lib.mkForce ["hyprland-session.target"];
+
+  programs.swaylock = {
+    enable = true;
+    package = pkgs.swaylock-effects;
+    
+    settings = {
+      effect-blur = "20x3";
+      fade-in = 0.5;
+    };
+  };
 }

@@ -57,7 +57,7 @@
           home-manager = {
             # useGlobalPkgs = true;
             useUserPackages = true;
-            users.lumi = {...}: {
+            users.lumi = { ... }: {
               imports = [
                 # hm modules
                 hyprland.homeManagerModules.default

@@ -11,5 +11,6 @@
     ./programming.nix
     ./sway.nix
     ./terminal.nix
+    ./waybar.nix
   ];
 }
