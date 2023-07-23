@@ -1,11 +1,19 @@
 { inputs, ... } : {
+  nixpkgs.overlays = [
+    (self: super: {
+      waybar = super.waybar.overrideAttrs (oldAttrs: {
+        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      });
+    })
+  ];
+
   programs.waybar = {
     enable = true;
     systemd = {
       enable = true;
       target = "graphical-session.target";
     };
-    # package = inputs.hyprland.packages."x86_64-linux".waybar-hyprland;
+    package = inputs.hyprland.packages."x86_64-linux".waybar-hyprland;
 
     settings = [{
       layer = "top";
