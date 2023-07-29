@@ -1,10 +1,12 @@
-{ config, pkgs, lib, inputs, ... }: {
+{ pkgs, lib, inputs, ... }: {
   home.username = "lumi";
   home.homeDirectory = lib.mkForce /home/lumi;
   home.stateVersion = "23.11";
 
   imports = [
-    ./modules
+    ./modules {
+      inherit inputs pkgs lib ;
+    }
   ];
 
   fonts.fontconfig.enable = true;

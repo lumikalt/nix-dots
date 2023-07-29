@@ -19,8 +19,8 @@
           "all-the-icons"
         ];
         sansSerif = [ "Noto Sans" "Unifont"];
-	      serif = [ "Noto Sans" "Unifont" ];
-	      emoji = [
+        serif = [ "Noto Sans" "Unifont" ];
+        emoji = [
           "Noto Color Emoji"
           "Symbola"
           "Unifont"

@@ -80,5 +80,92 @@
         format = "{:%H\n%M}";
       };
     }];
+
+    style = ''
+      * {
+        border: none;
+        border-radius: 0;
+        font-family: "Hasklug Nerf Font", "all-the-icons", monospace;
+        font-weight: bold;
+        font-size: 14px;
+        min-height: 0;
+      }
+
+      window#waybar {
+        background: transparent;
+      }
+
+      #workspaces {
+        border-radius: 1rem;
+        background-color: @surface0;
+        margin-top: 1rem;
+        margin: 7px 3px 0px 7px;
+      }
+
+      tooltip {
+        background: @base;
+        border: 1px solid @pink;
+      }
+
+      tooltip label {
+        color: @text;
+      }
+
+      #workspaces button {
+        color: @pink;
+        border-radius: 1rem;
+        padding-left: 6px;
+        margin: 5px 0;
+        box-shadow: inset 0 -3px transparent;
+        transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.68);
+        background-color: transparent;
+      }
+
+      #workspaces button.active {
+        color: @flamingo;
+        border-radius: 1rem;
+        background-color: @surface1;
+      }
+
+      #workspaces button.focused {
+        color: @rosewater;
+        border-radius: 1rem;
+        background-color: @surface1;
+      }
+
+      #workspaces button.urgent {
+        color: @red;
+        border-radius: 1rem;
+      }
+
+      #tray,
+      #clock,
+      #battery {
+        background: @surface0;
+        margin: 5px 0px 5px 5px;
+        padding: 10px 5px 10px 5px;
+        border-radius: 1rem;
+      }
+
+      #tray {
+        border-radius: 1rem;
+      }
+
+      #clock {
+        color: @lavender;
+      }
+
+      #battery {
+        color: @green;
+      }
+
+      #battery.charging {
+        color: @green;
+      }
+
+      #battery.warning:not(.charging) {
+        color: @red;
+      }
+    '';
   };
 }

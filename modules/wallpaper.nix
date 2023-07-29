@@ -26,6 +26,13 @@
         popups = 12;
       };
     };
-    opacity.terminal = 0.7;
+    opacity.terminal = 0.8;
   };
+
+  home-manager.sharedModules = [{
+    stylix.targets.waybar = {
+      enableLeftBackColors = true;
+      enableRightBackColors = true;
+    };
+  }];
 }

@@ -31,18 +31,13 @@
     nix-vscode-extensions,
     ...
   } @ inputs: let
-    inherit (self) outputs;
     system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-    };
     inherit (nixpkgs) lib;
   in {
     nixosConfigurations."wumi" = lib.nixosSystem {
       inherit system;
 
-      specialArgs = { inherit inputs outputs; };
+      specialArgs = { inherit inputs; };
 
       modules = [
         nur.hmModules.nur
