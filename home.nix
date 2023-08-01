@@ -5,7 +5,7 @@
 
   imports = [
     ./modules {
-      inherit inputs pkgs lib ;
+#      inherit inputs pkgs lib ;
     }
   ];
 

@@ -5,7 +5,7 @@
     ./chatting.nix
     ./cli.nix
     ./env.nix
-    # ./hyprland.nix
+    ./hyprland.nix
     ./media.nix
     ./mime.nix
     ./programming.nix

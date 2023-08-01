@@ -1,3 +1,3 @@
-{ config, pkgs, lib, ... }: {
-  programs.firefox.enable = true;
+{ ... }: {
+  programs.firefox-wayland.enable = true;
 }
