@@ -87,8 +87,8 @@
         border-radius: 0;
         font-family: "Hasklug Nerf Font", "all-the-icons", monospace;
         font-weight: bold;
-        font-size: 14px;
-        min-height: 0;
+        font-size: 12px;
+        text-align: center;
       }
 
       window#waybar {
@@ -96,23 +96,15 @@
       }
 
       #workspaces {
-        /* border-radius: 1rem; */
-        /* background-color: @surface0; */
         margin-top: 1rem;
-        margin: 7px 3px 0px 7px;
+        margin: 5px 3px 0px 5px;
       }
 
       tooltip {
-        /* background: @base; */
-        border: 1px; /* solid @pink; */
-      }
-
-      tooltip label {
-        /* color: @text; */
-      }
+        border: 1px solid;
+      }        
 
       #workspaces button {
-        /* color: @pink; */
         border-radius: 5px;
         padding-left: 6px;
         margin: 5px 0;
@@ -121,15 +113,11 @@
       }
 
       #workspaces button.active {
-        /* color: @flamingo; */
         border-radius: 5px;
-        /* background-color: @surface1; */
       }
 
       #workspaces button.focused {
-        /* color: @rosewater; */
         border-radius: 5px;
-        /* background-color: @surface1; */
       }
 
       #workspaces button.urgent {
@@ -140,9 +128,9 @@
       #tray,
       #clock,
       #battery {
-         /* background: @surface0; */
+        /* background: @surface0; */
         margin: 5px 0px 5px 5px;
-        padding: 10px 5px 10px 5px;
+        padding: 5px 5px 5px 5px;
         border-radius: 5px;
       }
 
