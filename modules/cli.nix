@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }: {
+{ pkgs, ... }: {
   programs.fish = {
     enable = true;
 
@@ -6,6 +6,8 @@
       set fish_greeting
 
       set -p PATH $HOME/.config/emacs/bin
+
+      fish_vi_key_bindings
     '';
 
     plugins = [

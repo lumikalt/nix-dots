@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   stylix = {
     image = ../assets/wallpapers/wallpaper.jpg;
-    # polarity = "dark";
+    polarity = "dark";
     fonts = {
       serif = {
         package = pkgs.dejavu_fonts;

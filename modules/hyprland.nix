@@ -1,8 +1,11 @@
-{ pkgs, lib, inputs, ... }: {
+{ pkgs, lib, inputs, ... }:
+let
+  wallpaper = "~/flakes/assets/wallpapers/wallpaper.jpg";
+in {
   xdg.configFile."hypr/hyprpaper.conf".text = ''
     ipc = off
-    preload = ~/flakes/assets/wallpapers/wallpaper.jpg
-    wallpaper = eDP-1,~/flakes/assets/wallpapers/wallpaper.jpg
+    preload = ${wallpaper}
+    wallpaper = eDP-1,${wallpaper}
   '';
 
   # home.packages = [
