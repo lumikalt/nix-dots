@@ -1,3 +1,3 @@
 { ... }: {
-  programs.firefox-wayland.enable = true;
+  programs.firefox.enable = true;
 }
