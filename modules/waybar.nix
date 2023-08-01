@@ -85,7 +85,6 @@
       * {
         border: none;
         border-radius: 0;
-        font-family: "Hasklug Nerf Font", "all-the-icons", monospace;
         font-weight: bold;
         font-size: 12px;
       }
@@ -95,18 +94,16 @@
       }
 
       #workspaces {
-        margin-top: 1rem;
-        margin: 5px 3px 0px 5px;
+        margin: 3px 3px 0px 3px;
       }
 
       tooltip {
         border: 1px solid;
-      }        
+      }
 
       #workspaces button {
+        margin-bottom: 3px;
         border-radius: 5px;
-        padding-left: 6px;
-        margin: 5px 0;
         transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.68);
         background-color: transparent;
       }
