@@ -3,7 +3,7 @@
     packages = with pkgs; [
       noto-fonts noto-fonts-cjk noto-fonts-emoji
       unifont symbola
-      (nerdfonts.override { fonts = [ "Hasklig" ]; })
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
       material-icons emacs-all-the-icons-fonts
     ];
 
@@ -12,8 +12,7 @@
     fontconfig = {
       defaultFonts = {
         monospace = [
-          "Hasklug Nerd Font" # ... why is it not the same name.
-          "Unifont"
+          "JetBrains Mono"
           "Material Icon"
           "FontAwesome"
           "all-the-icons"
@@ -23,9 +22,6 @@
         emoji = [
           "Noto Color Emoji"
           "Symbola"
-          "Unifont"
-          "Material Icon"
-          "FontAwesome"
           "all-the-icons"
         ];
       };

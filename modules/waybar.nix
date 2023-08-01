@@ -88,7 +88,6 @@
         font-family: "Hasklug Nerf Font", "all-the-icons", monospace;
         font-weight: bold;
         font-size: 12px;
-        text-align: center;
       }
 
       window#waybar {
