@@ -1,13 +1,13 @@
 { pkgs, ... }: {
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       noto-fonts noto-fonts-cjk noto-fonts-emoji
       unifont symbola
       (nerdfonts.override { fonts = [ "Hasklig" ]; })
       material-icons emacs-all-the-icons-fonts
     ];
 
-    enableDefaultFonts = true;
+    enableDefaultPackages = true;
 
     fontconfig = {
       defaultFonts = {
