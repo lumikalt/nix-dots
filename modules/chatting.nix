@@ -1,11 +1,9 @@
 { pkgs, ... }: {
-  nixpkgs.overlays = let
-    myOverlay = self: super: {
-      discord = super.discord.override {
-        withOpenASAR = true;
-        withVencord = true;
-        nss = pkgs.nss_latest;
-      };
-    };
-  in [myOverlay];
+  home.packages = with pkgs; [
+    (discord.override {
+      withOpenASAR = true;
+      withVencord = true;
+      nss = pkgs.nss_latest;
+    })
+  ];
 }

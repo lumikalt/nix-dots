@@ -30,7 +30,8 @@
     stylix,
     nix-vscode-extensions,
     ...
-  } @ inputs: let
+  } @ inputs:
+  let
     system = "x86_64-linux";
     inherit (nixpkgs) lib;
   in {
@@ -50,14 +51,16 @@
         home-manager.nixosModules.home-manager
         {
           home-manager = {
-            # useGlobalPkgs = true;
+            extraSpecialArgs = { inherit inputs; };
+            
+            useGlobalPkgs = true;
             useUserPackages = true;
             users.lumi = { ... }: {
               imports = [
                 # hm modules
                 hyprland.homeManagerModules.default
 
-                ./home.nix # { inherit inputs; }
+                 ./home.nix # { inherit inputs; }
               ];
             };
           };

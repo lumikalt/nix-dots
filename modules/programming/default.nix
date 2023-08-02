@@ -3,5 +3,6 @@
     ./emacs
     
     ./git.nix
+    ./helix.nix
   ];
 }

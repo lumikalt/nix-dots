@@ -66,9 +66,6 @@ in {
 
           col.group_border=0xff89dceb
           col.group_border_active=0xfff9e2af
-
-
-          damage_tracking=full # leave it on full unless you hate your GPU and want to make it suffer
       }
 
       decoration {
