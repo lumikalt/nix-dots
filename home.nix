@@ -55,7 +55,6 @@
     aspell aspellDicts.en-science aspellDicts.en hunspell hunspellDicts.en-us
 
     # chatting
-    discord
     # FIXME: add some matrix client
 
     # work
