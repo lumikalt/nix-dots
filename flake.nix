@@ -43,7 +43,7 @@
         nur.hmModules.nur
 
         stylix.nixosModules.stylix
-        ./modules/wallpaper.nix
+        ./modules/rice/stylix.nix
 
         ./config.nix
 
@@ -57,7 +57,7 @@
                 # hm modules
                 hyprland.homeManagerModules.default
 
-                ./home.nix
+                ./home.nix { inherit inputs; }
               ];
             };
           };

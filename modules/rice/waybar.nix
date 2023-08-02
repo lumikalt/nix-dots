@@ -1,11 +1,11 @@
 { inputs, ... } : {
-  nixpkgs.overlays = [
-    (self: super: {
-      waybar = super.waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      });
-    })
-  ];
+  # nixpkgs.overlays = [
+  #   (self: super: {
+  #     waybar = super.waybar.overrideAttrs (oldAttrs: {
+  #       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+  #     });
+  #   })
+  # ];
 
   programs.waybar = {
     enable = true;
@@ -13,7 +13,7 @@
       enable = true;
       target = "graphical-session.target";
     };
-    #package = inputs.hyprland.packages."x86_64-linux".waybar-hyprland;
+    package = inputs.hyprland.packages."x86_64-linux".waybar-hyprland;
 
     settings = [{
       layer = "top";
@@ -94,7 +94,7 @@
       }
 
       #workspaces {
-        margin: 3px 3px 0px 3px;
+        margin: 3px;
       }
 
       tooltip {
@@ -125,8 +125,7 @@
       #clock,
       #battery {
         /* background: @surface0; */
-        margin: 5px 0px 5px 5px;
-        padding: 5px 5px 5px 5px;
+        margin: 3px;
         border-radius: 5px;
       }
 

@@ -15,14 +15,15 @@
 
   home.packages = with pkgs; [
     # fonts
-    noto-fonts noto-fonts-cjk noto-fonts-emoji
-    unifont symbola
-    (nerdfonts.override { fonts = [ "Hasklig" ]; })
-    material-icons emacs-all-the-icons-fonts
+    # noto-fonts noto-fonts-cjk noto-fonts-emoji
+    # unifont symbola
+    # (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    # material-icons emacs-all-the-icons-fonts
 
     # programming
     tree-sitter
-    vscode gedit emacs
+    vscode gedit
+    # emacs
     nil statix
     # cargo rustc rust-analyzer rustfmt
     # ghc stack haskell-language-server
@@ -48,7 +49,7 @@
 
     # env
     xfce.thunar xdg-utils
-        
+
     # cli
     jq fzf btop grc unzip rsync ffmpeg feh fd file
     aspell aspellDicts.en-science aspellDicts.en hunspell hunspellDicts.en-us

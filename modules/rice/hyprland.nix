@@ -8,9 +8,9 @@ in {
     wallpaper = eDP-1,${wallpaper}
   '';
 
-  # home.packages = [
-  #   inputs.hyprland-contrib.packages.${pkgs.system}.grimblast 
-  # ];
+  home.packages = [
+    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast 
+  ];
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -68,7 +68,7 @@ in {
           col.group_border_active=0xfff9e2af
 
 
-          # damage_tracking=full # leave it on full unless you hate your GPU and want to make it suffer
+          damage_tracking=full # leave it on full unless you hate your GPU and want to make it suffer
       }
 
       decoration {
@@ -90,7 +90,6 @@ in {
 
       animations {
           enabled=1
-          # bezier=overshot,0.05,0.9,0.1,1.1
           bezier=overshot,0.13,0.99,0.29,1.1
           animation=windows,1,4,overshot,slide
           animation=border,1,10,default
@@ -127,8 +126,8 @@ in {
       bind=SUPER,F,fullscreen
       bind=SUPER,D,exec,bemenu-run -p "run: "
       bind=SUPER,P,pseudo,
-      bind=,Print,exec,grim -g "$(slurp)" - | wl-copy -t image/png
-      # bind=,Print,exec,grimblast --notify copysave area
+      # bind=,Print,exec,grim -g "$(slurp)" - | wl-copy -t image/png
+      bind=,Print,exec,grimblast --notify copysave area
       bind=SUPER,z,exec,waybar &
       bind=SUPER,x,exec,pkill waybar
 
@@ -137,11 +136,11 @@ in {
 
       # Personal apps
       bind=SUPER,W,exec,firefox --enable-features=UseOzonePlatform --ozone-platform=wayland
-      bind=SUPER,A,exec,code --enable-features=UseOzonePlatform --ozone-platform=wayland
+      bind=SUPER,A,exec,code
 
       # Utility
-      bind=SUPER,C,exec,hyprpicker && notify-send -u critical -t 4000 "$(wl-paste)"
-      bind=SUPER,L,exec,~/.config/hypr/scripts/lock
+      bind=SUPER,C,exec,hyprpicker -ar && notify-send -u critical -t 4000 "$(wl-paste)"
+      bind=SUPER,L,exec,swaylock
 
       # Movement & Workspaces
       bindm=SUPER,mouse:272,movewindow
@@ -219,7 +218,7 @@ in {
     '';
   };
 
-  systemd.user.services.swayidle.Install.WantedBy = lib.mkForce ["hyprland-session.target"];
+  systemd.user.services.swayidle.Install.WantedBy = lib.mkForce ["graphical-session.target"];
 
   programs.swaylock = {
     enable = true;

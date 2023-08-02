@@ -42,5 +42,14 @@
     blueman.enable = true;
 
     gnome.gnome-keyring.enable = true;
+
+    # Monitor Hotswap
+    systemd.user.services.kanshi = {
+      description = "kanshi daemon";
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
+      };
+    };
   };
 }

@@ -1,20 +1,5 @@
-{ pkgs, ... }: {
-  services.emacs.enable = true;
-
-  programs.git = {
-    enable = true;
-    package = pkgs.gitFull;
-
-    userName = "Lumi Kalt";
-    userEmail = "lumi.mia.kalt@gmail.com";
-
-    delta.enable = true;
-  };
-
-  # Required for git auth
-  programs.gh.enable = true;
-
-  programs.helix = {
+{ ... }: {
+    programs.helix = {
     enable = true;
     defaultEditor = true;
     settings = {
