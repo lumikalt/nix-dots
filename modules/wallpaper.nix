@@ -12,8 +12,8 @@
         name = "DejaVu Sans";
       };
       monospace = {
-        package = (pkgs.nerdfonts.override { fonts = [ "Hasklig" ]; });
-        name = "Hasklug Nerd Font";
+        package = (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; });
+        name = "JetBrainsMono Nerd Font";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;

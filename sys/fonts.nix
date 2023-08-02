@@ -12,7 +12,7 @@
     fontconfig = {
       defaultFonts = {
         monospace = [
-          "JetBrains Mono"
+          "JetBrainsMono Nerd Font"
           "Material Icon"
           "FontAwesome"
           "all-the-icons"
