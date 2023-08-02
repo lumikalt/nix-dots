@@ -1,12 +1,4 @@
 { inputs, ... } : {
-  # nixpkgs.overlays = [
-  #   (self: super: {
-  #     waybar = super.waybar.overrideAttrs (oldAttrs: {
-  #       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-  #     });
-  #   })
-  # ];
-
   programs.waybar = {
     enable = true;
     systemd = {
@@ -21,8 +13,6 @@
       exclusive = true;
       passtrough = false;
       gtk-layer-shell = true;
-
-      height = 0;
 
       modules-left = [
         "wlr/workspaces"
@@ -66,11 +56,11 @@
             "󰁹"
         ];
         tooltip = true;
-        tooltip-format = "{capacity}%\nDrawing {power}";
+        tooltip-format = "{capacity}%\nDrawing {power}W";
       };
 
       tray = {
-        icon-size = 25;
+        icon-size = 20;
         spacing = 10;
       };
 
@@ -90,7 +80,7 @@
       }
 
       window#waybar {
-        background: transparent;
+        background: transparent !important;
       }
 
       #workspaces {
