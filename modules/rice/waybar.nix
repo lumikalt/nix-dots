@@ -80,7 +80,7 @@
       }
 
       window#waybar {
-        background: transparent !important;
+        background: transparent;
       }
 
       #workspaces {
@@ -114,7 +114,6 @@
       #tray,
       #clock,
       #battery {
-        /* background: @surface0; */
         margin: 3px;
         border-radius: 5px;
       }

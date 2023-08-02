@@ -16,7 +16,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/NUR";
-    stylix.url = "github:danth/stylix";
+    # stylix.url = "github:danth/stylix";
+    stylix.url = "github:SomeGuyNamedMy/stylix/wallpaper-refactor";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
 
@@ -33,12 +34,14 @@
   } @ inputs:
   let
     system = "x86_64-linux";
+    wallpaper = ./assets/wallpapers/wallpaper.jpg;
+    # wallpaper = ./assets/wallpapers/wallpaper.png;
     inherit (nixpkgs) lib;
   in {
     nixosConfigurations."wumi" = lib.nixosSystem {
       inherit system;
 
-      specialArgs = { inherit inputs; };
+      specialArgs = { inherit inputs wallpaper; };
 
       modules = [
         nur.hmModules.nur
@@ -51,7 +54,7 @@
         home-manager.nixosModules.home-manager
         {
           home-manager = {
-            extraSpecialArgs = { inherit inputs; };
+            extraSpecialArgs = { inherit inputs wallpaper; };
             
             useGlobalPkgs = true;
             useUserPackages = true;

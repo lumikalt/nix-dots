@@ -1,7 +1,9 @@
-{ pkgs, ... }: {
+{ config, pkgs, wallpaper, ... }: {
   stylix = {
-    image = ../../assets/wallpapers/wallpaper.jpg;
-    polarity = "dark";
+    wallpaper = config.lib.stylix.mkStaticImage {
+      image = wallpaper;
+      polarity = "dark";
+    };
     fonts = {
       serif = {
         package = pkgs.dejavu_fonts;

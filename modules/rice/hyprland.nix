@@ -1,11 +1,11 @@
-{ pkgs, lib, inputs, ... }:
+{ pkgs, lib, inputs, wallpaper, ... }:
 let
-  wallpaper = "~/flakes/assets/wallpapers/wallpaper.jpg";
+  wall = /. + wallpaper;
 in {
   xdg.configFile."hypr/hyprpaper.conf".text = ''
     ipc = off
-    preload = ${wallpaper}
-    wallpaper = eDP-1,${wallpaper}
+    preload = ${wall}
+    wallpaper = eDP-1,${wall}
   '';
 
   home.packages = [
@@ -30,19 +30,19 @@ in {
       }
 
       input {
-          kb_file=
-          kb_layout=pt
-          kb_variant=
-          kb_model=
-          kb_options= compose:caps
-          kb_rules=
+        kb_file=
+        kb_layout=pt
+        kb_variant=
+        kb_model=
+        kb_options= compose:caps
+        kb_rules=
 
-          follow_mouse=1
+        follow_mouse=1
 
-          touchpad {
-              natural_scroll=yes
-              disable_while_typing=no
-          }
+        touchpad {
+          natural_scroll=yes
+          disable_while_typing=no
+        }
       }
 
       misc {
@@ -54,55 +54,48 @@ in {
       }
 
       general {
-          sensitivity=1.0 # for mouse cursor
-          # main_mod=SUPER
+        sensitivity=1.0 # for mouse cursor
+        # main_mod=SUPER
 
-          gaps_in=2
-          gaps_out=5
-          border_size=2
-          col.active_border=0xfff5c2e7
-          col.inactive_border=0xff45475a
-          apply_sens_to_raw=0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
-
-          col.group_border=0xff89dceb
-          col.group_border_active=0xfff9e2af
+        gaps_in=2
+        gaps_out=5
+        border_size=2
+        apply_sens_to_raw=0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
       }
 
       decoration {
-          rounding=5
-          multisample_edges=true
-          dim_inactive=true
+        rounding=5
+        multisample_edges=true
+        dim_inactive=true
 
-          blur=2
-          blur_size=2 # minimum 1
-          blur_passes=2 # minimum 1
-          blur_new_optimizations=1
+        blur=2
+        blur_size=2 # minimum 1
+        blur_passes=2 # minimum 1
+        blur_new_optimizations=1
 
-          drop_shadow=true
-          shadow_range=100
-          shadow_render_power=5
-          col.shadow=0x33000000
-          col.shadow_inactive=0x22000000
+        drop_shadow=true
+        shadow_range=100
+        shadow_render_power=5
       }
 
       animations {
-          enabled=1
-          bezier=overshot,0.13,0.99,0.29,1.1
-          animation=windows,1,4,overshot,slide
-          animation=border,1,10,default
-          animation=fade,1,10,default
-          animation=workspaces,1,6,overshot,slidevert
+        enabled=1
+        bezier=overshot,0.13,0.99,0.29,1.1
+        animation=windows,1,4,overshot,slide
+        animation=border,1,10,default
+        animation=fade,1,10,default
+        animation=workspaces,1,6,overshot,slidevert
       }
 
       dwindle {
-          pseudotile=0 # enable pseudotiling on dwindle
-          force_split=0
+        pseudotile=0 # enable pseudotiling on dwindle
+        force_split=0
       }
 
       gestures {
-          workspace_swipe=yes
-          workspace_swipe_fingers=4
-          workspace_swipe_forever=yes
+        workspace_swipe=yes
+        workspace_swipe_fingers=4
+        workspace_swipe_forever=yes
       }
 
 
@@ -193,16 +186,14 @@ in {
 
       # will start a submap called "resize"
       submap=resize
+        # sets repeatable binds for resizing the active window
+        binde=,right,resizeactive,10 0
+        binde=,left,resizeactive,-10 0
+        binde=,up,resizeactive,0 -10
+        binde=,down,resizeactive,0 10
 
-      # sets repeatable binds for resizing the active window
-      binde=,right,resizeactive,10 0
-      binde=,left,resizeactive,-10 0
-      binde=,up,resizeactive,0 -10
-      binde=,down,resizeactive,0 10
-
-      # use reset to go back to the global submap
-      bind=,escape,submap,reset
-
+        # use reset to go back to the global submap
+        bind=,escape,submap,reset
       # will reset the submap, meaning end the current one and return to the global one
       submap=reset
 
