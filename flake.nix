@@ -57,7 +57,7 @@
                 # hm modules
                 hyprland.homeManagerModules.default
 
-                ./home.nix { inherit inputs; }
+                ./home.nix # { inherit inputs; }
               ];
             };
           };

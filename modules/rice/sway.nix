@@ -7,8 +7,8 @@
       terminal = "kitty";
 
       startup = [
-        { command = "systemctl --user restart waybar"; always = true; }
-      ]
+        # { command = "systemctl --user restart waybar"; always = true; }
+      ];
     };
   };
 }
