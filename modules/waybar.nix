@@ -102,7 +102,7 @@
       }
 
       #workspaces button {
-        margin-bottom: 3px;
+        margin-bottom: 5px;
         border-radius: 5px;
         transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.68);
         background-color: transparent;
@@ -139,7 +139,7 @@
       }
 
       #battery {
-        /* color: @green; */
+        font-size: 16px;
       }
 
       #battery.charging {
