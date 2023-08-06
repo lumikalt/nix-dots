@@ -30,26 +30,26 @@ in {
       }
 
       input {
-        kb_file=
-        kb_layout=pt
-        kb_variant=
-        kb_model=
-        kb_options= compose:caps
-        kb_rules=
+        kb_file    =
+        kb_layout  = pt
+        kb_variant =
+        kb_model   =
+        kb_options = compose:caps
+        kb_rules   =
 
         follow_mouse = 1
 
         touchpad {
-          natural_scroll=yes
-          disable_while_typing=no
+          natural_scroll = yes
+          disable_while_typing = no
         }
       }
 
       misc {
-        vfr=on
-        disable_hyprland_logo=true
-        animate_manual_resizes=true
-        focus_on_activate=true
+        vfr = on
+        disable_hyprland_logo = true
+        animate_manual_resizes = true
+        focus_on_activate = true
         disable_autoreload = true
       }
 
@@ -66,8 +66,8 @@ in {
         dim_inactive = true
 
         blur {
-          blur_size = 2 # minimum 1
-          blur_passes = 2 # minimum 1
+          size = 2 # minimum 1
+          passes = 2 # minimum 1
         }
         
         drop_shadow = true
