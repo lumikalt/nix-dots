@@ -18,9 +18,10 @@ in {
     systemdIntegration = true;
 
     extraConfig = ''
-      monitor=,preferred,auto,1
+      monitor = ,preferred,auto,1
 
       # exec-once=hyprpaper &
+      exec-once = systemctl --user import-environment
 
       env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
 
@@ -97,11 +98,11 @@ in {
 
 
       # Window Rules
-      windowrulev2 = workspace 1, title:^(kitty)$
-      windowrulev2 = workspace 1, title:^(code)$
-      windowrulev2 = workspace 2, title:^(firefox)$
+      windowrule = workspace 1, ^(kitty)$
+      windowrule = workspace 1, ^(code)$
+      windowrule = workspace 2, ^(firefox)$
+      windowrule = float, ^(thunar)$
       windowrulev2 = workspace 3, title:^(.*(Disc|WebC)ord.*)$
-      windowrulev2 = float, title:^(thunar)$
       # fix xwayland apps
       windowrulev2 = rounding 0, xwayland:1, floating:1
 
@@ -114,7 +115,7 @@ in {
       bind = SUPER,p, pseudo,
       bind =      ,Print, exec, grimblast --notify copy area
       bind = SHIFT,Print, exec, grimblast --notify copysave area
-      bind = SUPER,x, exec,pkill waybar & waybar &
+      bind = SUPER,x, exec,pkill waybar && waybar &
 
       # Terminal
       bind = SUPER,RETURN, exec,kitty

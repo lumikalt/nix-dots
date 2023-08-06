@@ -13,7 +13,6 @@
     # programming
     tree-sitter
     vscode gedit
-    # emacs
     nil statix
 
     # rice
@@ -47,18 +46,19 @@
 
     # work
     libreoffice
-
-    # browser
-    tor-browser-bundle-bin
   ];
 
   home.sessionVariables = {
     # EDITOR = "${lib.getExe helix}"; -> managed by the program
-    TERM = "xterm-kitty";
+    TERM = "kitty";
     BROWSER = "firefox";
 
     # Wayland
     NIXOS_OZONE_WL = "1";
     MOZ_ENABLE_WAYLAND = "1";
+    XDG_CURRENT_DESKTOP = "sway";
+    QT_QPA_PLATFORM = "wayland";
+    SDL_VIDEODRIVER = "wayland";
+    XDG_SESSION_TYPE = "wayland";
   };
 }
