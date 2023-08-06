@@ -2,11 +2,11 @@
 let
   wall = /. + wallpaper;
 in {
-#  xdg.configFile."hypr/hyprpaper.conf".text = ''
-#    ipc = off
-#    preload = ${wall}
-#    wallpaper = eDP-1,${wall}
-#  '';
+  xdg.configFile."hypr/hyprpaper.conf".text = ''
+    ipc = off
+    preload = ${wall}
+    wallpaper = eDP-1,${wall}
+  '';
 
   home.packages = [
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast 
@@ -71,6 +71,7 @@ in {
         blur=2
         blur_size=2 # minimum 1
         blur_passes=2 # minimum 1
+        blur_new_optimizations=1
 
         drop_shadow=true
         shadow_range=100
@@ -115,6 +116,7 @@ in {
       bind=SUPER,F,fullscreen
       bind=SUPER,D,exec,bemenu-run -p "run: "
       bind=SUPER,P,pseudo,
+      # bind=,Print,exec,grim -g "$(slurp)" - | wl-copy -t image/png
       bind=,Print,exec,grimblast --notify copysave area
       bind=SUPER,z,exec,waybar &
       bind=SUPER,x,exec,pkill waybar
