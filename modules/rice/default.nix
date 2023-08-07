@@ -3,7 +3,7 @@
   imports = [
     ./env.nix
     ./hyprland.nix
-    ./sway.nix
+    # ./sway.nix
     ./waybar.nix
   ];
 }

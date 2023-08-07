@@ -34,16 +34,6 @@
   xdg = {
     enable = true;
 
-    portal = {
-      enable = true;
-
-      extraPortals = [
-        pkgs.xdg-desktop-portal-wlr
-        pkgs.xdg-desktop-portal-gtk
-        inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
-      ];
-    };
-    
     cacheHome = config.home.homeDirectory + "/.local/cache";
   
     userDirs = {

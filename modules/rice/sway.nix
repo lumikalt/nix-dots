@@ -11,8 +11,8 @@
       ];
 
       keybinds = let
-        m = config.wayland.windowManager.sway.config.modifier;
-        t = config.wayland.windowManager.sway.config.terminal;
+        m = "Mod4";
+        t = "kitty";
       in {
         "${m}+Return" = "exec ${t}";
         "${m}+q" = "kill";

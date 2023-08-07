@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }: {
+{ ... }: {
   security.rtkit.enable = true;
   security.polkit.enable = true;
   # Can still call doas as sudo

@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }: {
+{ pkgs, inputs, ... }: {
   systemd.services = {
     # For wayland
     seatd = {
@@ -23,6 +23,15 @@
         ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
       };
     };
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-wlr
+      pkgs.xdg-desktop-portal-gtk
+      inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+    ];
   };
 
   services = {

@@ -2,11 +2,11 @@
 let
   wall = /. + wallpaper;
 in {
-#  xdg.configFile."hypr/hyprpaper.conf".text = ''
-#    ipc = off
-#    preload = ${wall}
-#    wallpaper = eDP-1,${wall}
-#  '';
+  xdg.configFile."hypr/hyprpaper.conf".text = ''
+    ipc = off
+    preload = ${wall}
+    wallpaper = eDP-1,${wall}
+  '';
 
   home.packages = [
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast 
@@ -20,7 +20,7 @@ in {
     extraConfig = ''
       monitor = ,preferred,auto,1
 
-      # exec-once=hyprpaper &
+      exec-once = hyprpaper &
       exec-once = systemctl --user import-environment
 
       env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
@@ -31,12 +31,12 @@ in {
       }
 
       input {
-        kb_file    =
-        kb_layout  = pt
+        kb_file =
+        kb_layout = pt
         kb_variant =
-        kb_model   =
+        kb_model =
         kb_options = compose:caps
-        kb_rules   =
+        kb_rules =
 
         follow_mouse = 1
 
@@ -121,12 +121,12 @@ in {
       bind = SUPER,RETURN, exec,kitty
 
       # Personal apps
-      bind = SUPER,W, exec,firefox
-      bind = SUPER,A, exec,code
+      bind = SUPER,w, exec,firefox
+      bind = SUPER,a, exec,code
 
       # Utility
-      bind = SUPER,C, exec,hyprpicker -ar && notify-send -u critical -t 4000 "$(wl-paste)"
-      bind = SUPER,L, exec,swaylock
+      bind = SUPER,c, exec,hyprpicker -ar && notify-send -u critical -t 4000 "$(wl-paste)"
+      bind = SUPER,l, exec,swaylock
 
       # Movement & Workspaces
       bindm = SUPER,mouse:272, movewindow
@@ -137,15 +137,12 @@ in {
       bind = SUPER,up,    movefocus,u
       bind = SUPER,down,  movefocus,d
 
-      ${builtins.concatStringsSep "\n" (builtins.genList (
+      ${builtins.concatStringsSep "" (builtins.genList (
         x: let
-          ws = let
-            c = (x + 1) / 10;
-          in builtins.toString (x + 1 - (c * 10));
-          n = toString (x + 1);
+          ws = toString (x + 1);
         in ''
-          bind = SUPER,${ws}, workspace,${n}
-          bind = ALT,  ${ws}, movetoworkspace,${n}
+          bind = SUPER,${ws}, workspace,${ws}
+          bind = ALT,  ${ws}, movetoworkspace,${ws}
         ''
       ) 10)}
 
