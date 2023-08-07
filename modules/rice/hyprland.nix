@@ -144,7 +144,7 @@ in {
           bind = SUPER,${ws}, workspace,${ws}
           bind = ALT,  ${ws}, movetoworkspace,${ws}
         ''
-      ) 10)}
+      ) 9)}
 
       bind = SUPER,mouse_down, workspace,e+1
       bind = SUPER,mouse_up,   workspace,e-1
