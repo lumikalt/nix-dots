@@ -94,8 +94,20 @@ in {
         workspace_swipe = yes
         workspace_swipe_fingers = 4
         workspace_swipe_forever = yes
+	workspace_swipe_cancel_ratio = 0.15
       }
 
+      plugins {
+        touch_gestures {
+          sensitivity = 2.0
+	  workspace_swipe_fingers = 3
+	}
+      }
+
+      # Gestures
+      bind = ,edge:r:l, workspace,+1
+      bind = ,edge:l:r, workspace,-1
+      bind = ,edge:ru,ld, killactive
 
       # Window Rules
       windowrule = workspace 1, ^(kitty)$

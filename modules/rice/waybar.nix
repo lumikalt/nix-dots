@@ -35,8 +35,8 @@
 
 	    battery = {
         states = {
-          warning = 30;
-          critical = 15;
+          warning = 20;
+          critical = 10;
         };
         format = "{icon}";
         format-charging = "󰂄";
@@ -66,7 +66,7 @@
 
       clock = {
         tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-        format-alt = "{:%d\n%m\n%Y}";
+        format-alt = "{:%d\n%m\n%y}";
         format = "{:%H\n%M}";
       };
     }];

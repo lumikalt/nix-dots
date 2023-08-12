@@ -24,12 +24,15 @@
       mkd = "mkdir -pv";
       jctl = "journalctl -p 3 -xb";
       icat = "kitty +kitten icat";
+      ls = "exa";
     };
 
     shellAbbrs = {
       sudo = "doas";
     };
   };
+
+  programs.nix-index.package = true;
 
   programs.starship.enable = true;
 

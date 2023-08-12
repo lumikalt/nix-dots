@@ -45,11 +45,16 @@
 
   programs.fish.enable = true;
 
+  programs.nix-index.enable = true;
+
+  programs.command-not-found.enable = false;
+
   environment.systemPackages = with pkgs; [
     gitFull
     fish
     neovim
     nixUnstable # flakes etc.
+    gnome.seahorse # gnome-keyring gui
   ];
 
   nixpkgs.config.allowUnfree = true;
