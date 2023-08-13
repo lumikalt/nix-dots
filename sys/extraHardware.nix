@@ -1,4 +1,7 @@
 { config, pkgs, lib, ... }: {
+  # Just cause.
+  hardware.enableAllFirmware = true;
+
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
@@ -7,6 +10,14 @@
       intel-media-driver
     ];
     driSupport32Bit = true;
+  };
+
+  hardware.bluetooth = {
+    enable = true;
+
+    # settings.General = {
+    #   Enable = "Source,Sink,Media,Socket";
+    # };
   };
 
   zramSwap = {

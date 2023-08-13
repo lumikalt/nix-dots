@@ -22,7 +22,7 @@
     swayidle
     wl-clipboard wtype
     bemenu
-    
+
     # theming
     gruvbox-gtk-theme
     orchis-theme
