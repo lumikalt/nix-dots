@@ -30,6 +30,8 @@
   ### user
 
   time.timeZone = "Europe/Lisbon";
+  # Fix for Windows time.
+  time.hardwareClockInLocalTime = true;
   i18n.defaultLocale = "en_GB.UTF-8";
   console.keyMap = "pt-latin1";
 
