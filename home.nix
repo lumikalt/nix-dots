@@ -12,8 +12,8 @@
   home.packages = with pkgs; [
     # programming
     tree-sitter
-    vscode gedit
     nil statix
+    tetex
 
     # rice
     libnotify
@@ -28,6 +28,7 @@
     orchis-theme
     bibata-cursors
     papirus-icon-theme
+    gnome.adwaita-icon-theme
 
     # media
     pamixer playerctl
@@ -36,16 +37,24 @@
 
     # env
     xfce.thunar xdg-utils
+    networkmanagerapplet
+
+    # libraries
+    speechd
 
     # cli
     jq fzf btop grc unzip rsync ffmpeg feh fd file
     aspell aspellDicts.en-science aspellDicts.en hunspell hunspellDicts.en-us
+    comma
 
     # chatting
     # FIXME: add some matrix client
+    whatsapp-for-linux
 
     # work
     libreoffice
+    xournalpp
+    rnote
   ];
 
   home.sessionVariables = {

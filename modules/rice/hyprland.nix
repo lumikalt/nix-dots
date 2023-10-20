@@ -15,13 +15,14 @@ in {
   wayland.windowManager.hyprland = {
     enable = true;
 
-    systemdIntegration = true;
+    systemd.enable = true;
 
     extraConfig = ''
       monitor = ,preferred,auto,1
 
       exec-once = hyprpaper &
       exec-once = systemctl --user import-environment
+      exec-once = nm-applet &
 
       env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
 
@@ -175,6 +176,8 @@ in {
       bind = ,XF86AudioPrev,  exec,playerctl previous
       bind = ,XF86AudioNext,  exec,playerctl next
       bind = ,XF86AudioStop,  exec,playerctl stop
+      bind = ,XF86MonBrightnessUp,   exec,brightnessctl set +10%
+      bind = ,XF86MonBrightnessDown, exec,brightnessctl set 10%-
     '';
   };
 

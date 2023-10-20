@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }: {
+{ ... }: {
   wayland.windowManager.sway = {
     enable = true;
     config = {
@@ -7,7 +7,7 @@
       menu = "bemenu";
 
       startup = [
-        # { command = "systemctl --user restart waybar"; always = true; }
+        { command = "systemctl --user restart waybar"; always = true; }
       ];
 
       keybinds = let

@@ -7,10 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # hyprland = {
+    #   url = "github:hyprwm/Hyprland";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     hyprland-contrib = {
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,7 +25,7 @@
     self,
     nixpkgs,
     home-manager,
-    hyprland,
+    # hyprland,
     hyprland-contrib,
     nur,
     stylix,
@@ -61,11 +61,13 @@
             users.lumi = { ... }: {
               imports = [
                 # hm modules
-                hyprland.homeManagerModules.default
+                # hyprland.homeManagerModules.default
 
                  ./home.nix # { inherit inputs; }
               ];
             };
+
+	    # disabledModules = [];
           };
         }
       ];

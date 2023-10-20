@@ -1,8 +1,5 @@
 { pkgs, lib, inputs, ... }: let
-  programs = lib.makeBinPath [ inputs.hyprland.packages.${pkgs.system}.default ];
-
   plugged = pkgs.writeShellScript "plugged" ''
-    export PATH=$PATH:${programs}
     export HYPRLAND_INSTANCE_SIGNATURE=$(ls -w1 /tmp/hypr | tail -1)
 
     # systemctl --user --machine=1000@ start syncthing
@@ -10,7 +7,6 @@
   '';
 
   unplugged = pkgs.writeShellScript "unplugged" ''
-    export PATH=$PATH:${programs}
     export HYPRLAND_INSTANCE_SIGNATURE=$(ls -w1 /tmp/hypr | tail -1)
 
     # systemctl --user --machine=1000@ stop syncthing

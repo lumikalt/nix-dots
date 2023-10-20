@@ -24,7 +24,7 @@
       mkd = "mkdir -pv";
       jctl = "journalctl -p 3 -xb";
       icat = "kitty +kitten icat";
-      ls = "exa";
+      # ls = "eza"; # auto
     };
 
     shellAbbrs = {
@@ -36,7 +36,7 @@
 
   programs.starship.enable = true;
 
-  programs.exa = {
+  programs.eza = {
     enable = true;
 
     enableAliases = true;

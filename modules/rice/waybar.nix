@@ -5,7 +5,7 @@
       enable = true;
       target = "graphical-session.target";
     };
-    package = inputs.hyprland.packages."x86_64-linux".waybar-hyprland;
+    # package = inputs.hyprland.packages."x86_64-linux".waybar-hyprland;
 
     settings = [{
       layer = "top";
