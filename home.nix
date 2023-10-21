@@ -34,6 +34,7 @@
     pamixer playerctl
     vlc
     qbittorrent
+    spotify
 
     # env
     xfce.thunar xdg-utils

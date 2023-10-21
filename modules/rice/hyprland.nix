@@ -23,7 +23,7 @@ in {
       exec-once = hyprpaper &
       exec-once = systemctl --user import-environment
       exec-once = nm-applet &
-
+      exec-once = blueman-applet &
       env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
 
       # use this instead of hidpi patches
