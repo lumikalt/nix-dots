@@ -5,5 +5,9 @@
       withVencord = true;
       nss = pkgs.nss_latest;
     })
+
+    revolt-desktop
+
+    signal-desktop
   ];
 }

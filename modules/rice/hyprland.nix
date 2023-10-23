@@ -44,6 +44,8 @@ in {
         touchpad {
           natural_scroll = yes
           disable_while_typing = no
+
+          scroll_factor = 0.7
         }
       }
 

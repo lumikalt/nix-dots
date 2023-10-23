@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, ... }: {
+{ pkgs, lib, ... }: {
   home.username = "lumi";
   home.homeDirectory = lib.mkForce /home/lumi;
   home.stateVersion = "23.11";
@@ -34,8 +34,7 @@
     pamixer playerctl
     vlc
     qbittorrent
-    spotify
-
+    
     # env
     xfce.thunar xdg-utils
     networkmanagerapplet

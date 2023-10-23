@@ -19,6 +19,7 @@
     # stylix.url = "github:danth/stylix";
     stylix.url = "github:SomeGuyNamedMy/stylix/wallpaper-refactor";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
   };
 
   outputs = {
@@ -30,6 +31,7 @@
     nur,
     stylix,
     nix-vscode-extensions,
+    spicetify-nix,
     ...
   } @ inputs:
   let
@@ -58,16 +60,16 @@
             
             useGlobalPkgs = true;
             useUserPackages = true;
+
             users.lumi = { ... }: {
               imports = [
                 # hm modules
                 # hyprland.homeManagerModules.default
+                spicetify-nix.homeManagerModule  
 
-                 ./home.nix # { inherit inputs; }
+                ./home.nix
               ];
             };
-
-	    # disabledModules = [];
           };
         }
       ];
