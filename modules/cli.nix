@@ -58,4 +58,9 @@
   };
 
   programs.ripgrep.enable = true;
+
+  home.packages = with pkgs; [
+    jq fzf btop grc unzip rsnc ffmpeg feh fd file
+    comma
+  ];
 }

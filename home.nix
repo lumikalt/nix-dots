@@ -10,11 +10,6 @@
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
-    # programming
-    tree-sitter
-    nil statix
-    tetex
-
     # rice
     libnotify
     libsixel brightnessctl
@@ -30,11 +25,6 @@
     papirus-icon-theme
     gnome.adwaita-icon-theme
 
-    # media
-    pamixer playerctl
-    vlc
-    qbittorrent
-    
     # env
     xfce.thunar xdg-utils
     networkmanagerapplet
@@ -43,12 +33,9 @@
     speechd
 
     # cli
-    jq fzf btop grc unzip rsync ffmpeg feh fd file
     aspell aspellDicts.en-science aspellDicts.en hunspell hunspellDicts.en-us
-    comma
 
     # chatting
-    # FIXME: add some matrix client
     whatsapp-for-linux
 
     # work

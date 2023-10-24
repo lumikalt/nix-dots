@@ -11,4 +11,10 @@
 
     theme = sPkgs.themes.Nord;
   };
+
+  home.packages = with pkgs; [
+    pamixer playerctl
+    vlc
+    qbittorrent
+  ];
 }
