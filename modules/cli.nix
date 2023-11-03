@@ -60,7 +60,7 @@
   programs.ripgrep.enable = true;
 
   home.packages = with pkgs; [
-    jq fzf btop grc unzip rsnc ffmpeg feh fd file
+    jq fzf btop grc unzip rsync ffmpeg feh fd file
     comma
   ];
 }

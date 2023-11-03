@@ -66,7 +66,6 @@ in {
 
       decoration {
         rounding = 5
-        multisample_edges = true
         dim_inactive = true
 
         blur {
