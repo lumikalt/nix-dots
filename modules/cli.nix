@@ -32,6 +32,10 @@
     };
   };
 
+  programs.nushell = {
+    enable = true;
+  };
+
   programs.nix-index.package = true;
 
   programs.starship.enable = true;
@@ -42,7 +46,7 @@
     enableAliases = true;
     git = true;
     icons = true;
-    extraOptions = ["--group-directories-first" "--header"];
+    extraOptions = [ "--group-directories-first" "--header" ];
   };
 
   programs.zoxide = {
