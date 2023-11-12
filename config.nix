@@ -39,7 +39,7 @@
     description = "Lumi Kalt";
     isNormalUser = true;
     extraGroups = [ "wheel" "audio" "video" "networkmanager" "power" "nix" ];
-    shell = pkgs.fish;
+    shell = pkgs.nushell;
   };
 
 
