@@ -35,9 +35,10 @@
   programs.nushell = {
     enable = true;
 
-    extraConfig = (toString (builtins.readFile ../configs/nu/config.nu))
-      + "source " + (builtins.toPath ../configs/nu/env.nu)
-      + "source " + builtins.toPath../configs/nu/completers.nu;
+    extraConfig = 
+      "source " + builtins.toPath ../configs/nu/env.nu + "\n"
+      + "source " + builtins.toPath ../configs/nu/completers.nu + "\n"
+      + (toString (builtins.readFile ../configs/nu/config.nu));
   };
 
   programs.carapace.enable = true;
