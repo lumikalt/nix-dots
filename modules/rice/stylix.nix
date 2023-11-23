@@ -1,7 +1,11 @@
 { config, pkgs, wallpaper, ... }: {
   stylix = {
-    wallpaper = config.lib.stylix.mkStaticImage {
-      image = wallpaper;
+    # wallpaper = config.lib.stylix.mkStaticImage {
+    #   image = wallpaper;
+    #   polarity = "dark";
+    # };
+    wallpaper = config.lib.stylix.mkAnimation {
+      animation = wallpaper;
       polarity = "dark";
     };
     fonts = {

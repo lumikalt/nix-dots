@@ -35,9 +35,8 @@
   programs.nushell = {
     enable = true;
 
-    extraConfig = 
-      "source " + builtins.toPath ../configs/nu/env.nu + "\n"
-      + "source " + builtins.toPath ../configs/nu/completers.nu + "\n"
+    extraConfig = (toString (builtins.readFile ../configs/nu/env.nu)) + "\n"
+      + (toString (builtins.readFile ../configs/nu/completers.nu)) + "\n"
       + (toString (builtins.readFile ../configs/nu/config.nu));
   };
 

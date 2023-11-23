@@ -36,8 +36,9 @@
   } @ inputs:
   let
     system = "x86_64-linux";
-    wallpaper = ./assets/wallpapers/wallpaper.jpg;
+    # wallpaper = ./assets/wallpapers/wallpaper.jpg;
     # wallpaper = ./assets/wallpapers/wallpaper.png;
+    wallpaper = ./assets/wallpapers/wallpaper.mp4;
     inherit (nixpkgs) lib;
   in {
     nixosConfigurations."wumi" = lib.nixosSystem {

@@ -54,6 +54,7 @@
   environment.systemPackages = with pkgs; [
     gitFull
     fish
+    nushell
     neovim
     nixUnstable # flakes etc.
     gnome.seahorse # gnome-keyring gui

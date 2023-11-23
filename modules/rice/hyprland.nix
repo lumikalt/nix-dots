@@ -2,14 +2,15 @@
 let
   wall = /. + wallpaper;
 in {
-  xdg.configFile."hypr/hyprpaper.conf".text = ''
-    ipc = off
-    preload = ${wall}
-    wallpaper = eDP-1,${wall}
-  '';
+  # xdg.configFile."hypr/hyprpaper.conf".text = ''
+  #   ipc = off
+  #   preload = ${wall}
+  #   wallpaper = eDP-1,${wall}
+  # '';
 
   home.packages = [
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast 
+    pkgs.mpvpaper
   ];
 
   wayland.windowManager.hyprland = {
@@ -20,7 +21,9 @@ in {
     extraConfig = ''
       monitor = ,preferred,auto,1
 
-      exec-once = hyprpaper &
+      # exec-once = hyprpaper &
+      exec-once = mpvpaper '*' ${wall} -o "--loop=yes"
+      
       exec-once = systemctl --user import-environment
       exec-once = nm-applet &
       exec-once = blueman-applet &
