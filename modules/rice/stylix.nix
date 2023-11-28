@@ -4,7 +4,7 @@
     #   image = wallpaper;
     #   polarity = "dark";
     # };
-    wallpaper = config.lib.stylix.mkAnimation {
+    wallpaper = config.lib.stylix.make.animation {
       animation = wallpaper;
       polarity = "dark";
     };

@@ -20,6 +20,7 @@
     stylix.url = "github:SomeGuyNamedMy/stylix/wallpaper-refactor";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
+    rust-overlay.url = "github:oxalica/rust-overlay";
   };
 
   outputs = {
@@ -32,6 +33,7 @@
     stylix,
     nix-vscode-extensions,
     spicetify-nix,
+    rust-overlay,
     ...
   } @ inputs:
   let
@@ -53,6 +55,11 @@
         ./modules/rice/stylix.nix
 
         ./config.nix
+
+        ({ pkgs, ... }: {
+          nixpkgs.overlays = [ rust-overlay.overlays.default ];
+          environment.systemPackages = [ pkgs.rust-bin.beta.latest.default ];
+        })
 
         home-manager.nixosModules.home-manager
         {

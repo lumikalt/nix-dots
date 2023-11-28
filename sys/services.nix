@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, ... }: {
   systemd.services = {
     # For wayland
     seatd = {
@@ -30,6 +30,7 @@
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
     ];
+    config.common.default = "*";
   };
 
   services = {
