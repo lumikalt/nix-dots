@@ -4,10 +4,13 @@
     #   image = wallpaper;
     #   polarity = "dark";
     # };
-    wallpaper = config.lib.stylix.make.animation {
-      animation = wallpaper;
-      polarity = "dark";
-    };
+    # wallpaper = config.lib.stylix.make.animation {
+    #   animation = wallpaper;
+    #   polarity = "dark";
+    # };
+    image = wallpaper;
+    polarity = "dark";
+
     fonts = {
       serif = {
         package = pkgs.dejavu_fonts;

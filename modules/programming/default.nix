@@ -14,5 +14,8 @@
 
     # Nix
     nil statix
+
+    # RISC-V
+    ripes
   ];
 }

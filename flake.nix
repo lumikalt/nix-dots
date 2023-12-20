@@ -16,8 +16,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/NUR";
-    # stylix.url = "github:danth/stylix";
-    stylix.url = "github:SomeGuyNamedMy/stylix/wallpaper-refactor";
+    stylix.url = "github:danth/stylix";
+    # stylix.url = "github:SomeGuyNamedMy/stylix/wallpaper-refactor";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     rust-overlay.url = "github:oxalica/rust-overlay";
@@ -38,9 +38,9 @@
   } @ inputs:
   let
     system = "x86_64-linux";
-    # wallpaper = ./assets/wallpapers/wallpaper.jpg;
+    wallpaper = ./assets/wallpapers/wallpaper.jpg;
     # wallpaper = ./assets/wallpapers/wallpaper.png;
-    wallpaper = ./assets/wallpapers/wallpaper.mp4;
+    # wallpaper = ./assets/wallpapers/wallpaper.mp4;
     inherit (nixpkgs) lib;
   in {
     nixosConfigurations."wumi" = lib.nixosSystem {
@@ -58,7 +58,10 @@
 
         ({ pkgs, ... }: {
           nixpkgs.overlays = [ rust-overlay.overlays.default ];
-          environment.systemPackages = [ pkgs.rust-bin.beta.latest.default ];
+          environment.systemPackages = with pkgs; [
+            rust-bin.beta.latest.default
+            gcc
+          ];
         })
 
         home-manager.nixosModules.home-manager

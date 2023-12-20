@@ -26,6 +26,7 @@
 
   system.stateVersion = "23.11";
 
+  programs.adb.enable = true;
 
   ### user
 
@@ -38,7 +39,7 @@
   users.users.lumi = {
     description = "Lumi Kalt";
     isNormalUser = true;
-    extraGroups = [ "wheel" "audio" "video" "networkmanager" "power" "nix" ];
+    extraGroups = [ "wheel" "audio" "video" "networkmanager" "power" "nix" "adbusers" ];
     shell = pkgs.nushell;
   };
 
