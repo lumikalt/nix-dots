@@ -9,7 +9,7 @@
   in {
     enable = true;
 
-    theme = sPkgs.themes.Nord;
+    theme = sPkgs.themes.text;
   };
 
   home.packages = with pkgs; [
