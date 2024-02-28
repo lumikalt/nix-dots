@@ -49,7 +49,8 @@
   programs.eza = {
     enable = true;
 
-    enableAliases = true;
+    # enableAliases = true;
+    enableAliases = false;
     git = true;
     icons = true;
     extraOptions = [ "--group-directories-first" "--header" ];

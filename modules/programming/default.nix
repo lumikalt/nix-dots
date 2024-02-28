@@ -16,6 +16,6 @@
     nil statix
 
     # RISC-V
-    ripes
+    # ripes # Erroring
   ];
 }

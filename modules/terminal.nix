@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   programs.kitty = {
     enable = true;
     shellIntegration.enableFishIntegration = true;
@@ -16,4 +16,6 @@
       window_margin = "10.0";
     }; 
   };
+
+  home.packages = with pkgs; [ warp-terminal ];
 }
