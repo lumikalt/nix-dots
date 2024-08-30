@@ -69,6 +69,8 @@
           home-manager = {
             extraSpecialArgs = { inherit inputs wallpaper; };
             
+            backupFileExtension = "backup";
+            
             useGlobalPkgs = true;
             useUserPackages = true;
 

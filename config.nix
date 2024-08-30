@@ -10,8 +10,11 @@
 
       auto-optimise-store = true;
       max-jobs = "auto";
+      cores = 0;
 
       builders-use-substitutes = true;
+      
+      trusted-users = [ "lumi" ];
     };
 
     gc = {
@@ -40,7 +43,7 @@
     description = "Lumi Kalt";
     isNormalUser = true;
     extraGroups = [ "wheel" "audio" "video" "networkmanager" "power" "nix" "adbusers" ];
-    shell = pkgs.nushell;
+    shell = pkgs.fish;
   };
 
 
@@ -57,7 +60,8 @@
     fish
     nushell
     neovim
-    nixUnstable # flakes etc.
+    # nixUnstable # flakes etc.
+    nixVersions.latest
     gnome.seahorse # gnome-keyring gui
   ];
 
