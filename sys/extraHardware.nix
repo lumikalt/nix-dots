@@ -1,14 +1,17 @@
-{ config, pkgs, lib, ... }: {
+{ pkgs, ... }: {
   # Just cause.
   hardware.enableAllFirmware = true;
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
       vaapiIntel
       libvdpau-va-gl
       intel-media-driver
     ];
+  };
+
+  hardware.opengl = {
     driSupport32Bit = true;
   };
 

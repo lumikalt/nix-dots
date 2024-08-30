@@ -8,6 +8,5 @@
     ./power.nix
     ./security.nix
     ./services.nix
-    ./sound.nix
   ];
 }
