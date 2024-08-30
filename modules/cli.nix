@@ -49,8 +49,7 @@
   programs.eza = {
     enable = true;
 
-    # enableAliases = true;
-    enableAliases = false;
+    enableFishIntegration = false;
     git = true;
     icons = true;
     extraOptions = [ "--group-directories-first" "--header" ];

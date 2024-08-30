@@ -15,7 +15,6 @@
       "files.autoSaveDelay" = 2000;
 
       "editor.fontLigatures" = true;
-
     };
   };
 }
