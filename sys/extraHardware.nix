@@ -9,10 +9,7 @@
       libvdpau-va-gl
       intel-media-driver
     ];
-  };
-
-  hardware.opengl = {
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
 
   hardware.bluetooth = {

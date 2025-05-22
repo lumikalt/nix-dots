@@ -23,6 +23,8 @@
         ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
       };
     };
+
+    dlm.wantedBy = [ "milti-user.target" ];
   };
 
   xdg.portal = {
@@ -39,6 +41,8 @@
       packages = with pkgs; [ dconf udisks2 gcr ];
       implementation = "broker";
     };
+
+    xserver.videoDrivers = [ "displaylink" "modesetting" ];
 
     udisks2.enable = true;
 

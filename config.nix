@@ -62,7 +62,9 @@
     neovim
     # nixUnstable # flakes etc.
     nixVersions.latest
-    gnome.seahorse # gnome-keyring gui
+    seahorse # gnome-keyring gui
+    wlr-randr
+    displaylink
   ];
 
   nixpkgs.config.allowUnfree = true;

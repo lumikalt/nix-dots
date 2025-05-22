@@ -64,7 +64,6 @@ in {
         gaps_in = 2
         gaps_out = 5
         border_size = 2
-        apply_sens_to_raw = 0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
       }
 
       decoration {

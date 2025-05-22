@@ -1,9 +1,9 @@
 { pkgs, ... }: {
   fonts = {
     packages = with pkgs; [
-      noto-fonts noto-fonts-cjk noto-fonts-emoji
+      noto-fonts noto-fonts-cjk-sans noto-fonts-emoji
       unifont symbola
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      nerd-fonts.jetbrains-mono
       material-icons emacs-all-the-icons-fonts
     ];
 

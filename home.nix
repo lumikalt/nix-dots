@@ -23,7 +23,7 @@
     orchis-theme
     bibata-cursors
     papirus-icon-theme
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
 
     # env
     xfce.thunar xdg-utils

@@ -16,7 +16,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/NUR";
-    stylix.url = "github:danth/stylix";
+    # stylix.url = "github:awwpotato/stylix/hotfix-home-manager-integration";
     # stylix.url = "github:SomeGuyNamedMy/stylix/wallpaper-refactor";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
@@ -30,7 +30,7 @@
     # hyprland,
     hyprland-contrib,
     nur,
-    stylix,
+    # stylix,
     nix-vscode-extensions,
     spicetify-nix,
     rust-overlay,
@@ -49,10 +49,10 @@
       specialArgs = { inherit inputs wallpaper; };
 
       modules = [
-        nur.hmModules.nur
-
-        stylix.nixosModules.stylix
-        ./modules/rice/stylix.nix
+        nur.modules.nixos.default
+        
+        # stylix.nixosModules.stylix
+        # ./modules/rice/stylix.nix
 
         ./config.nix
 
@@ -68,10 +68,11 @@
         {
           home-manager = {
             extraSpecialArgs = { inherit inputs wallpaper; };
+            sharedModules = [ nur.modules.homeManager.default ];
             
             backupFileExtension = "backup";
             
-            useGlobalPkgs = true;
+            # useGlobalPkgs = true;
             useUserPackages = true;
 
             users.lumi = { ... }: {
