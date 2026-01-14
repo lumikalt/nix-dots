@@ -29,7 +29,7 @@
 
   system.stateVersion = "23.11";
 
-  programs.adb.enable = true;
+  # programs.adb.enable = true;
 
   ### user
 
@@ -40,7 +40,7 @@
   console.keyMap = "pt-latin1";
 
   users.users.lumi = {
-    description = "Lumi Kalt";
+    description = "lumi";
     isNormalUser = true;
     extraGroups = [ "wheel" "audio" "video" "networkmanager" "power" "nix" "adbusers" ];
     shell = pkgs.fish;

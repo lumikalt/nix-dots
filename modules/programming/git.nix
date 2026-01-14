@@ -3,14 +3,20 @@
     enable = true;
     package = pkgs.gitFull;
 
-    userName = "Lumi Kalt";
-    userEmail = "lumi.mia.kalt@gmail.com";
+    settings = {
+      user = {
+        name = "lumi";
+        email = "lumi.mia.kalt@gmail.com";
+      };
 
-    delta.enable = true;
-
-    extraConfig = {
       init.defaultBranch = "main";
     };
+  };
+
+  programs.delta = {
+    enable = true;
+
+    enableGitIntegration = true;
   };
 
   # Required for git auth

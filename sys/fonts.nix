@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   fonts = {
     packages = with pkgs; [
-      noto-fonts noto-fonts-cjk-sans noto-fonts-emoji
+      noto-fonts noto-fonts-cjk-sans noto-fonts-color-emoji
       unifont symbola
       nerd-fonts.jetbrains-mono
       material-icons emacs-all-the-icons-fonts

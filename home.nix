@@ -26,7 +26,7 @@
     adwaita-icon-theme
 
     # env
-    xfce.thunar xdg-utils
+    thunar xdg-utils
     networkmanagerapplet
 
     # libraries
@@ -36,7 +36,7 @@
     aspell aspellDicts.en-science aspellDicts.en hunspell hunspellDicts.en-us
 
     # chatting
-    whatsapp-for-linux
+    wasistlos # whatsapp
 
     # work
     libreoffice
