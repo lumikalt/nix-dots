@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   imports = [
-    /etc/nixos/hardware-configuration.nix # nixOS default
+    ./hardware-configuration.nix # nixOS default
     ./sys
   ];
 
