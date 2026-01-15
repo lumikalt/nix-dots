@@ -1,5 +1,5 @@
 {
-  description = "luwumi";
+  description = "lumi";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
@@ -7,33 +7,30 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # hyprland = {
-    #   url = "github:hyprwm/Hyprland";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     hyprland-contrib = {
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/NUR";
-    # stylix.url = "github:awwpotato/stylix/hotfix-home-manager-integration";
-    # stylix.url = "github:SomeGuyNamedMy/stylix/wallpaper-refactor";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
+    # spicetify-nix.url = "github:the-argus/spicetify-nix";
     rust-overlay.url = "github:oxalica/rust-overlay";
+    niri = {
+       url = "github:sodiboo/niri-flake";
+       inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
-    # hyprland,
     hyprland-contrib,
     nur,
-    # stylix,
     nix-vscode-extensions,
-    spicetify-nix,
+    # spicetify-nix,
     rust-overlay,
+    niri,
     ...
   } @ inputs:
   let
@@ -50,18 +47,25 @@
 
       modules = [
         nur.modules.nixos.default
+        niri.nixosModules.niri
         
-        # stylix.nixosModules.stylix
-        # ./modules/rice/stylix.nix
-
         ./config.nix
 
         ({ pkgs, ... }: {
-          nixpkgs.overlays = [ rust-overlay.overlays.default ];
+          nixpkgs.overlays = [
+            rust-overlay.overlays.default
+            niri.overlays.niri
+          ];
           environment.systemPackages = with pkgs; [
             rust-bin.beta.latest.default
             gcc
+            xwayland-satellite wl-clipboard
           ];
+
+          programs.niri = {
+            enable = true;
+            package = pkgs.niri-unstable;
+          };
         })
 
         home-manager.nixosModules.home-manager
@@ -72,14 +76,13 @@
             
             backupFileExtension = "backup";
             
-            # useGlobalPkgs = true;
             useUserPackages = true;
 
             users.lumi = { ... }: {
               imports = [
                 # hm modules
-                # hyprland.homeManagerModules.default
-                spicetify-nix.homeManagerModule  
+                
+                # niri.homeModules.niri
 
                 ./home.nix
               ];
@@ -95,12 +98,14 @@
       "https://nix-community.cachix.org"
       "https://helix.cachix.org"
       "https://hyprland.cachix.org"
+      "https://niri.cachix.org"
     ];
 
     extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
     ];
   };
 }
