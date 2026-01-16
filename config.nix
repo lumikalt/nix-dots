@@ -14,6 +14,7 @@
 
       builders-use-substitutes = true;
       
+      allowed-users = [ "lumi" ];
       trusted-users = [ "lumi" ];
     };
 

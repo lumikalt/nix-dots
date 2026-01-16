@@ -31,7 +31,7 @@
         "Mod+Ctrl+Right".action = move-column-right;
 
         "Mod+F".action = maximize-column;
-          "Mod+Shift+F".action = fullscreen-window;
+        "Mod+Shift+F".action = fullscreen-window;
 
         "Mod+Q".action = close-window;
         "Mod+Shift+Q".action = quit;

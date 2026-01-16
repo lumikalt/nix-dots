@@ -6,10 +6,12 @@
     #   nss = pkgs.nss_latest;
     # })
 
-    vesktop
-
     revolt-desktop
 
     signal-desktop
   ];
+
+  programs.vesktop = {
+    enable = true;
+  };
 }
