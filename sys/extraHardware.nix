@@ -14,14 +14,6 @@
     enable32Bit = true;
   };
 
-  hardware.bluetooth = {
-    enable = true;
-
-    # settings.General = {
-    #   Enable = "Source,Sink,Media,Socket";
-    # };
-  };
-
   zramSwap = {
     enable = true;
     algorithm = "zstd";

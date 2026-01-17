@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   services.mako = {
     enable = true;
 
@@ -10,26 +10,29 @@
 
   services.poweralertd.enable = true;
 
-  # systemd.user.services = {
-  #   pipewire.wantedBy = ["default.target"];
-  #   pipewire-pulse = {
-  #     path = [ pkgs.pulseaudio ];
-  #     wantedBy = ["default.target"];
-  #   };
+  systemd.user.services = {
+    # pipewire.wantedBy = ["default.target"];
+    pipewire-pulse = {
+      # path = [ pkgs.pulseaudioFull ];
+      # wantedBy = ["default.target"];
+    };
+  };
+
+  # systemd.user.services.mpris-proxy = {
+  #   description = "Mpris proxy";
+  #   after = [ "network.target" "sound.target" ];
+  #   wantedBy = [ "default.target" ];
+  #   serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
   # };
 
   qt = {
     enable = true;
-
-    # platformTheme = "gtk";
   };
 
   gtk = {
     enable = true;
     
     iconTheme.name = "Papyrus";
-
-    # Actual color theme should be managed by stylix.
 
     gtk3.extraConfig = {
       gtk-xft-antialias = 1;

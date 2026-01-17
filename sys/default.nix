@@ -1,5 +1,6 @@
 { ... }: {
   imports = [
+    ./bluetooth.nix
     ./boot.nix
     ./extraHardware.nix
     ./fonts.nix
