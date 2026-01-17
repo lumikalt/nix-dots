@@ -1,6 +1,12 @@
-{ config, ... }: {
+{ config, pkgs, wallpaper, ... }: {
+  home.packages = [
+    pkgs.swaybg
+  ];
+  
   programs.niri = {
     settings = {
+      screenshot-path = null;
+      
       environment = {
         NIXOS_OZONE_WL = "1"; # support electron and chromium based apps
         DISPLAY = ":0"; # important for xwayland-satellite
@@ -9,6 +15,7 @@
       
       spawn-at-startup = [
         { command = [ "xwayland-satellite" ]; }
+        { argv = ["swaybg" "--image" "${wallpaper}"]; }
       ];
 
       clipboard = {
@@ -21,6 +28,12 @@
             layout = "pt";
             options = "compose:caps";
           };
+        };
+      };
+
+      outputs = {
+        "DVI-I-1" = {
+          scale = 1.0;
         };
       };
       

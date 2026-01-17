@@ -24,11 +24,6 @@
       mkd = "mkdir -pv";
       jctl = "journalctl -p 3 -xb";
       icat = "kitty +kitten icat";
-      # ls = "eza"; # auto
-    };
-
-    shellAbbrs = {
-      sudo = "doas";
     };
   };
 
@@ -42,7 +37,8 @@
 
   programs.carapace.enable = true;
 
-  programs.nix-index.package = true;
+  programs.nix-index.enable = true;
+  programs.nix-index-database.comma.enable = true;
 
   programs.starship.enable = true;
 
@@ -71,6 +67,5 @@
 
   home.packages = with pkgs; [
     jq fzf btop grc unzip rsync ffmpeg feh fd file
-    comma
   ];
 }

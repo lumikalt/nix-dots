@@ -11,10 +11,20 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
     nur.url = "github:nix-community/NUR";
+    
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    
     # spicetify-nix.url = "github:the-argus/spicetify-nix";
+    
     rust-overlay.url = "github:oxalica/rust-overlay";
+    
     niri = {
        url = "github:sodiboo/niri-flake";
        inputs.nixpkgs.follows = "nixpkgs";
@@ -27,6 +37,7 @@
     home-manager,
     hyprland-contrib,
     nur,
+    nix-index-database,
     nix-vscode-extensions,
     # spicetify-nix,
     rust-overlay,
@@ -82,7 +93,7 @@
               imports = [
                 # hm modules
                 
-                # niri.homeModules.niri
+                nix-index-database.homeModules.default
 
                 ./home.nix
               ];
