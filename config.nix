@@ -66,6 +66,7 @@
     seahorse # gnome-keyring gui
     wlr-randr
     displaylink
+    wineWowPackages.staging
   ];
 
   nixpkgs.config.allowUnfree = true;
