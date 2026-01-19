@@ -11,98 +11,112 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     nur.url = "github:nix-community/NUR";
-    
+
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-    
+
     # spicetify-nix.url = "github:the-argus/spicetify-nix";
-    
+
     rust-overlay.url = "github:oxalica/rust-overlay";
-    
+
     niri = {
-       url = "github:sodiboo/niri-flake";
-       inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-ld = {
+      url = "github:Mic92/nix-ld";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    hyprland-contrib,
-    nur,
-    nix-index-database,
-    nix-vscode-extensions,
-    # spicetify-nix,
-    rust-overlay,
-    niri,
-    ...
-  } @ inputs:
-  let
-    system = "x86_64-linux";
-    wallpaper = ./assets/wallpapers/wallpaper.jpg;
-    # wallpaper = ./assets/wallpapers/wallpaper.png;
-    # wallpaper = ./assets/wallpapers/wallpaper.mp4;
-    inherit (nixpkgs) lib;
-  in {
-    nixosConfigurations."wumi" = lib.nixosSystem {
-      inherit system;
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      hyprland-contrib,
+      nur,
+      nix-index-database,
+      nix-vscode-extensions,
+      # spicetify-nix,
+      rust-overlay,
+      niri,
+      nix-ld,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+      wallpaper = ./assets/wallpapers/wallpaper.jpg;
+      # wallpaper = ./assets/wallpapers/wallpaper.png;
+      # wallpaper = ./assets/wallpapers/wallpaper.mp4;
+      inherit (nixpkgs) lib;
+    in
+    {
+      nixosConfigurations."wumi" = lib.nixosSystem {
+        inherit system;
 
-      specialArgs = { inherit inputs wallpaper; };
+        specialArgs = { inherit inputs wallpaper; };
 
-      modules = [
-        nur.modules.nixos.default
-        niri.nixosModules.niri
-        
-        ./config.nix
+        modules = [
+          nur.modules.nixos.default
+          niri.nixosModules.niri
 
-        ({ pkgs, ... }: {
-          nixpkgs.overlays = [
-            rust-overlay.overlays.default
-            niri.overlays.niri
-          ];
-          environment.systemPackages = with pkgs; [
-            rust-bin.beta.latest.default
-            gcc
-            xwayland-satellite wl-clipboard
-          ];
+          ./config.nix
 
-          programs.niri = {
-            enable = true;
-            package = pkgs.niri-unstable;
-          };
-        })
-
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            extraSpecialArgs = { inherit inputs wallpaper; };
-            sharedModules = [ nur.modules.homeManager.default ];
-            
-            backupFileExtension = "backup";
-            
-            useUserPackages = true;
-
-            users.lumi = { ... }: {
-              imports = [
-                # hm modules
-                
-                nix-index-database.homeModules.default
-
-                ./home.nix
+          (
+            { pkgs, ... }:
+            {
+              nixpkgs.overlays = [
+                rust-overlay.overlays.default
+                niri.overlays.niri
               ];
+              environment.systemPackages = with pkgs; [
+                rust-bin.beta.latest.default
+                gcc
+                xwayland-satellite
+                wl-clipboard
+              ];
+
+              programs.niri = {
+                enable = true;
+                package = pkgs.niri-unstable;
+              };
+            }
+          )
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              extraSpecialArgs = { inherit inputs wallpaper; };
+              sharedModules = [ nur.modules.homeManager.default ];
+
+              backupFileExtension = "backup";
+
+              useUserPackages = true;
+
+              users.lumi =
+                { ... }:
+                {
+                  imports = [
+                    # hm modules
+                    nix-index-database.homeModules.default
+                    nix-ld.nixosModules.nix-ld
+
+                    ./home.nix
+                  ];
+                };
             };
-          };
-        }
-      ];
+          }
+        ];
+      };
     };
-  };
 
   nixConfig = {
     extra-substituters = [
