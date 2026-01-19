@@ -1,21 +1,33 @@
-{ config, pkgs, wallpaper, ... }: {
+{
+  config,
+  pkgs,
+  wallpaper,
+  ...
+}:
+{
   home.packages = [
     pkgs.swaybg
   ];
-  
+
   programs.niri = {
     settings = {
       screenshot-path = null;
-      
+
       environment = {
         NIXOS_OZONE_WL = "1"; # support electron and chromium based apps
         DISPLAY = ":0"; # important for xwayland-satellite
         # QT_QPA_PLATFORM = "wayland"; # optional: force QT apps to always use wayland
       };
-      
+
       spawn-at-startup = [
         { command = [ "xwayland-satellite" ]; }
-        { argv = ["swaybg" "--image" "${wallpaper}"]; }
+        {
+          argv = [
+            "swaybg"
+            "--image"
+            "${wallpaper}"
+          ];
+        }
       ];
 
       clipboard = {
@@ -24,7 +36,7 @@
 
       input = {
         touchpad.enable = false;
-        
+
         keyboard = {
           xkb = {
             layout = "pt";
@@ -38,10 +50,10 @@
           scale = 1.0;
         };
       };
-      
+
       binds = with config.lib.niri.actions; {
         # movement
-        
+
         "Mod+Ctrl+Left".action = move-column-left;
         "Mod+Ctrl+Right".action = move-column-right;
 
@@ -60,13 +72,15 @@
           "-p"
           "\"run: \""
         ];
-         
+
         "Mod+W".action.spawn = "firefox";
 
         # misc
 
-        "Print".action.screenshot = [];
-        "Mod+Print".action.screenshot-screen = { show-pointer = false; };
+        "Print".action.screenshot = [ ];
+        "Mod+Print".action.screenshot-screen = {
+          show-pointer = false;
+        };
       };
       # hotkey-overlay.skip-at-startup = true; # optional: hide the keybinding popup
     };
