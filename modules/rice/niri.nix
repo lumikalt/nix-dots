@@ -23,6 +23,8 @@
       };
 
       input = {
+        touchpad.enable = false;
+        
         keyboard = {
           xkb = {
             layout = "pt";
