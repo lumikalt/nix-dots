@@ -1,7 +1,7 @@
 { pkgs, lib, ... }: {
   home.username = "lumi";
   home.homeDirectory = lib.mkForce /home/lumi;
-  home.stateVersion = "23.11";
+  home.stateVersion = "25.11";
 
   imports = [ ./modules ];
 
