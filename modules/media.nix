@@ -8,7 +8,7 @@
   # Music
 
   # Books
-  program.calibre.enable = true;
+  programs.calibre.enable = true;
 
   home.packages = with pkgs; [
     pamixer
