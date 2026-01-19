@@ -67,6 +67,7 @@
         modules = [
           nur.modules.nixos.default
           niri.nixosModules.niri
+          nix-ld.nixosModules.nix-ld
 
           ./config.nix
 
@@ -88,6 +89,7 @@
                 enable = true;
                 package = pkgs.niri-unstable;
               };
+              programs.nix-ld.dev.enable = true;
             }
           )
 
@@ -107,7 +109,6 @@
                   imports = [
                     # hm modules
                     nix-index-database.homeModules.default
-                    nix-ld.nixosModules.nix-ld
 
                     ./home.nix
                   ];
