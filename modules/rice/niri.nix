@@ -70,7 +70,7 @@
         "Mod+D".action.spawn = [
           "bemenu-run"
           "-p"
-          "\"run: \""
+          "run: "
         ];
 
         "Mod+W".action.spawn = "firefox";
