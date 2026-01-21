@@ -17,5 +17,6 @@
     vlc
     qbittorrent
     spotify
+    krita
   ];
 }
