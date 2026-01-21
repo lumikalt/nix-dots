@@ -1,14 +1,9 @@
-{ pkgs }:
+{ pkgs, ... }:
 {
-  # Videos
-  programs.ncmpcpp.enable = true;
 
+  programs.ncmpcpp.enable = true;
   programs.mpv.enable = true;
 
-  # Music
-  # spotify vvv
-
-  # Books
   programs.calibre.enable = true;
 
   home.packages = with pkgs; [
@@ -18,5 +13,9 @@
     qbittorrent
     spotify
     krita
+    
+    libreoffice
+    xournalpp
+    rnote
   ];
 }

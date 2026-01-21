@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, ... }:
 let
   # Need to make this work on niri
   plugged = pkgs.writeShellScript "plugged" ''

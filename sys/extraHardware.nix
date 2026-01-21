@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, ... }:
 {
   # Just cause.
   hardware.enableAllFirmware = true;

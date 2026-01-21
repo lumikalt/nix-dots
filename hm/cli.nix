@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, ... }:
 {
   programs.fish = {
     enable = true;
@@ -45,13 +45,6 @@
 
   programs.nushell = {
     enable = true;
-
-    extraConfig =
-      (toString (builtins.readFile ../configs/nu/env.nu))
-      + "\n"
-      + (toString (builtins.readFile ../configs/nu/completers.nu))
-      + "\n"
-      + (toString (builtins.readFile ../configs/nu/config.nu));
   };
 
   programs.carapace.enable = true;
@@ -103,5 +96,17 @@
     feh
     fd
     file
+
+    aspell
+    aspellDicts.en
+    aspellDicts.en-science
+    aspellDicts.en-computers
+    aspellDicts.pt_PT
+    hunspell
+    hunspellDicts.en-us
+    hunspellDicts.en-us-large
+    hunSpellDicts.pt-pt
+    hunspellDicts.tok
+    libspelling
   ];
 }

@@ -17,7 +17,8 @@
 - [ ] Fish functions
 - [ ] Nushell switch?
 - [ ] Mime config for Desktop and whatever
-- [ ] Sort through programs in hm.nix
+- [x] Sort through programs in hm.nix
 - [ ] Make Firefox declarative
 - [ ] Switch to Floorp?
 - [ ] Make VSCode declarative
+- [ ] Check if all the stuff installed is necessary, and for duplicates

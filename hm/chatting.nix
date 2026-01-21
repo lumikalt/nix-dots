@@ -1,8 +1,9 @@
-{ pkgs }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
-    revolt-desktop
+    revolt-desktop # stoat isn't named correctly
     signal-desktop
+    wasistlos # whatsapp
   ];
 
   programs.vesktop = {

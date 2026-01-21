@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, ... }:
 {
   systemd.services = {
     # For wayland

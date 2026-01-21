@@ -81,7 +81,7 @@
       }
 
       window#waybar {
-        background: transparent;
+        background: black;
       }
 
       #workspaces {

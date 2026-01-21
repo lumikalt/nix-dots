@@ -73,7 +73,7 @@
           ./user.nix
 
           (
-            { pkgs }:
+            { pkgs, ... }:
             {
               nixpkgs.overlays = [
                 rust-overlay.overlays.default
