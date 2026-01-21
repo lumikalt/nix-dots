@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs }:
 {
   imports = [
     ./modules
@@ -37,8 +37,8 @@
     gitFull
     fish
     nushell
-    neovim
     nixVersions.latest
+    helix
     seahorse # gnome-keyring gui
     wlr-randr
     displaylink
