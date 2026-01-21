@@ -1,9 +1,10 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
   home.username = "lumi";
   home.homeDirectory = lib.mkForce /home/lumi;
   home.stateVersion = "25.11";
 
-  imports = [ ./modules ];
+  imports = [ ./hm ];
 
   fonts.fontconfig.enable = true;
 
@@ -12,10 +13,13 @@
   home.packages = with pkgs; [
     # rice
     libnotify
-    libsixel brightnessctl
-    hyprpicker hyprpaper
+    libsixel
+    brightnessctl
+    hyprpicker
+    hyprpaper
     swayidle
-    wl-clipboard wtype
+    wl-clipboard
+    wtype
     bemenu
 
     # theming
@@ -26,14 +30,19 @@
     adwaita-icon-theme
 
     # env
-    thunar xdg-utils
+    thunar
+    xdg-utils
     networkmanagerapplet
 
     # libraries
     speechd
 
     # cli
-    aspell aspellDicts.en-science aspellDicts.en hunspell hunspellDicts.en-us
+    aspell
+    aspellDicts.en-science
+    aspellDicts.en
+    hunspell
+    hunspellDicts.en-us
 
     # chatting
     wasistlos # whatsapp

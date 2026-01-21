@@ -69,7 +69,10 @@
           niri.nixosModules.niri
           nix-ld.nixosModules.nix-ld
 
-          ./config.nix
+          # 
+          ./system.nix
+
+          ./user.nix
 
           (
             { pkgs, ... }:
@@ -90,6 +93,7 @@
                 package = pkgs.niri-unstable;
               };
               programs.nix-ld.dev.enable = true;
+
             }
           )
 
@@ -110,7 +114,7 @@
                     # hm modules
                     nix-index-database.homeModules.default
 
-                    ./home.nix
+                    ./hm.nix
                   ];
                 };
             };
