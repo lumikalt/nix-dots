@@ -49,7 +49,6 @@
       rust-overlay,
       niri,
       nix-ld,
-      ...
     }@inputs:
     let
       system = "x86_64-linux";
@@ -69,18 +68,18 @@
           niri.nixosModules.niri
           nix-ld.nixosModules.nix-ld
 
-          # 
           ./system.nix
 
           ./user.nix
 
           (
-            { pkgs, ... }:
+            { pkgs }:
             {
               nixpkgs.overlays = [
                 rust-overlay.overlays.default
                 niri.overlays.niri
               ];
+
               environment.systemPackages = with pkgs; [
                 rust-bin.beta.latest.default
                 gcc
@@ -93,7 +92,6 @@
                 package = pkgs.niri-unstable;
               };
               programs.nix-ld.dev.enable = true;
-
             }
           )
 
@@ -108,10 +106,8 @@
               useUserPackages = true;
 
               users.lumi =
-                { ... }:
                 {
                   imports = [
-                    # hm modules
                     nix-index-database.homeModules.default
 
                     ./hm.nix

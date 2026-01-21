@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib }:
 {
   home.username = "lumi";
   home.homeDirectory = lib.mkForce /home/lumi;

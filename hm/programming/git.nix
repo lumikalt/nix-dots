@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs }:
+{
   programs.git = {
     enable = true;
     package = pkgs.gitFull;
@@ -19,6 +20,5 @@
     enableGitIntegration = true;
   };
 
-  # Required for git auth
   programs.gh.enable = true;
 }

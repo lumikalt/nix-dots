@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs }:
+{
   programs.fish = {
     enable = true;
 
@@ -11,11 +12,26 @@
     '';
 
     plugins = [
-      { name = "puffer"; src = pkgs.fishPlugins.puffer.src; }
-      { name = "pisces"; src = pkgs.fishPlugins.pisces.src; }
-      { name = "grc"; src = pkgs.fishPlugins.grc.src; }
-      { name = "done"; src = pkgs.fishPlugins.done.src; }
-      { name = "colored_man_pages"; src = pkgs.fishPlugins.colored-man-pages.src; }
+      {
+        name = "puffer";
+        src = pkgs.fishPlugins.puffer.src;
+      }
+      {
+        name = "pisces";
+        src = pkgs.fishPlugins.pisces.src;
+      }
+      {
+        name = "grc";
+        src = pkgs.fishPlugins.grc.src;
+      }
+      {
+        name = "done";
+        src = pkgs.fishPlugins.done.src;
+      }
+      {
+        name = "colored_man_pages";
+        src = pkgs.fishPlugins.colored-man-pages.src;
+      }
     ];
 
     shellAliases = {
@@ -30,8 +46,11 @@
   programs.nushell = {
     enable = true;
 
-    extraConfig = (toString (builtins.readFile ../configs/nu/env.nu)) + "\n"
-      + (toString (builtins.readFile ../configs/nu/completers.nu)) + "\n"
+    extraConfig =
+      (toString (builtins.readFile ../configs/nu/env.nu))
+      + "\n"
+      + (toString (builtins.readFile ../configs/nu/completers.nu))
+      + "\n"
       + (toString (builtins.readFile ../configs/nu/config.nu));
   };
 
@@ -48,7 +67,10 @@
     enableFishIntegration = false;
     git = true;
     icons = "auto";
-    extraOptions = [ "--group-directories-first" "--header" ];
+    extraOptions = [
+      "--group-directories-first"
+      "--header"
+    ];
   };
 
   programs.zoxide = {
@@ -60,12 +82,26 @@
 
   programs.bat = {
     enable = true;
-    extraPackages = with pkgs.bat-extras; [ batdiff batman batgrep batwatch ];
+    extraPackages = with pkgs.bat-extras; [
+      batdiff
+      batman
+      batgrep
+      batwatch
+    ];
   };
 
   programs.ripgrep.enable = true;
 
   home.packages = with pkgs; [
-    jq fzf btop grc unzip rsync ffmpeg feh fd file
+    jq
+    fzf
+    btop
+    grc
+    unzip
+    rsync
+    ffmpeg
+    feh
+    fd
+    file
   ];
 }

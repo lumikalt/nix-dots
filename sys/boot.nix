@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs }:
+{
   boot = {
     loader = {
       systemd-boot.enable = true;
@@ -63,7 +64,11 @@
       "net.core.default_qdisc" = "cake";
     };
 
-    supportedFilesystems = ["btrfs" "ntfs" "ext4"];
+    supportedFilesystems = [
+      "btrfs"
+      "ntfs"
+      "ext4"
+    ];
 
     tmp.cleanOnBoot = true;
   };

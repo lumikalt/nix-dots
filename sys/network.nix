@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }: {
+{
   networking = {
     hostName = "wumi";
 
@@ -10,7 +10,11 @@
     # Ad blocking!!
     stevenblack = {
       enable = true;
-      block = [ "fakenews" "gambling" "porn" ];
+      block = [
+        "fakenews"
+        "gambling"
+        "porn"
+      ];
     };
 
     firewall = {

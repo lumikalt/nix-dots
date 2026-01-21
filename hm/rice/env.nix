@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{
   services.mako = {
     enable = true;
 
@@ -10,28 +10,12 @@
 
   services.poweralertd.enable = true;
 
-  systemd.user.services = {
-    # pipewire.wantedBy = ["default.target"];
-    pipewire-pulse = {
-      # path = [ pkgs.pulseaudioFull ];
-      # wantedBy = ["default.target"];
-    };
-  };
-
-  # systemd.user.services.mpris-proxy = {
-  #   description = "Mpris proxy";
-  #   after = [ "network.target" "sound.target" ];
-  #   wantedBy = [ "default.target" ];
-  #   serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
-  # };
-
   qt = {
     enable = true;
   };
-
   gtk = {
     enable = true;
-    
+
     iconTheme.name = "Papyrus";
 
     gtk3.extraConfig = {

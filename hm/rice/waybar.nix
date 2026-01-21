@@ -1,47 +1,47 @@
-{ inputs, ... } : {
+{
   programs.waybar = {
     enable = true;
     systemd = {
       enable = true;
       target = "graphical-session.target";
     };
-    # package = inputs.hyprland.packages."x86_64-linux".waybar-hyprland;
 
-    settings = [{
-      layer = "top";
-      position = "left";
-      exclusive = true;
-      passtrough = false;
-      gtk-layer-shell = true;
+    settings = [
+      {
+        layer = "top";
+        position = "left";
+        exclusive = true;
+        passtrough = false;
+        gtk-layer-shell = true;
 
-      modules-left = [
-        "wlr/workspaces"
-      ];
-      modules-center = [];
-      modules-right = [
-        "tray"
-        "clock"
-        "battery"
-      ];
+        modules-left = [
+          "wlr/workspaces"
+        ];
+        modules-center = [ ];
+        modules-right = [
+          "tray"
+          "clock"
+          "battery"
+        ];
 
-      "wlr/workspces" = {
-        format = "{icon}";
-        on-click = "activate";
-        format-icons = {
-          default = "";
-		      active = "";
+        "wlr/workspces" = {
+          format = "{icon}";
+          on-click = "activate";
+          format-icons = {
+            default = "";
+            active = "";
+          };
         };
-      };
 
-	    battery = {
-        states = {
-          warning = 20;
-          critical = 10;
-        };
-        format = "{icon}";
-        format-charging = "󰂄";
-        format-plugged = "󰂄";
-        format-icons = [
+        battery = {
+          states = {
+            warning = 20;
+            critical = 10;
+          };
+          format = "{icon}";
+          format-charging = "󰂄";
+          format-plugged = "󰂄";
+          format-icons = [
             "󰂃"
             "󰁺"
             "󰁻"
@@ -54,22 +54,23 @@
             "󰂁"
             "󰂂"
             "󰁹"
-        ];
-        tooltip = true;
-        tooltip-format = "{capacity}%\nDrawing {power}W";
-      };
+          ];
+          tooltip = true;
+          tooltip-format = "{capacity}%\nDrawing {power}W";
+        };
 
-      tray = {
-        icon-size = 20;
-        spacing = 10;
-      };
+        tray = {
+          icon-size = 20;
+          spacing = 10;
+        };
 
-      clock = {
-        tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-        format-alt = "{:%d\n%m\n%y}";
-        format = "{:%H\n%M}";
-      };
-    }];
+        clock = {
+          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+          format-alt = "{:%d\n%m\n%y}";
+          format = "{:%H\n%M}";
+        };
+      }
+    ];
 
     style = ''
       * {

@@ -1,5 +1,5 @@
-{ ... }: {
-    programs.helix = {
+{
+  programs.helix = {
     enable = true;
     defaultEditor = true;
     settings = {
@@ -13,7 +13,7 @@
         auto-completion = true;
         auto-format = true;
         completion-replace = true;
-        
+
         cursor-shape = {
           insert = "bar";
           select = "underline";
@@ -26,7 +26,10 @@
         bufferline = "multiple";
         true-color = true;
 
-        shell = [ "fish" "-c" ];
+        shell = [
+          "fish"
+          "-c"
+        ];
 
         statusline = {
           center = [ "version-control" ];
@@ -34,7 +37,10 @@
       };
       keys.normal = {
         space.space = "file_picker";
-        esc = [ "collapse_selection" "keep_primary_selection" ];
+        esc = [
+          "collapse_selection"
+          "keep_primary_selection"
+        ];
       };
     };
   };

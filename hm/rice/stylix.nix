@@ -1,4 +1,9 @@
-{ config, pkgs, wallpaper, ... }: {
+{
+  # config,
+  pkgs,
+  wallpaper,
+}:
+{
   stylix = {
     # wallpaper = config.lib.stylix.mkStaticImage {
     #   image = wallpaper;
@@ -41,14 +46,16 @@
       name = "Bibata-Modern-Classic";
       size = 20;
     };
-    
+
     opacity.terminal = 0.8;
   };
 
-  home-manager.sharedModules = [{
-    stylix.targets.waybar = {
-      enableLeftBackColors = true;
-      enableRightBackColors = true;
-    };
-  }];
+  home-manager.sharedModules = [
+    {
+      stylix.targets.waybar = {
+        enableLeftBackColors = true;
+        enableRightBackColors = true;
+      };
+    }
+  ];
 }

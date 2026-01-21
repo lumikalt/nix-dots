@@ -1,10 +1,10 @@
-{ pkgs, ... }: {
+{
   hardware.bluetooth = {
     enable = true;
 
     settings.General = {
-    	Experimental = true;
-  	};
+      Experimental = true;
+    };
   };
 
   services.pulseaudio.enable = false;

@@ -1,5 +1,5 @@
-{ config, pkgs, lib, ... }: {
-  # Please future me, remember to use this.
+{
+  # Please future lumi, remember to use this.
   programs.aria2 = {
     enable = true;
 

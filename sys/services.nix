@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs }:
+{
   systemd.services = {
     # For wayland
     seatd = {
@@ -10,9 +11,9 @@
         Restart = "always";
         RestartSec = "1";
       };
-      wantedBy = ["multi-user.target"];
+      wantedBy = [ "multi-user.target" ];
     };
-    
+
     systemd-journal-flush.enable = false;
 
     # Monitor Hotswap
@@ -20,7 +21,7 @@
       description = "kanshi daemon";
       serviceConfig = {
         Type = "simple";
-        ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
+        ExecStart = "${pkgs.kanshi}/bin/kanshi -c kanshi_config_file";
       };
     };
 
@@ -38,11 +39,18 @@
   services = {
     dbus = {
       enable = true;
-      packages = with pkgs; [ dconf udisks2 gcr ];
+      packages = with pkgs; [
+        dconf
+        udisks2
+        gcr
+      ];
       implementation = "broker";
     };
 
-    xserver.videoDrivers = [ "displaylink" "modesetting" ];
+    xserver.videoDrivers = [
+      "displaylink"
+      "modesetting"
+    ];
 
     udisks2.enable = true;
 

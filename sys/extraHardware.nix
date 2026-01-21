@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs }:
+{
   # Just cause.
   hardware.enableAllFirmware = true;
 
@@ -20,6 +21,6 @@
   };
 
   environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "iHD";     # Prefer the modern iHD backend
+    LIBVA_DRIVER_NAME = "iHD"; # Prefer the modern iHD backend
   };
 }

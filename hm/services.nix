@@ -1,4 +1,4 @@
-{ ... }: {
+{
   services = {
     udiskie = {
       enable = true;

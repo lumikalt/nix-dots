@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config }:
+{
   programs = {
     gpg.enable = true;
 
@@ -39,36 +40,38 @@
       createDirectories = true;
     };
 
-    mimeApps = let
-      table = {
-        "text/html" = ["firefox.desktop"];
-        "x-scheme-handler/http" = ["firefox.desktop"];
-        "x-scheme-handler/https" = ["firefox.desktop"];
-        "x-scheme-handler/ftp" = ["firefox.desktop"];
-        "x-scheme-handler/about" = ["firefox.desktop"];
-        "x-scheme-handler/unknown" = ["firefox.desktop"];
-        "application/x-extension-htm" = ["firefox.desktop"];
-        "application/x-extension-html" = ["firefox.desktop"];
-        "application/x-extension-shtml" = ["firefox.desktop"];
-        "application/xhtml+xml" = ["firefox.desktop"];
-        "application/x-extension-xhtml" = ["firefox.desktop"];
-        "application/x-extension-xht" = ["firefox.desktop"];
+    mimeApps =
+      let
+        table = {
+          "text/html" = [ "firefox.desktop" ];
+          "x-scheme-handler/http" = [ "firefox.desktop" ];
+          "x-scheme-handler/https" = [ "firefox.desktop" ];
+          "x-scheme-handler/ftp" = [ "firefox.desktop" ];
+          "x-scheme-handler/about" = [ "firefox.desktop" ];
+          "x-scheme-handler/unknown" = [ "firefox.desktop" ];
+          "application/x-extension-htm" = [ "firefox.desktop" ];
+          "application/x-extension-html" = [ "firefox.desktop" ];
+          "application/x-extension-shtml" = [ "firefox.desktop" ];
+          "application/xhtml+xml" = [ "firefox.desktop" ];
+          "application/x-extension-xhtml" = [ "firefox.desktop" ];
+          "application/x-extension-xht" = [ "firefox.desktop" ];
 
-        "audio/*" = ["mpv.desktop"];
-        "video/*" = ["mpv.dekstop"];
-        "image/*" = ["feh.desktop"];
+          "audio/*" = [ "mpv.desktop" ];
+          "video/*" = [ "mpv.dekstop" ];
+          "image/*" = [ "feh.desktop" ];
 
-        "application/json" = ["firefox.desktop"];
-        "application/pdf" = ["firefox.desktop"];
-        "application/zip" = ["thunar.desktop"];
-        "application/x.bittorrent" = ["qbittorrent.desktop"];
+          "application/json" = [ "firefox.desktop" ];
+          "application/pdf" = [ "firefox.desktop" ];
+          "application/zip" = [ "thunar.desktop" ];
+          "application/x.bittorrent" = [ "qbittorrent.desktop" ];
 
-        "x-scheme-handler/discord" = [ "discord.desktop" ];
+          "x-scheme-handler/discord" = [ "discord.desktop" ];
+        };
+      in
+      {
+        enable = true;
+        associations.added = table;
+        defaultApplications = table;
       };
-    in {
-      enable = true;
-      associations.added = table;
-      defaultApplications = table;
-    };
   };
 }

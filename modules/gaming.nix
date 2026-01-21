@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs }:
 {
   programs.java.enable = true;
   nixpkgs.config.nvidia.acceptLicense = true;
@@ -15,6 +15,7 @@
         MANGOHUD = true;
         OBS_VKCAPTURE = true;
         RADV_TEX_ANISO = 16;
+        SDL_VIDEODRIVER = "wayland,x11";
       };
 
       extraPkgs =

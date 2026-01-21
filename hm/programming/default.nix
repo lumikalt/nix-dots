@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs }:
+{
   imports = [
     ./emacs.nix
     ./git.nix
@@ -10,12 +11,14 @@
     tree-sitter
 
     # LaTeX
-    tetex texlab
+    tetex
+    texlab
 
     # Nix
-    nil statix
+    nil
+    statix
 
     # RISC-V
-    ripes # Erroring
+    ripes
   ];
 }
