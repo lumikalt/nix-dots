@@ -105,7 +105,7 @@
     hunspell
     hunspellDicts.en-us
     hunspellDicts.en-us-large
-    hunSpellDicts.pt-pt
+    hunspellDicts.pt-pt
     hunspellDicts.tok
     libspelling
   ];
