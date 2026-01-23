@@ -7,7 +7,7 @@
       thunar-volman
       thunar-vcs-plugin
       thunar-archive-plugin
-      thunar-media-tags
+      thunar-media-tags-plugin
     ];
   };
 }

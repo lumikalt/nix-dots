@@ -1,7 +1,7 @@
 {
   imports = [
     ./env.nix
-    ./hyprland.nix
+    # ./hyprland.nix
     ./waybar.nix
     ./niri.nix
   ];
