@@ -103,7 +103,6 @@
     aspellDicts.en-computers
     aspellDicts.pt_PT
     hunspell
-    hunspellDicts.en-us
     hunspellDicts.en-us-large
     hunspellDicts.pt-pt
     hunspellDicts.tok
