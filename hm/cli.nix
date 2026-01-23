@@ -1,37 +1,21 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   programs.fish = {
     enable = true;
 
     interactiveShellInit = ''
       set fish_greeting
-
       set -p PATH $HOME/.config/emacs/bin
-
       fish_vi_key_bindings
     '';
 
-    plugins = [
-      {
-        name = "puffer";
-        src = pkgs.fishPlugins.puffer.src;
-      }
-      {
-        name = "pisces";
-        src = pkgs.fishPlugins.pisces.src;
-      }
-      {
-        name = "grc";
-        src = pkgs.fishPlugins.grc.src;
-      }
-      {
-        name = "done";
-        src = pkgs.fishPlugins.done.src;
-      }
-      {
-        name = "colored_man_pages";
-        src = pkgs.fishPlugins.colored-man-pages.src;
-      }
+    plugins = with pkgs.fishPlugins; [
+      puffer # ... -> ../..
+      grc # colorize ll, etc.
+      done # notification when program finishes with status
+      colored-man-pages # self-explanatory
+      autopair # self-explanatory
+      fish-you-should-use # reminder for aliases
     ];
 
     shellAliases = {
@@ -41,19 +25,55 @@
       jctl = "journalctl -p 3 -xb";
       icat = "kitty +kitten icat";
     };
+
+    shellAbbrs = {
+      genpass = "${lib.getExe pkgs.pwgen} -c -n -y -s 32 | head";
+    };
+
+    functions = {
+      # Search in browser
+      ddg = ''
+        if count $argv > /dev/null
+          ${lib.getExe pkgs.w3m} +15 "https://lite.duckduckgo.com/lite?kd=-1&q=$argv"
+        else
+          ${lib.getExe pkgs.w3m} "https://lite.duckduckgo.com/lite?kd=-1"
+        end
+      '';
+      hm = "${lib.getExe pkgs.w3m} https://nix-community.github.io/home-manager/options.xhtml";
+
+      backup = {
+        argumentNames = [ "filename" ];
+        body = "cp -i $filename $filename.bak";
+      };
+
+      mkcd = {
+        argumentNames = [ "dir" ];
+        body = ''
+          mkdir $dir
+          cd $dir
+        '';
+      };
+    };
   };
 
   programs.nushell = {
     enable = true;
   };
 
-  programs.carapace.enable = true;
+  # Better completions
+  programs.carapace = {
+    enable = true;
+    enableFishIntegration = true;
+    enableNushellIntegration = true;
+  };
 
   programs.nix-index.enable = true;
   programs.nix-index-database.comma.enable = true;
 
+  # Shell theme
   programs.starship.enable = true;
 
+  # Better ls
   programs.eza = {
     enable = true;
 
@@ -66,13 +86,16 @@
     ];
   };
 
+  # Quick change-directory with autojump
   programs.zoxide = {
     enable = true;
     options = [ "--cmd cd" ];
   };
 
+  # TUI file manager
   programs.lf.enable = true;
 
+  # Better cat
   programs.bat = {
     enable = true;
     extraPackages = with pkgs.bat-extras; [
@@ -96,6 +119,7 @@
     feh
     fd
     file
+    pwgen
 
     aspell
     aspellDicts.en
