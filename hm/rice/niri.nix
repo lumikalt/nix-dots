@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   wallpaper,
   ...
@@ -9,82 +10,148 @@
     pkgs.swaybg
   ];
 
-  programs.niri = {
-    settings = {
-      screenshot-path = null;
+  programs.niri =
+    with config.lib.niri.actions;
+    let
+      loginctl = "${pkgs.systemd}/bin/loginctl";
+      playerctl = lib.getExe pkgs.playerctl;
+      brightnessctl = lib.getExe pkgs.brightnessctl;
+    in
+    {
+      settings = {
+        screenshot-path = null;
 
-      environment = {
-        NIXOS_OZONE_WL = "1"; # support electron and chromium based apps
-        DISPLAY = ":0"; # important for xwayland-satellite
-        QT_QPA_PLATFORM = "wayland"; # optional: force QT apps to always use wayland
-      };
-
-      spawn-at-startup = [
-        { command = [ "xwayland-satellite" ]; }
-        {
-          argv = [
-            "swaybg"
-            "--image"
-            "${wallpaper}"
-          ];
-        }
-      ];
-
-      clipboard = {
-        disable-primary = true;
-      };
-
-      input = {
-        touchpad.enable = false;
-
-        keyboard = {
-          xkb = {
-            layout = "pt";
-            options = "compose:caps";
-          };
+        environment = {
+          NIXOS_OZONE_WL = "1"; # support electron and chromium based apps
+          DISPLAY = ":0"; # important for xwayland-satellite
+          QT_QPA_PLATFORM = "wayland"; # optional: force QT apps to always use wayland
         };
-      };
 
-      outputs = {
-        "DVI-I-1" = {
-          scale = 1.0;
-        };
-      };
-
-      binds = with config.lib.niri.actions; {
-        # movement
-
-        "Mod+Ctrl+Left".action = move-column-left;
-        "Mod+Ctrl+Right".action = move-column-right;
-
-        "Mod+F".action = maximize-column;
-        "Mod+Shift+F".action = fullscreen-window;
-
-        "Mod+Q".action = close-window;
-        "Mod+Shift+Q".action = quit;
-
-        # programs
-
-        "Mod+Return".action.spawn = "kitty";
-
-        "Mod+D".action.spawn = [
-          "bemenu-run"
-          "-p"
-          "run: "
+        spawn-at-startup = [
+          { command = [ "xwayland-satellite" ]; }
+          {
+            argv = [
+              "swaybg"
+              "--image"
+              "${wallpaper}"
+            ];
+          }
         ];
 
-        "Mod+W".action.spawn = "firefox";
+        clipboard = {
+          disable-primary = true;
+        };
 
-        # misc
+        hotkey-overlay.skip-at-startup = true;
 
-        "Print".action.screenshot = [ ];
-        "Mod+Print".action.screenshot-screen = {
-          show-pointer = false;
+        input = {
+          touchpad.enable = false;
+
+          focus-follows-mouse.max-scroll-amount = "10%";
+
+          keyboard = {
+            xkb = {
+              layout = "pt";
+              options = "compose:caps";
+            };
+          };
+        };
+
+        outputs = {
+          "DVI-I-1" = {
+            scale = 1.0;
+          };
+        };
+
+        layout = {
+          always-center-single-column = true;
+          empty-workspace-above-first = true;
+
+          gaps = 5;
+          border.width = 2;
+        };
+
+        binds = {
+          # movement
+          "Mod+Ctrl+Left".action = move-column-left;
+          "Mod+Ctrl+Right".action = move-column-right;
+
+          "Mod+F".action = maximize-column;
+          "Mod+Shift+F".action = fullscreen-window;
+
+          "Mod+Q".action = close-window;
+          "Mod+Shift+Q".action = quit;
+        }
+        // lib.listToAttrs (
+          lib.concatMap (n: [
+            {
+              name = "Mod+${toString n}";
+              value.action = focus-workspace n;
+            }
+            {
+              name = "Mod+Shift+${toString n}";
+              value.action = move-column-to-index n;
+            }
+          ]) (lib.range 1 9)
+        )
+        // {
+          # programs
+          "Mod+Return".action.spawn = "kitty";
+          "Mod+W".action.spawn = "firefox";
+
+          "Mod+D".action.spawn = [
+            "bemenu-run"
+            "-p"
+            "run: "
+          ];
+
+          # media
+          "Print".action.screenshot = [ ];
+          "Mod+Print".action.screenshot-screen = {
+            show-pointer = false;
+          };
+
+        }
+        // lib.genAttrs [ "Super_L" "Mod+L" ] (_: {
+          action.spawn = [
+            "${pkgs.systemd}/bin/loginctl"
+            "lock-session"
+          ];
+        })
+        // {
+          "XF86AudioPlay".action.spawn = [
+            playerctl
+            "play-pause"
+          ];
+          "XF86AudioMedia".action.spawn = [
+            playerctl
+            "play-pause"
+          ];
+          "XF86AudioPrev".action.spawn = [
+            playerctl
+            "previous"
+          ];
+          "XF86AudioNext".action.spawn = [
+            playerctl
+            "next"
+          ];
+          "XF86AudioStop".action.spawn = [
+            playerctl
+            "stop"
+          ];
+          "XF86MonBrightnessUp".action.spawn = [
+            brightnessctl
+            "set"
+            "+10%"
+          ];
+          "XF86MonBrightnessDown".action.spawn = [
+            brightnessctl
+            "set"
+            "10%-"
+          ];
         };
       };
-      # hotkey-overlay.skip-at-startup = true; # optional: hide the keybinding popup
     };
-  };
 }
 
 # {

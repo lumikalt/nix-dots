@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  lib,
+  wallpaper,
+  ...
+}:
 {
   services.mako = {
     enable = true;
@@ -10,6 +15,48 @@
   };
 
   services.poweralertd.enable = true;
+
+  programs.swaylock = {
+    enable = true;
+    package = pkgs.swaylock-effects;
+
+    settings = {
+      ignore-empty-password = false;
+      show-failed-attempts = true;
+
+      screenshots = true;
+      clock = true;
+
+      effect-blur = "20x3";
+      indicator-radius = "200";
+
+      line-color = "ffffff22";
+      line-clear-color = "00000000";
+      line-caps-lock-color = "00000000";
+      line-ver-color = "00000000";
+      line-wrong-color = "00000000";
+      inside-color = "dcdccc55";
+      ring-color = "dcdcdc55";
+      ring-ver-color = "33445555";
+      key-hl-color = "FFFFFF66";
+      separator-color = "00000000";
+      layout-bg-color = "00000000";
+      layout-border-color = "00000000";
+      inside-ver-color = "ffffff22";
+      font-size = "24";
+      text-color = "FFFFFFFF";
+      text-clear-color = "FFFFFFFF";
+      text-caps-lock-color = "FFFFFFFF";
+      text-ver-color = "FFFFFFFF";
+      text-wrong-color = "FFFFFFFF";
+    };
+  };
+
+  services.swayidle = {
+    enable = true;
+
+    events = lib.genAttrs [ "before-sleep" "lock" ] (_: "${pkgs.swaylock-effects}/bin/swaylock");
+  };
 
   qt = {
     enable = true;
