@@ -19,7 +19,7 @@
 - [ ] Apropos, check for Nicotine++
 - [x] Fish functions
 - [ ] Nushell switch?
-- [ ] Mime config for Desktop and whatever
+- [x] Mime config for Desktop and whatever
 - [x] Sort through programs in hm.nix
 - [ ] Make Firefox declarative
 - [ ] Switch to Floorp?
