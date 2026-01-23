@@ -10,11 +10,11 @@
 ## User (HM)
 
 - [ ] Improve Niri config
-  - [ ] Lock
-  - [ ] Swayidle
+  - [x] Lock
+  - [x] Swayidle
+  - [ ] Volume keys
 - [ ] Check waybar
-- [ ] Rip apart Hyprland config
-- [ ] Config more hotkeys for Niri
+- [x] Rip apart Hyprland config
 - [ ] Remember to setup infra for local music browsing
 - [ ] Apropos, check for Nicotine++
 - [x] Fish functions
