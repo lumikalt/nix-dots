@@ -9,12 +9,15 @@
 
 ## User (HM)
 
+- [ ] Improve Niri config
+  - [ ] Lock
+  - [ ] Swayidle
 - [ ] Check waybar
 - [ ] Rip apart Hyprland config
 - [ ] Config more hotkeys for Niri
 - [ ] Remember to setup infra for local music browsing
 - [ ] Apropos, check for Nicotine++
-- [ ] Fish functions
+- [x] Fish functions
 - [ ] Nushell switch?
 - [ ] Mime config for Desktop and whatever
 - [x] Sort through programs in hm.nix

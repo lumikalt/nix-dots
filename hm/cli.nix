@@ -9,14 +9,30 @@
       fish_vi_key_bindings
     '';
 
-    plugins = with pkgs.fishPlugins; [
-      puffer # ... -> ../..
-      grc # colorize ll, etc.
-      done # notification when program finishes with status
-      colored-man-pages # self-explanatory
-      autopair # self-explanatory
-      fish-you-should-use # reminder for aliases
-    ];
+    plugins =
+      let
+        names = [
+          "puffer"
+          "pisces"
+          "grc"
+          "done"
+          "colored-man-pages"
+          "fish-you-should-use"
+        ];
+      in
+      map (name: {
+        inherit name;
+        src = pkgs.fishPlugins.${name}.src;
+      }) names;
+
+    # plugins = with pkgs.fishPlugins; [
+    #   puffer # ... -> ../..
+    #   grc # colorize ll, etc.
+    #   done # notification when program finishes with status
+    #   colored-man-pages # self-explanatory
+    #   autopair # self-explanatory
+    #   fish-you-should-use # reminder for aliases
+    # ];
 
     shellAliases = {
       tarnow = "tar -acf";
