@@ -14,7 +14,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    gitFull
     fish
     nushell
     nixVersions.latest

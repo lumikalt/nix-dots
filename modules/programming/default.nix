@@ -2,6 +2,7 @@
 {
   imports = [
     ./helix.nix
+    ./git.nix
   ];
 
   home-manager.users.lumi.home.packages = with pkgs; [
