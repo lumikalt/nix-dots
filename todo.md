@@ -29,3 +29,6 @@
 - [ ] Make VSCode declarative
 - [ ] Check if all the stuff installed is necessary, and for duplicates
 - [ ] Merge HM and NixOS modules
+- [x] Simplify adding extra users
+- [ ] Simplify adding extra machines
+- [x] Improve helix config

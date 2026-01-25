@@ -1,9 +1,12 @@
 {
   programs.helix = {
     enable = true;
+
     defaultEditor = true;
+
     settings = {
       editor = {
+        # LSP stuff
         lsp = {
           enable = true;
           display-messages = true;
@@ -11,30 +14,45 @@
           snippets = true;
         };
         auto-completion = true;
-        auto-format = true;
         completion-replace = true;
+        inline-diagnostics.cursor-line = "hint";
 
+        # Cursor and look
         cursor-shape = {
           insert = "bar";
           select = "underline";
         };
-        mouse = true;
+        mouse = true; # set this to false to actually learn
+        middle-click-paste = false;
         indent-guides.render = true;
         cursorline = false;
         color-modes = true;
         line-number = "relative";
+        soft-wrap.enable = true;
         bufferline = "multiple";
         true-color = true;
+        whitespace.render = "all";
+        insert-final-newline = true;
+        trim-trailing-whitespace = true;
+        trim-final-newqlines = true;
 
+        # File management
+        auto-format = true;
+        auto-save.after-delay.enable = true;
+        file-picker = {
+          hidden = false;
+        };
+
+        # Misc
         shell = [
           "fish"
           "-c"
         ];
-
         statusline = {
           center = [ "version-control" ];
         };
       };
+
       keys.normal = {
         space.space = "file_picker";
         esc = [
@@ -42,6 +60,24 @@
           "keep_primary_selection"
         ];
       };
+    };
+
+    languages = {
+      language = [
+        {
+          name = "rust";
+
+          # remove ', add <>
+          auto-pairs = {
+            "(" = ")";
+            "{" = "}";
+            "[" = "]";
+            "\"" = "\"";
+            "`" = "`";
+            "<" = ">";
+          };
+        }
+      ];
     };
   };
 }
