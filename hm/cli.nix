@@ -69,6 +69,13 @@
           cd $dir
         '';
       };
+
+      nix-where = {
+        argumentNames = [ "exe" ];
+        body = ''
+          nix path-info -r $(which $exe)
+        '';
+      };
     };
   };
 
