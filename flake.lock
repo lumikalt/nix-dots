@@ -41,26 +41,6 @@
         "type": "github"
       }
     },
-    "hyprland-contrib": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1768426687,
-        "narHash": "sha256-CopNx3j//gZ2mE0ggEK9dZ474UcbDhpTw+KMor8mSxI=",
-        "owner": "hyprwm",
-        "repo": "contrib",
-        "rev": "541628cebe42792ddf5063c4abd6402c2f1bd68f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hyprwm",
-        "repo": "contrib",
-        "type": "github"
-      }
-    },
     "niri": {
       "inputs": {
         "niri-stable": "niri-stable",
@@ -279,14 +259,14 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "hyprland-contrib": "hyprland-contrib",
         "niri": "niri",
         "nix-index-database": "nix-index-database",
         "nix-ld": "nix-ld",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs_2",
         "nur": "nur",
-        "rust-overlay": "rust-overlay"
+        "rust-overlay": "rust-overlay",
+        "sops-nix": "sops-nix"
       }
     },
     "rust-overlay": {
@@ -304,6 +284,26 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1769314333,
+        "narHash": "sha256-+Uvq9h2eGsbhacXpuS7irYO7fFlz514nrhPCSTkASlw=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "2eb9eed7ef48908e0f02985919f7eb9d33fa758f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
         "type": "github"
       }
     },
