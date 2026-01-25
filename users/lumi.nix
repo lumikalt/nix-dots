@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  imports = [ ./../modules ];
+  
   users.users.lumi = {
     extraGroups = [
       "wheel"

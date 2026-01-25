@@ -1,7 +1,6 @@
 {
   imports = [
     ./rice
-    ./programming
 
     ./aria.nix
     ./browsers.nix

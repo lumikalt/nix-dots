@@ -34,7 +34,7 @@
         whitespace.render = "all";
         insert-final-newline = true;
         trim-trailing-whitespace = true;
-        trim-final-newqlines = true;
+        trim-final-newlines = true;
 
         # File management
         auto-format = true;
