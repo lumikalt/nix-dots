@@ -4,6 +4,9 @@
 
 - [ ] Check all the boot things
 - [ ] Config formatter
+- [ ] NUR necessary?
+- [ ] Check for extra useful inputs
+- [ ] More fonts
 
 ## User (nixOS)
 
@@ -25,3 +28,4 @@
 - [ ] Switch to Floorp?
 - [ ] Make VSCode declarative
 - [ ] Check if all the stuff installed is necessary, and for duplicates
+- [ ] Merge HM and NixOS modules

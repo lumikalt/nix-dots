@@ -21,8 +21,6 @@
 
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
-    # spicetify-nix.url = "github:the-argus/spicetify-nix";
-
     rust-overlay.url = "github:oxalica/rust-overlay";
 
     niri = {
@@ -45,7 +43,6 @@
       nur,
       nix-index-database,
       nix-vscode-extensions,
-      # spicetify-nix,
       rust-overlay,
       niri,
       nix-ld,
@@ -70,7 +67,15 @@
 
           ./system.nix
 
-          ./user.nix
+          ./users.nix
+
+          {
+            time.timeZone = "Europe/Lisbon";
+            # Fix for Windows time.
+            time.hardwareClockInLocalTime = true;
+            i18n.defaultLocale = "en_GB.UTF-8";
+            console.keyMap = "pt-latin1";
+          }
 
           (
             { pkgs, ... }:
@@ -87,11 +92,7 @@
                 wl-clipboard
               ];
 
-              programs.niri = {
-                enable = true;
-                package = pkgs.niri-unstable;
-              };
-              programs.nix-ld.dev.enable = true;
+
             }
           )
 
@@ -105,14 +106,13 @@
 
               useUserPackages = true;
 
-              users.lumi =
-                {
-                  imports = [
-                    nix-index-database.homeModules.default
+              users.lumi = {
+                imports = [
+                  nix-index-database.homeModules.default
 
-                    ./hm.nix
-                  ];
-                };
+                  ./hm.nix
+                ];
+              };
             };
           }
         ];

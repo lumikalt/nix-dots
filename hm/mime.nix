@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, config, ... }:
 {
   programs = {
     gpg.enable = true;
@@ -22,7 +22,7 @@
   xdg = {
     enable = true;
 
-    cacheHome = "$HOME/.local/cache";
+    cacheHome = config.home.homeDirectory + "/.local/cache";
 
     userDirs = {
       enable = true;
