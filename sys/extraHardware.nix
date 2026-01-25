@@ -1,8 +1,5 @@
 { pkgs, ... }:
 {
-  # Just cause.
-  hardware.enableAllFirmware = true;
-
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [

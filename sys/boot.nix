@@ -3,6 +3,8 @@
   boot = {
     loader = {
       systemd-boot.enable = true;
+      systemd-boot.configurationLimit = 5;
+
       efi.canTouchEfiVariables = true;
       timeout = 30;
     };
@@ -36,10 +38,10 @@
       # packets received from all interfaces. This can mitigate IP spoofing.
       "net.ipv4.conf.default.rp_filter" = 1;
       "net.ipv4.conf.all.rp_filter" = 1;
-      # Do not accept IP source route packets (we're not a router)
+      # Do not accept IP source route packets (not a router)
       "net.ipv4.conf.all.accept_source_route" = 0;
       "net.ipv6.conf.all.accept_source_route" = 0;
-      # Don't send ICMP redirects (again, we're on a router)
+      # Don't send ICMP redirects (not a router)
       "net.ipv4.conf.all.send_redirects" = 0;
       "net.ipv4.conf.default.send_redirects" = 0;
       # Refuse ICMP redirects (MITM mitigations)
