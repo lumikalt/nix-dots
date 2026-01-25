@@ -3,7 +3,9 @@ let
   users = [ "lumi" ];
 in
 {
-  imports = map (name: import ./users/${name}.nix { inherit name; }) users;
+  imports = map (
+    name: { pkgs, ... }@args: (import ./users/${name}.nix (args // { inherit name; }))
+  ) users;
 
   users.users = lib.genAttrs users (name: {
     description = name;
