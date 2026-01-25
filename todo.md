@@ -7,6 +7,7 @@
 - [ ] NUR necessary?
 - [ ] Check for extra useful inputs
 - [ ] More fonts
+- [ ] Fingerprint sensor
 
 ## User (nixOS)
 

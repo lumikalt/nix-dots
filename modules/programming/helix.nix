@@ -1,5 +1,5 @@
 {
-  programs.helix = {
+  home-manager.users.lumi.programs.helix = {
     enable = true;
 
     defaultEditor = true;
@@ -79,5 +79,6 @@
         }
       ];
     };
+
   };
 }
