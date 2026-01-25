@@ -7,10 +7,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland-contrib = {
-      url = "github:hyprwm/contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+
+    sops-nix.url = "github:Mic92/sops-nix";
 
     nur.url = "github:nix-community/NUR";
 
@@ -39,7 +37,7 @@
       self,
       nixpkgs,
       home-manager,
-      hyprland-contrib,
+      sops-nix,
       nur,
       nix-index-database,
       nix-vscode-extensions,
@@ -64,6 +62,7 @@
           nur.modules.nixos.default
           niri.nixosModules.niri
           nix-ld.nixosModules.nix-ld
+          sops-nix.nixosModules.sops
 
           ./system.nix
 
