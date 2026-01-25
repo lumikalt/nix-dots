@@ -47,7 +47,8 @@
         input = {
           touchpad.enable = false;
 
-          focus-follows-mouse.max-scroll-amount = "10%";
+          focus-follows-mouse.enable = true;
+          focus-follows-mouse.max-scroll-amount = "100%";
 
           keyboard = {
             xkb = {
@@ -65,8 +66,6 @@
 
         layout = {
           always-center-single-column = true;
-          empty-workspace-above-first = true;
-
           gaps = 5;
           border.width = 2;
         };
