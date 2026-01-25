@@ -37,6 +37,8 @@
     enable = true;
     package = pkgs.niri-unstable;
   };
+  niri-flake.cache.enable = true;
+  
   programs.nix-ld.dev.enable = true;
 
   home-manager.users.lumi = {

@@ -114,7 +114,7 @@
         }
         // lib.genAttrs [ "Super_L" "Mod+L" ] (_: {
           action.spawn = [
-            "${pkgs.systemd}/bin/loginctl"
+            loginctl
             "lock-session"
           ];
         })
