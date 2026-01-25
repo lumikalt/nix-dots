@@ -6,6 +6,7 @@
     in
     {
       age.keyFile = "${home}/.config/sops/age/keys.txt";
+      defaultSopsFile = ../secrets/ssh.yaml;
 
       secrets."ssh/github/private_key" = {
         owner = "lumi";
@@ -21,13 +22,11 @@
     services.ssh-agent.enable = true;
     programs.ssh = {
       enable = true;
+      enableDefaultConfig = false;
 
-      matchBlocks."github.com" = {
-        user = "git";
+      matchBlocks."*" = {
+        user = "lumi";
         identityFile = "~/.ssh/id_ed25519";
-        identitiesOnly = true;
-        hostname = "ssh.github.com";
-        port = 443;
       };
 
       extraConfig = ''
