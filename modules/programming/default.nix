@@ -1,22 +1,26 @@
 { pkgs, ... }:
 {
   imports = [
-    ./helix.nix
+    ./emacs.nix
     ./git.nix
+    ./helix.nix
+    ./vscode.nix
   ];
 
-  home-manager.users.lumi.home.packages = with pkgs; [
-    tree-sitter
+  home-manager.users.lumi = {
+    home.packages = with pkgs; [
+      tree-sitter
 
-    # LaTeX
-    tetex
-    texlab
+      # LaTeX
+      tetex
+      texlab
 
-    # Nix
-    nil
-    statix
+      # Nix
+      nil
+      statix
 
-    # RISC-V
-    ripes
-  ];
+      # RISC-V
+      ripes
+    ];
+  };
 }
