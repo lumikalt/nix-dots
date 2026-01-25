@@ -111,6 +111,11 @@
             show-pointer = false;
           };
 
+          "Mod+C".action.spawn-sh = ''
+            ${lib.getExe pkgs.hyprpicker} -ar &&
+            ${pkgs.libnotify}/bin/notify-send -t 4000
+              (${pkgs.wl-clipboard}/bin/wl-paste)
+          '';
         }
         // lib.genAttrs [ "Super_L" "Mod+L" ] (_: {
           action.spawn = [
