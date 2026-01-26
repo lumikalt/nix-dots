@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     gitFull
@@ -28,12 +28,13 @@
 
     programs.gh.enable = true;
 
-    programs.ssh.matchBlocks."github.com" = {
+    programs.ssh.matchBlocks = lib.genAttrs [ "github.com" "ssh.github.com" ] (_: {
       user = "git";
       identityFile = "~/.ssh/id_ed25519";
       identitiesOnly = true;
+
       hostname = "ssh.github.com";
       port = 443;
-    };
+    });
   };
 }
