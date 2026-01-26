@@ -12,9 +12,6 @@
 
     package = pkgs.steam.override {
       extraEnv = {
-        MANGOHUD = true;
-        OBS_VKCAPTURE = true;
-        RADV_TEX_ANISO = 16;
         SDL_VIDEODRIVER = "wayland,x11";
       };
 
@@ -26,4 +23,6 @@
         ];
     };
   };
+
+  environment.systemPackages = [ pkgs.wineWowPackages.staging ];
 }
