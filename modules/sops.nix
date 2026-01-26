@@ -14,6 +14,7 @@
           mode = "0600";
           path = "${home}/.ssh/id_ed25519";
         };
+
         "vpn/tecnico/auth" = {
           owner = "lumi";
           mode = "0600";
