@@ -10,10 +10,8 @@
 
       secrets."ssh/github/private_key" = {
         owner = "lumi";
-        group = "users";
         mode = "0600";
         path = "${home}/.ssh/id_ed25519";
-        neededForUsers = true;
       };
     };
 
