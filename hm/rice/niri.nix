@@ -48,7 +48,7 @@
           touchpad.enable = false;
 
           focus-follows-mouse.enable = true;
-          focus-follows-mouse.max-scroll-amount = "100%";
+          focus-follows-mouse.max-scroll-amount = "50%";
 
           keyboard = {
             xkb = {
