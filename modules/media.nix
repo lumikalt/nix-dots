@@ -1,6 +1,22 @@
 { pkgs, ... }:
 {
   home-manager.users.lumi = {
+    services.syncthing = {
+      enable = true;
+
+      settings = {
+        devices = {
+          "a56".id = "5EVOQTR-QTGO4WF-FWRRLD6-ECPZW3C-HVOQFHM-WRWUVAW-CLLRXI3-N25KXQA";
+        };
+        folders = {
+          "music" = {
+            path = "~/music";
+            id = "75emw-tgjnp";
+          };
+        };
+      };
+    };
+
     programs.ncmpcpp.enable = true;
     programs.mpv.enable = true;
 
