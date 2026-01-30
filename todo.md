@@ -4,8 +4,7 @@
 
 - [ ] Check all the boot things
 - [ ] Config formatter
-- [ ] NUR necessary?
-- [ ] Check for extra useful inputs
+- [ ] Check for extra useful flake inputs
 - [ ] More fonts
 - [ ] Fingerprint sensor
 
@@ -17,10 +16,11 @@
   - [x] Lock
   - [x] Swayidle
   - [ ] Volume keys
+- [ ] Stylix
 - [ ] Check waybar
 - [x] Rip apart Hyprland config
 - [ ] Remember to setup infra for local music browsing
-- [ ] Apropos, check for Nicotine++
+- [x] Apropos, check for Nicotine+
 - [x] Fish functions
 - [ ] Nushell switch?
 - [x] Mime config for Desktop and whatever
@@ -33,3 +33,7 @@
 - [x] Simplify adding extra users
 - [ ] Simplify adding extra machines
 - [x] Improve helix config
+
+## Misc
+
+- [ ] Open port 2234 (Nicotine+)
