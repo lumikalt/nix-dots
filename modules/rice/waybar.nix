@@ -1,5 +1,5 @@
 {
-  programs.waybar = {
+  home-manager.users.lumi.programs.waybar = {
     enable = true;
     systemd = {
       enable = true;
@@ -14,24 +14,13 @@
         passtrough = false;
         gtk-layer-shell = true;
 
-        modules-left = [
-          "wlr/workspaces"
-        ];
+        modules-left = [ ];
         modules-center = [ ];
         modules-right = [
           "tray"
           "clock"
           "battery"
         ];
-
-        "wlr/workspces" = {
-          format = "{icon}";
-          on-click = "activate";
-          format-icons = {
-            default = "";
-            active = "";
-          };
-        };
 
         battery = {
           states = {
@@ -66,7 +55,6 @@
 
         clock = {
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-          format-alt = "{:%d\n%m\n%y}";
           format = "{:%H\n%M}";
         };
       }
@@ -124,7 +112,7 @@
       }
 
       #clock {
-        /* color: @lavender; */
+       color: lavender;
       }
 
       #battery {
@@ -132,7 +120,7 @@
       }
 
       #battery.charging {
-        /* color: @green; */
+        color: green;
       }
 
       #battery.warning:not(.charging) {

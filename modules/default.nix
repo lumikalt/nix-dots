@@ -4,11 +4,15 @@
     ./programming
     ./rice
 
-    ./aria.nix
     ./browsers.nix
     ./chatting.nix
+    ./env.nix
+    ./gaming.nix
+    ./media.nix
     ./mime.nix
-    ./services.nix
+    ./sops.nix
     ./terminal.nix
+    ./vpn.nix
+    ./work.nix
   ];
 }

@@ -101,18 +101,8 @@
             home-manager = {
               extraSpecialArgs = { inherit inputs wallpaper; };
               sharedModules = [ nur.modules.homeManager.default ];
-
               backupFileExtension = "backup";
-
               useUserPackages = true;
-
-              users.lumi = {
-                imports = [
-                  nix-index-database.homeModules.default
-
-                  ./hm.nix
-                ];
-              };
             };
           }
         ];

@@ -10,39 +10,15 @@
       "networkmanager"
       "power"
       "nix"
-      "adbusers"
     ];
-    shell = pkgs.fish;
   };
 
-  environment.systemPackages = with pkgs; [
-    fish
-    nushell
-    nixVersions.latest
-    helix
-    seahorse
-    wlr-randr
-    displaylink
-    traceroute
-  ];
-
-  programs.light.enable = true;
-
-  programs.fish.enable = true;
-
-  programs.nix-index.enable = true;
-
-  programs.command-not-found.enable = false;
-
-  programs.niri = {
-    enable = true;
-    package = pkgs.niri-unstable;
-  };
-  niri-flake.cache.enable = true;
-
-  programs.nix-ld.dev.enable = true;
+  environment.systemPackages = [ pkgs.nixVersions.latest ];
 
   home-manager.users.lumi = {
-
+    home.username = "lumi";
+    home.stateVersion = "26.05";
+    fonts.fontconfig.enable = true;
+    nixpkgs.config.allowUnfree = true;
   };
 }

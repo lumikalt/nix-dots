@@ -67,9 +67,6 @@
     atd.enable = true;
     fstrim.enable = true;
 
-    # Bluetooth
-    blueman.enable = true;
-
     gnome.gnome-keyring.enable = true;
   };
 }

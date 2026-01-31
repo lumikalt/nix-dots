@@ -1,4 +1,7 @@
+{ pkgs, ... }:
 {
+  environment.systemPackages = [ pkgs.helix ];
+
   home-manager.users.lumi.programs.helix = {
     enable = true;
 
