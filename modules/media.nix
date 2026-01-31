@@ -12,6 +12,7 @@
           "music" = {
             path = "~/music";
             id = "75emw-tgjnp";
+            devices = [ "a56" ];
           };
         };
       };
