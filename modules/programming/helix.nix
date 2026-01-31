@@ -62,6 +62,7 @@
           "collapse_selection"
           "keep_primary_selection"
         ];
+        space.l = ":toggle lsp.display-inlay-hints";
       };
     };
 

@@ -9,42 +9,40 @@
 
   environment.systemPackages = [ pkgs.gcc ];
 
-  home-manager.users.lumi =
-    { pkgs, ... }:
-    {
-      home.packages = with pkgs; [
-        tree-sitter
-        vscode-langservers-extracted
+  home-manager.users.lumi = {
+    home.packages = with pkgs; [
+      tree-sitter
+      vscode-langservers-extracted
 
-        # C
-        gcc
+      # C
+      gcc
 
-        # JavaScript/TypeScript
-        astro-language-server
-        typescript-language-server
+      # JavaScript/TypeScript
+      astro-language-server
+      typescript-language-server
 
-        # Koka
-        koka
+      # Koka
+      koka
 
-        # LaTeX
-        tetex
-        texlab
+      # LaTeX
+      tetex
+      texlab
 
-        # LLVM
-        lldb_22
+      # LLVM
+      lldb
 
-        # Markdown
-        markdown-oxide
+      # Markdown
+      markdown-oxide
 
-        # Nix
-        nil
-        statix
+      # Nix
+      nil
+      statix
 
-        # RISC-V
-        ripes
+      # RISC-V
+      ripes
 
-        # Rust
-        rust-bin.beta.latest.default
-      ];
-    };
+      # Rust
+      rust-bin.beta.latest.default
+    ];
+  };
 }
