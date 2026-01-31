@@ -1,12 +1,14 @@
 {
   imports = [
+    ./cli
     ./programming
+    ./rice
 
-    ./env.nix
-    ./gaming.nix
-    ./media.nix
-    ./sops.nix
-    ./vpn.nix
-    ./work.nix
+    ./aria.nix
+    ./browsers.nix
+    ./chatting.nix
+    ./mime.nix
+    ./services.nix
+    ./terminal.nix
   ];
 }
