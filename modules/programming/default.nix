@@ -7,20 +7,44 @@
     ./vscode.nix
   ];
 
-  home-manager.users.lumi = {
-    home.packages = with pkgs; [
-      tree-sitter
+  environment.systemPackages = [ pkgs.gcc ];
 
-      # LaTeX
-      tetex
-      texlab
+  home-manager.users.lumi =
+    { pkgs, ... }:
+    {
+      home.packages = with pkgs; [
+        tree-sitter
+        vscode-langservers-extracted
 
-      # Nix
-      nil
-      statix
+        # C
+        gcc
 
-      # RISC-V
-      ripes
-    ];
-  };
+        # JavaScript/TypeScript
+        astro-language-server
+        typescript-language-server
+
+        # Koka
+        koka
+
+        # LaTeX
+        tetex
+        texlab
+
+        # LLVM
+        lldb_22
+
+        # Markdown
+        markdown-oxide
+
+        # Nix
+        nil
+        statix
+
+        # RISC-V
+        ripes
+
+        # Rust
+        rust-bin.beta.latest.default
+      ];
+    };
 }

@@ -88,8 +88,6 @@
               ];
 
               environment.systemPackages = with pkgs; [
-                rust-bin.beta.latest.default
-                gcc
                 xwayland-satellite
                 wl-clipboard
               ];
