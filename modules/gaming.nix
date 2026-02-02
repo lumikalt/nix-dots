@@ -17,7 +17,6 @@
 
       extraPkgs =
         pkgs: with pkgs; [
-          bumblebee
           mesa-demos
           jdk
         ];
