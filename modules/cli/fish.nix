@@ -17,12 +17,12 @@
       plugins =
         let
           names = [
-            "puffer"
-            "pisces"
-            "grc"
-            "done"
-            "colored-man-pages"
-            "fish-you-should-use"
+            "puffer" # ... -> ../..
+            "grc" # colorize ll, etc.
+            "done" # notification when program finishes with status
+            "colored-man-pages" # self-explanatory
+            "autopair" # self-explanatory
+            "fish-you-should-use" # reminder for aliases
           ];
         in
         map (name: {
