@@ -31,7 +31,7 @@
 
   zramSwap.enable = true;
 
-  system.stateVersion = "25.11";
+  system.stateVersion = "26.05";
 
   # programs.adb.enable = true;
 
