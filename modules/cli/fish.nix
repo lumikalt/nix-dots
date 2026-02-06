@@ -19,7 +19,7 @@
           names = [
             "puffer" # ... -> ../..
             "grc" # colorize ll, etc.
-            "done" # notification when program finishes with status
+            "done" # notification with exit status
             "colored-man-pages" # self-explanatory
             "autopair" # self-explanatory
             "fish-you-should-use" # reminder for aliases
