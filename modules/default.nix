@@ -8,6 +8,7 @@
     ./chatting.nix
     ./env.nix
     ./gaming.nix
+    ./language.nix
     ./media.nix
     ./mime.nix
     ./sops.nix
