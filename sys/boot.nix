@@ -23,7 +23,10 @@
       "loglevel=3"
       "quiet"
     ];
-    kernelModules = [ "tcp_bbr" ];
+    kernelModules = [
+      "tcp_bbr"
+      "v4l2loopback"
+    ];
 
     kernel.sysctl = {
       # The Magic SysRq key is a key combo that allows users connected to the
