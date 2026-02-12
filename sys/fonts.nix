@@ -10,6 +10,10 @@
       nerd-fonts.jetbrains-mono
       material-icons
       emacs-all-the-icons-fonts
+      carlito
+      ipafont
+      kochi-substitute
+      ttf_bitstream_vera
     ];
 
     enableDefaultPackages = true;
@@ -18,16 +22,19 @@
       defaultFonts = {
         monospace = [
           "JetBrainsMono Nerd Font"
+          "IPAGothic"
           "Material Icon"
           "FontAwesome"
           "all-the-icons"
         ];
         sansSerif = [
           "Noto Sans"
+          "IPAPGothic"
           "Unifont"
         ];
         serif = [
           "Noto Sans"
+          "IPAPMincho"
           "Unifont"
         ];
         emoji = [
