@@ -1,7 +1,8 @@
 { pkgs, ... }:
 {
   imports = [
-    ./emacs.nix
+    ./emacs
+
     ./git.nix
     ./helix.nix
     ./vscode.nix
