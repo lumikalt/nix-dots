@@ -5,6 +5,7 @@
       revolt-desktop # stoat isn't named correctly
       signal-desktop
       wasistlos # whatsapp
+      gajim # xmpp
     ];
 
     programs.vesktop = {
