@@ -9,10 +9,18 @@
     };
 
     home.file = {
-      ".doom.d/config.el".source = ./configs/emacs/config.el;
-      ".doom.d/init.el".source = ./configs/emacs/init.el;
-      ".doom.d/packages.el".source = ./configs/emacs/packages.el;
+      ".doom.d/config.el".source = ./config.el;
+      ".doom.d/init.el".source = ./init.el;
+      ".doom.d/packages.el".source = ./packages.el;
     };
+
+    home.packages = with pkgs; [
+      nerd-fonts.symbols-only
+    ];
   };
 }
-# Run once: ~/.config/emacs/bin/doom env
+
+## For Doom:
+# git clone https://github.com/doomemacs/doomemacs ~/.config/emacs
+# ~/.config/emacs/bin/doom install
+# ~/.config/emacs/bin/doom env

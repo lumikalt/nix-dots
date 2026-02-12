@@ -17,6 +17,9 @@
 
       # C
       gcc
+      gnumake
+      cmake
+      clang-tools
 
       # JavaScript/TypeScript
       astro-language-server
@@ -44,6 +47,10 @@
 
       # Rust
       rust-bin.beta.latest.default
+
+      # Zig
+      zig
+      zls
     ];
   };
 }
