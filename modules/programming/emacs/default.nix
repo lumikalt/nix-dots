@@ -16,6 +16,10 @@
 
     home.packages = with pkgs; [
       nerd-fonts.symbols-only
+      graphviz
+      ltex-ls
+      ltex-ls-plus
+      vale
     ];
   };
 }

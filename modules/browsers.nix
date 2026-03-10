@@ -5,6 +5,7 @@
       tor-browser
       w3m
       speechd # TTS
+      bitwarden-desktop # club logins
     ];
 
     programs.firefox = {

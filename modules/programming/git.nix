@@ -15,7 +15,7 @@
           email = "lumi.mia.kalt@gmail.com";
         };
 
-        init.defaultBranch = "main";
+        init.defaultBranch = "trunk";
 
         push.autoSetupRemote = true;
       };

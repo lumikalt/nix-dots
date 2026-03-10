@@ -127,3 +127,23 @@
         org-roam-ui-follow t
         org-roam-ui-update-on-save t
         org-roam-ui-open-on-start t))
+
+(after! org-roam
+  ;; Only sync when an org-roam file is saved (much faster than global hooks)
+  (defun lumi/org-roam-sync-on-save ()
+    (when (and (boundp 'org-roam-directory)
+               (string-prefix-p
+                (expand-file-name org-roam-directory)
+                (file-name-directory (or buffer-file-name ""))))
+      (org-roam-db-sync)))
+
+  (add-hook 'after-save-hook #'lumi/org-roam-sync-on-save))
+
+(setq ispell-program-name "aspell"
+      ispell-dictionary "en_US")
+
+(after! lsp-mode
+  (setq lsp-ltex-language "en-US"
+        lsp-ltex-enabled-grammars '("org" "latex" "markdown")
+        lsp-ltex-dictionary
+        (make-hash-table :test 'equal)))
