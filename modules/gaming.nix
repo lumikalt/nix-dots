@@ -23,5 +23,5 @@
     };
   };
 
-  environment.systemPackages = [ pkgs.wineWowPackages.staging ];
+  environment.systemPackages = [ pkgs.wineWow64Packages.staging ];
 }

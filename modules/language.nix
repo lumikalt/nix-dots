@@ -13,8 +13,8 @@
 
   # Should be automatic, but let's be explicit
   environment.sessionVariables = {
-    GTK_IM_MODULE = "fcitx";
-    QT_IM_MODULE = "fcitx";
+    # GTK_IM_MODULE = "fcitx";
+    # QT_IM_MODULE = "fcitx";
     XMODIFIERS = "@im=fcitx";
   };
 

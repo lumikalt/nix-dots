@@ -4,8 +4,6 @@
   ...
 }:
 {
-  programs.light.enable = true;
-
   home-manager.users.lumi = {
     services.mako = {
       enable = true;
