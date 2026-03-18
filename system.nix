@@ -22,7 +22,7 @@
     };
 
     gc = {
-      automatic = true;
+      # automatic = true;
       dates = "weekly";
       randomizedDelaySec = "10m";
       options = "--delete-older-than 7d";

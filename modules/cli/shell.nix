@@ -2,6 +2,13 @@
   programs.nix-index.enable = true;
   programs.command-not-found.enable = false;
 
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/lumi/flake";
+  };
+
   home-manager.users.lumi =
     { inputs, pkgs, ... }:
     {
