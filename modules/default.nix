@@ -13,6 +13,7 @@
     ./mime.nix
     ./sops.nix
     ./terminal.nix
+    ./virt.nix
     ./vpn.nix
     ./work.nix
   ];
