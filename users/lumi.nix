@@ -10,6 +10,7 @@
       "networkmanager"
       "power"
       "nix"
+      "docker"
     ];
   };
 

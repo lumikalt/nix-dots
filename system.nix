@@ -33,7 +33,6 @@
 
   system.stateVersion = "26.05";
 
-  # programs.adb.enable = true;
-
   nixpkgs.config.allowUnfree = true;
+
 }
