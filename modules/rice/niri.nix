@@ -30,6 +30,8 @@
               QT_QPA_PLATFORM = "wayland"; # optional: force QT apps to always use wayland
             };
 
+            xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
+
             spawn-at-startup = [
               { command = [ "xwayland-satellite" ]; }
               {
