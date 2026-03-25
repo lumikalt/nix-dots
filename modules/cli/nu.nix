@@ -8,6 +8,6 @@
     };
 
     programs.carapace.enableNushellIntegration = true;
-    programs.eza.enableNushellIntegration = true;
+    programs.eza.enableNushellIntegration = false; # breaks ls behaviour
   };
 }
