@@ -1,11 +1,11 @@
 { pkgs, ... }:
 {
-  virtualization.docker.enable = true;
+  virtualisation.docker.enable = true;
 
-  home-manageer.users.lumi = {
+  home-manager.users.lumi = {
     home.packages = with pkgs; [
       docker
-      dockerTools
+      # dockerTools
     ];
   };
 }
