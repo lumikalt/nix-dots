@@ -64,6 +64,7 @@
       libnotify
       libsixel
       brightnessctl
+      wireplumber
       hyprpicker
       hyprpaper
       swayidle

@@ -18,6 +18,7 @@
         let
           loginctl = "${pkgs.systemd}/bin/loginctl";
           playerctl = lib.getExe pkgs.playerctl;
+          wpctl = "${pkgs.wireplumber}/bin/wpctl";
           brightnessctl = lib.getExe pkgs.brightnessctl;
         in
         {
@@ -147,6 +148,18 @@
               "XF86AudioStop".action.spawn = [
                 playerctl
                 "stop"
+              ];
+              "XF86AudioRaiseVolume".action.spawn = [
+                wireplumber
+                "set-volume"
+                "@DEFAULT_AUDIO_SINK@"
+                "5%+"
+              ];
+              "XF86AudioLowerVolume".action.spawn = [
+                wireplumber
+                "set-volume"
+                "@DEFAULT_AUDIO_SINK@"
+                "5%-"
               ];
               "XF86MonBrightnessUp".action.spawn = [
                 brightnessctl
