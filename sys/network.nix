@@ -7,13 +7,16 @@
       wifi.macAddress = "random";
     };
 
-    # Ad blocking!!
+    # blocks stuff
     stevenblack = {
       enable = true;
       block = [
         "fakenews"
         "gambling"
         "porn"
+      ];
+      whitelist = [
+        "gelbooru.com"
       ];
     };
 
