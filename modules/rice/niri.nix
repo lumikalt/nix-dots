@@ -150,13 +150,13 @@
                 "stop"
               ];
               "XF86AudioRaiseVolume".action.spawn = [
-                wireplumber
+                wpctl
                 "set-volume"
                 "@DEFAULT_AUDIO_SINK@"
                 "5%+"
               ];
               "XF86AudioLowerVolume".action.spawn = [
-                wireplumber
+                wpctl
                 "set-volume"
                 "@DEFAULT_AUDIO_SINK@"
                 "5%-"
