@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   environment.systemPackages = [ pkgs.helix ];
 
@@ -63,6 +63,12 @@
           "keep_primary_selection"
         ];
         space.l = ":toggle lsp.display-inlay-hints";
+
+        space.n = {
+          "n" = ":sh zk new --title";
+          "f" = ":sh zk list --interactive";
+          "t" = ":sh zk tag list --interactive";
+        };
       };
     };
 
@@ -81,8 +87,24 @@
             "<" = ">";
           };
         }
-      ];
-    };
+        {
+          name = "markdown";
 
+          roots = [ ".zk" ];
+          language-servers = [ "zk" ];
+          file-types = [
+            "md"
+            "markdown"
+          ];
+        }
+      ];
+
+      language-server = {
+        zk = {
+          command = lib.getExe pkgs.zk;
+          args = [ "lsp" ];
+        };
+      };
+    };
   };
 }

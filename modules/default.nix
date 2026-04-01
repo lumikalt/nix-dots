@@ -16,5 +16,6 @@
     ./virt.nix
     ./vpn.nix
     ./work.nix
+    ./writing.nix
   ];
 }
