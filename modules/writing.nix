@@ -9,7 +9,7 @@
           filename = "{{id}}-{{slug title}}";
           extension = "md";
           template = "default.md";
-          id-charset = "alphanum";
+          id-charset = "hex";
           id-length = 8;
           id-case = "lower";
         };
@@ -33,7 +33,7 @@
       ".config/zk/templates/default.md".text = ''
         # {{title}}
 
-        Created: {{date "2006-01-02"}}
+        Created: {{format-date now}}
         Tags:
 
         ---

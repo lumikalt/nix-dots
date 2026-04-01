@@ -8,6 +8,8 @@
     defaultEditor = true;
 
     settings = {
+      theme = "boo_berry";
+
       editor = {
         # LSP stuff
         lsp = {
