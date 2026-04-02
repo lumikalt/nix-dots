@@ -1,8 +1,5 @@
-{ pkgs, ... }:
 {
   home-manager.users.lumi = {
-    home.packages = with pkgs; [ warp-terminal ];
-
     programs.kitty = {
       enable = true;
       enableGitIntegration = true;
