@@ -15,7 +15,7 @@
         };
 
         extra = {
-          author = "Lumi #10032";
+          author = "10032";
         };
 
         format = {
