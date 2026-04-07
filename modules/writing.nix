@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   home-manager.users.lumi = {
     programs.zk = {
@@ -41,5 +42,11 @@
 
       '';
     };
+
+    home.packages = with pkgs; [
+      ltex-ls-plus
+      harper
+      vale
+    ];
   };
 }

@@ -89,11 +89,15 @@
             "<" = ">";
           };
         }
+
+        # Markdown - ZK, Harper-LS
         {
           name = "markdown";
-
-          roots = [ ".zk" ];
-          language-servers = [ "zk" ];
+          language-servers = [
+            "marksman"
+            "harper-ls"
+            "zk"
+          ];
           file-types = [
             "md"
             "markdown"
@@ -102,9 +106,14 @@
       ];
 
       language-server = {
+        harper-ls = {
+          command = lib.getExe pkgs.harper;
+          args = [ "--stdio" ];
+        };
         zk = {
           command = lib.getExe pkgs.zk;
           args = [ "lsp" ];
+          required-root-patterns = [ ".zk" ];
         };
       };
     };
