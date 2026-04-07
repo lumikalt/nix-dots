@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-25.11";
+    # nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-25.11";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -50,7 +50,6 @@
     {
       self,
       nixpkgs,
-      nixpkgs-stable,
       home-manager,
       sops-nix,
       nur,

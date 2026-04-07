@@ -1,4 +1,3 @@
-{ inputs, ... }:
 {
   imports = [
     ./hardware-configuration.nix # nixOS default
