@@ -1,3 +1,4 @@
+{ inputs, ... }:
 {
   imports = [
     ./hardware-configuration.nix # nixOS default
@@ -34,5 +35,4 @@
   system.stateVersion = "26.05";
 
   nixpkgs.config.allowUnfree = true;
-
 }
