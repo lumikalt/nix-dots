@@ -3,16 +3,19 @@
   wallpaper,
   ...
 }:
+let
+  enable = true;
+in
 {
   programs.niri = {
-    enable = true;
+    enable = enable;
     package = pkgs.niri-unstable;
   };
   niri-flake.cache.enable = true;
 
   home-manager.users.lumi =
     { config, lib, ... }:
-    {
+    lib.mkIf enable {
       programs.niri =
         with config.lib.niri.actions;
         let
