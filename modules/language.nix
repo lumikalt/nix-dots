@@ -11,16 +11,9 @@
     ];
   };
 
-  # Should be automatic, but let's be explicit
-  environment.sessionVariables = {
-    # GTK_IM_MODULE = "fcitx";
-    # QT_IM_MODULE = "fcitx";
-    XMODIFIERS = "@im=fcitx";
-  };
-
   home-manager.users.lumi = {
     programs.anki = {
-      enable = true;
+      # enable = true;
 
       addons = with pkgs.ankiAddons; [
         review-heatmap
