@@ -47,6 +47,7 @@
       ltex-ls-plus
       harper
       vale
+      marksman
     ];
   };
 }

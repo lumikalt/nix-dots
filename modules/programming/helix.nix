@@ -108,6 +108,7 @@
       language-server = {
         harper-ls = {
           command = lib.getExe pkgs.harper;
+          # command = "${pkgs.harper}/bin/harper-ls";
           args = [ "--stdio" ];
         };
         zk = {
