@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  # pkgs,
+  pkgs-stable,
+  ...
+}:
+
 {
   boot = {
     loader = {
@@ -10,7 +15,7 @@
     };
 
     initrd.systemd.enable = true;
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs-stable.linuxPackages;
     kernelParams = [
       "module_blacklist=nouveau"
       "cgroup_no_v1=all"

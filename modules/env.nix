@@ -3,7 +3,7 @@
   programs.thunar = {
     enable = true;
 
-    plugins = with pkgs; [
+    plugins = with pkgs; with pkgs.xfce; [
       thunar-volman
       thunar-vcs-plugin
       thunar-archive-plugin

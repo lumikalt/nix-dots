@@ -2,9 +2,9 @@
   description = "lumi";
 
   inputs = {
-    # nixpkgs.url = "github:nixos/nixpkgs/93ad15a69cbc4d05a8971733892869aefc7ca81a";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -51,6 +51,7 @@
     {
       self,
       nixpkgs,
+      nixpkgs-stable,
       home-manager,
       sops-nix,
       nur,
@@ -71,7 +72,13 @@
       nixosConfigurations."wumi" = lib.nixosSystem {
         inherit system;
 
-        specialArgs = { inherit inputs wallpaper; };
+        specialArgs = {
+          inherit inputs wallpaper;
+          pkgs-stable = import nixpkgs-stable {
+          inherit system;
+          config.allowUnfree = true;
+          };
+        };
 
         modules = [
           nur.modules.nixos.default

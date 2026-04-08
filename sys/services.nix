@@ -14,7 +14,7 @@
       wantedBy = [ "multi-user.target" ];
     };
 
-    systemd-journal-flush.enable = false;
+    # systemd-journal-flush.enable = false;
 
     # Monitor Hotswap
     kanshi = {
