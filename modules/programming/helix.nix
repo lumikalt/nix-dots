@@ -98,6 +98,14 @@
             "harper-ls"
             "zk"
           ];
+          formatter = {
+            command = "biome";
+            args = [
+              "format"
+              "--stdin-file-path"
+              "\${file}"
+            ];
+          };
           file-types = [
             "md"
             "markdown"
@@ -108,7 +116,6 @@
       language-server = {
         harper-ls = {
           command = lib.getExe pkgs.harper;
-          # command = "${pkgs.harper}/bin/harper-ls";
           args = [ "--stdio" ];
         };
         zk = {

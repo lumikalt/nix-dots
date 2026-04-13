@@ -37,6 +37,7 @@
 
       # Markdown
       markdown-oxide
+      biome
 
       # Nix
       nil
