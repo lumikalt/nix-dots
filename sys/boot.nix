@@ -1,6 +1,6 @@
 {
-  # pkgs,
-  pkgs-stable,
+  pkgs,
+  # pkgs-stable,
   ...
 }:
 
@@ -15,7 +15,7 @@
     };
 
     initrd.systemd.enable = true;
-    kernelPackages = pkgs-stable.linuxPackages;
+    kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [
       "module_blacklist=nouveau"
       "cgroup_no_v1=all"

@@ -9,7 +9,7 @@ in
 {
   programs.niri = {
     enable = enable;
-    package = pkgs.niri-stable;
+    package = pkgs.niri-unstable;
   };
   niri-flake.cache.enable = true;
 

@@ -2,9 +2,7 @@
   description = "lumi";
 
   inputs = {
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -51,7 +49,7 @@
     {
       self,
       nixpkgs,
-      nixpkgs-stable,
+      # nixpkgs-stable,
       home-manager,
       sops-nix,
       nur,
@@ -74,10 +72,10 @@
 
         specialArgs = {
           inherit inputs wallpaper;
-          pkgs-stable = import nixpkgs-stable {
-          inherit system;
-          config.allowUnfree = true;
-          };
+          # pkgs-stable = import nixpkgs-stable {
+          # inherit system;
+          # config.allowUnfree = true;
+          # };
         };
 
         modules = [
