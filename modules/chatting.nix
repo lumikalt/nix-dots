@@ -2,7 +2,7 @@
 {
   home-manager.users.lumi = {
     home.packages = with pkgs; [
-      revolt-desktop # stoat isn't named correctly
+      stoat-desktop
       signal-desktop
       wasistlos # whatsapp
       gajim # xmpp
