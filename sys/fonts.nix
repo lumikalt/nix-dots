@@ -22,7 +22,6 @@
       defaultFonts = {
         monospace = [
           "JetBrainsMono Nerd Font"
-          "IPAGothic"
           "Material Icon"
           "FontAwesome"
           "all-the-icons"
@@ -33,7 +32,8 @@
           "Unifont"
         ];
         serif = [
-          "Noto Sans"
+          "TT2020Base"
+          "Noto Serif"
           "IPAPMincho"
           "Unifont"
         ];
