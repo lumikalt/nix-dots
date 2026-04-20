@@ -13,6 +13,7 @@
       btop
       grc
       feh
+      scooter
     ];
   };
 }
