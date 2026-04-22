@@ -24,6 +24,7 @@
       # JavaScript/TypeScript
       astro-language-server
       typescript-language-server
+      prettier
 
       # Koka
       koka
