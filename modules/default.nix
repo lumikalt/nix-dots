@@ -4,6 +4,7 @@
     ./programming
     ./rice
 
+    ./ai.nix
     ./browsers.nix
     ./chatting.nix
     ./env.nix
