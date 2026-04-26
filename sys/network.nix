@@ -12,7 +12,7 @@
       enable = true;
       block = [
         "fakenews"
-        "gambling"
+        # "gambling"
         "porn"
       ];
       whitelist = [
