@@ -2,6 +2,7 @@
 {
   home-manager.users.lumi = {
     home.packages = with pkgs; [
+      brave # for chromium
       tor-browser
       w3m
       speechd # TTS
