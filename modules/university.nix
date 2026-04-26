@@ -6,7 +6,9 @@
       with pkgs.linphonePackages;
       [
         gns3-gui
+        gns3-server
         linphone-desktop
+        asterisk-stable
       ];
   };
 }
