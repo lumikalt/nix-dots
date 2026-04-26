@@ -15,9 +15,8 @@
     };
 
     initrd.systemd.enable = true;
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages;
     kernelParams = [
-      "module_blacklist=nouveau"
       "cgroup_no_v1=all"
       "systemd.unified_cgroup_hierarchy=yes"
       "console=tty1"

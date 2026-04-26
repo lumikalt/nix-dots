@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -49,7 +50,7 @@
     {
       self,
       nixpkgs,
-      # nixpkgs-stable,
+      nixpkgs-stable,
       home-manager,
       sops-nix,
       nur,
@@ -72,10 +73,10 @@
 
         specialArgs = {
           inherit inputs wallpaper;
-          # pkgs-stable = import nixpkgs-stable {
-          # inherit system;
-          # config.allowUnfree = true;
-          # };
+          pkgs-stable = import nixpkgs-stable {
+            inherit system;
+            config.allowUnfree = true;
+          };
         };
 
         modules = [
@@ -107,6 +108,10 @@
               environment.systemPackages = with pkgs; [
                 xwayland-satellite
                 wl-clipboard
+              ];
+
+              nixpkgs.config.permittedInsecurePackages = [
+                "electron-38.8.4"
               ];
             }
           )
