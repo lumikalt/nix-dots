@@ -78,6 +78,7 @@
       swaybg
       wl-clipboard
       wtype
+      bemenu
       networkmanagerapplet
 
       gruvbox-gtk-theme
