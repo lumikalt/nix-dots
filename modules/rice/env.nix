@@ -97,7 +97,7 @@
       MOZ_ENABLE_WAYLAND = "1";
       XDG_CURRENT_DESKTOP = "sway";
       QT_QPA_PLATFORM = "wayland";
-      SDL_VIDEODRIVER = "wayland";
+      # SDL_VIDEODRIVER = "wayland";
       XDG_SESSION_TYPE = "wayland";
     };
   };
