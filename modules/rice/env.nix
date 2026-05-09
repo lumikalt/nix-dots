@@ -4,6 +4,17 @@
   ...
 }:
 {
+  environment.systemPackages = with pkgs; [
+    xwayland-satellite
+    libnotify
+    libsixel
+    wireplumber
+    swayidle
+    wl-clipboard
+    wtype
+    networkmanagerapplet
+  ];
+
   home-manager.users.lumi = {
     services.mako = {
       enable = true;
@@ -61,17 +72,12 @@
     };
 
     home.packages = with pkgs; [
-      libnotify
-      libsixel
       brightnessctl
-      wireplumber
       hyprpicker
       hyprpaper
-      swayidle
       swaybg
       wl-clipboard
       wtype
-      bemenu
       networkmanagerapplet
 
       gruvbox-gtk-theme
