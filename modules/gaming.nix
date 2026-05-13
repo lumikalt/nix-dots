@@ -11,10 +11,6 @@
     localNetworkGameTransfers.openFirewall = true;
 
     package = pkgs.steam.override {
-      extraEnv = {
-        SDL_VIDEODRIVER = "wayland,x11";
-      };
-
       extraPkgs =
         pkgs: with pkgs; [
           mesa-demos

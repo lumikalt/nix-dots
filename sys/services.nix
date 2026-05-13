@@ -30,8 +30,27 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
+
+    configPackages = [ pkgs.niri-unstable ];
+    config.niri = {
+      # This does not support extending existing configs, so we have to vendor the original config.
+      # Keep in sync with https://github.com/niri-wm/niri/blob/main/resources/niri-portals.conf
+      default = [
+        "gnome"
+        "gtk"
+      ];
+      "org.freedesktop.impl.portal.Access" = [ "gtk" ];
+      "org.freedesktop.impl.portal.Notification" = [ "gtk" ];
+      "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+      # CHANGES
+      # use gtk file picker instead of nautilus (which is not installed)
+      "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
+    };
+
+    extraPortals = with pkgs; [
+      gnome-keyring
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-gnome
     ];
     config.common.default = "*";
   };
