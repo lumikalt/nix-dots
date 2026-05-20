@@ -48,6 +48,7 @@
       harper
       vale
       marksman
+      siyuan
     ];
   };
 }

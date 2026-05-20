@@ -1,9 +1,4 @@
-{
-  pkgs,
-  # pkgs-stable,
-  ...
-}:
-
+{ pkgs, config, ... }:
 {
   boot = {
     loader = {
@@ -15,7 +10,9 @@
     };
 
     initrd.systemd.enable = true;
+
     kernelPackages = pkgs.linuxPackages;
+
     kernelParams = [
       "cgroup_no_v1=all"
       "systemd.unified_cgroup_hierarchy=yes"
@@ -30,6 +27,7 @@
     kernelModules = [
       "tcp_bbr"
       "v4l2loopback"
+      "uinput"
     ];
 
     kernel.sysctl = {
