@@ -65,10 +65,6 @@ in
                   options = "compose:caps";
                 };
               };
-
-              tablet = {
-                # map-to-output = "eDP-1";
-              };
             };
 
             outputs = {
