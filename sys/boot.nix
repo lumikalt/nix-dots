@@ -17,17 +17,16 @@
       "cgroup_no_v1=all"
       "systemd.unified_cgroup_hierarchy=yes"
       "console=tty1"
-      "mitigations=off"
+      # "mitigations=off"
       "nowatchdog"
       "tsc=reliable"
       "b43.allhwsupport=1"
       "loglevel=3"
-      "quiet"
+      # "quiet"
     ];
     kernelModules = [
       "tcp_bbr"
       "v4l2loopback"
-      "uinput"
     ];
 
     kernel.sysctl = {

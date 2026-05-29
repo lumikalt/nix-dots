@@ -13,11 +13,6 @@
   };
 
   hardware.enableRedistributableFirmware = true;
-  hardware.ipu6.enable = true;
-  hardware.ipu6.platform = "ipu6ep";
-
-  hardware.uinput.enable = true;
-  hardware.opentabletdriver.enable = true;
 
   zramSwap = {
     enable = true;
