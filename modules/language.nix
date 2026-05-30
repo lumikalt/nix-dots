@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   i18n.inputMethod = {
     type = "fcitx5";
@@ -12,17 +12,9 @@
   };
 
   home-manager.users.lumi = {
-    programs.anki = {
-      # enable = true;
-
-      addons = with pkgs.ankiAddons; [
-        review-heatmap
-        passfail2
-      ];
-    };
-
     home.packages = with pkgs; [
       qt6Packages.fcitx5-configtool
     ];
+    home.sessionVariables.GTK_IM_MODULE = lib.mkForce "";
   };
 }
