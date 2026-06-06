@@ -6,6 +6,8 @@
     ./shell.nix
   ];
 
+  programs.direnv.enable = true;
+
   home-manager.users.lumi = {
     home.packages = with pkgs; [
       jq
