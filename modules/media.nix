@@ -1,5 +1,14 @@
 { pkgs, ... }:
 {
+  services.qbittorrent = {
+    enable = true;
+    user = "lumi";
+    extraArgs = [
+      "--confirm-legal-notice"
+    ];
+    openFirewall = true;
+  };
+
   home-manager.users.lumi = {
     services.syncthing = {
       enable = true;
