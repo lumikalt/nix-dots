@@ -54,6 +54,8 @@
       nicotine-plus
 
       krita
+
+      peazip
     ];
   };
 }
