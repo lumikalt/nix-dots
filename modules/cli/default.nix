@@ -16,6 +16,7 @@
       grc
       feh
       scooter
+      devenv
     ];
   };
 }

@@ -37,5 +37,7 @@
       hostname = "ssh.github.com";
       port = 443;
     });
+
+    home.packages = [ pkgs.smartgit ];
   };
 }

@@ -16,6 +16,8 @@
   environment.systemPackages = with pkgs; [
     seahorse
     displaylink
+    setxkbmap
+    xauth
   ];
 
   home-manager.users.lumi = {

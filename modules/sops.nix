@@ -15,6 +15,18 @@
           path = "${home}/.ssh/id_ed25519";
         };
 
+        "ssh/tecnico/private_key" = {
+          owner = "lumi";
+          mode = "0600";
+          path = "${home}/.ssh/id_ed25519_tecnico";
+        };
+
+        "ssh/fatima2/private_key" = {
+          owner = "lumi";
+          mode = "0600";
+          path = "${home}/.ssh/id_ed25519_fatima2";
+        };
+
         "vpn/tecnico/auth" = {
           owner = "lumi";
           mode = "0600";

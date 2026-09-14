@@ -12,6 +12,8 @@
         set fish_greeting
         set -p PATH $HOME/.config/emacs/bin
         fish_vi_key_bindings
+
+        # devenv hook fish | source
       '';
 
       plugins =

@@ -4,6 +4,7 @@
     packages = with pkgs; [
       noto-fonts
       noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
       noto-fonts-color-emoji
       unifont
       symbola
@@ -28,12 +29,14 @@
         ];
         sansSerif = [
           "Noto Sans"
+          "Noto Sans CJK SC"
           "IPAPGothic"
           "Unifont"
         ];
         serif = [
           "TT2020Base"
           "Noto Serif"
+          "Noto Serif CJK SC"
           "IPAPMincho"
           "Unifont"
         ];

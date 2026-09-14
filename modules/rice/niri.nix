@@ -32,6 +32,8 @@ in
               NIXOS_OZONE_WL = "1"; # support electron and chromium based apps
               # DISPLAY = ":0"; # important for xwayland-satellite
               QT_QPA_PLATFORM = "wayland"; # optional: force QT apps to always use wayland
+              XKB_DEFAULT_LAYOUT = "pt";
+              XKB_DEFAULT_OPTIONS = "compose:caps";
             };
 
             xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
