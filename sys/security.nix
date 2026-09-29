@@ -1,6 +1,7 @@
 {
   security.rtkit.enable = true;
   security.polkit.enable = true;
+  security.polkit.enablePkexecWrapper = true;
   security.sudo.enable = true;
 
   security.pam.services.swaylock.text = ''
