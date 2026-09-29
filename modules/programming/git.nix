@@ -29,15 +29,13 @@
     programs.gh.enable = true;
 
     # SSH over HTTPS for Github; SSH port 22 is blocked in the home network.
-    programs.ssh.matchBlocks = lib.genAttrs [ "github.com" "ssh.github.com" ] (_: {
-      user = "git";
-      identityFile = "~/.ssh/id_ed25519";
-      identitiesOnly = true;
+    programs.ssh.settings = lib.genAttrs [ "github.com" "ssh.github.com" ] (_: {
+      User = "git";
+      IdentityFile = "~/.ssh/id_ed25519";
+      IdentitiesOnly = true;
 
-      hostname = "ssh.github.com";
-      port = 443;
+      HostName = "ssh.github.com";
+      Port = 443;
     });
-
-    home.packages = [ pkgs.smartgit ];
   };
 }
