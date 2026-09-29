@@ -106,14 +106,23 @@ in
             )
             // {
               # programs
-              "Mod+Return".action.spawn = "kitty";
-              "Mod+W".action.spawn = "firefox";
+              "Mod+Return" = {
+                repeat = false;
+                action.spawn = "kitty";
+              };
+              "Mod+W" = {
+                repeat = false;
+                action.spawn = "firefox";
+              };
 
-              "Mod+D".action.spawn = [
-                "bemenu-run"
-                "-p"
-                "run: "
-              ];
+              "Mod+D" = {
+                repeat = false;
+                action.spawn = [
+                  "bemenu-run"
+                  "-p"
+                  "run: "
+                ];
+              };
 
               # media
               "Print".action.screenshot = [ ];
@@ -121,39 +130,58 @@ in
                 show-pointer = false;
               };
 
-              "Mod+C".action.spawn-sh = ''
-                ${lib.getExe pkgs.hyprpicker} -ar &&
-                ${pkgs.libnotify}/bin/notify-send -t 4000
-                  (${pkgs.wl-clipboard}/bin/wl-paste)
-              '';
+              "Mod+C" = {
+                repeat = false;
+                action.spawn-sh = ''
+                  ${lib.getExe pkgs.hyprpicker} -ar &&
+                  ${pkgs.libnotify}/bin/notify-send -t 4000
+                    (${pkgs.wl-clipboard}/bin/wl-paste)
+                '';
+              };
             }
             // lib.genAttrs [ "Super_L" "Mod+L" ] (_: {
+              repeat = false;
               action.spawn = [
                 loginctl
                 "lock-session"
               ];
             })
             // {
-              "XF86AudioPlay".action.spawn = [
-                playerctl
-                "play-pause"
-              ];
-              "XF86AudioMedia".action.spawn = [
-                playerctl
-                "play-pause"
-              ];
-              "XF86AudioPrev".action.spawn = [
-                playerctl
-                "previous"
-              ];
-              "XF86AudioNext".action.spawn = [
-                playerctl
-                "next"
-              ];
-              "XF86AudioStop".action.spawn = [
-                playerctl
-                "stop"
-              ];
+              "XF86AudioPlay" = {
+                repeat = false;
+                action.spawn = [
+                  playerctl
+                  "play-pause"
+                ];
+              };
+              "XF86AudioMedia" = {
+                repeat = false;
+                action.spawn = [
+                  playerctl
+                  "play-pause"
+                ];
+              };
+              "XF86AudioPrev" = {
+                repeat = false;
+                action.spawn = [
+                  playerctl
+                  "previous"
+                ];
+              };
+              "XF86AudioNext" = {
+                repeat = false;
+                action.spawn = [
+                  playerctl
+                  "next"
+                ];
+              };
+              "XF86AudioStop" = {
+                repeat = false;
+                action.spawn = [
+                  playerctl
+                  "stop"
+                ];
+              };
               "XF86AudioRaiseVolume".action.spawn = [
                 wpctl
                 "set-volume"
