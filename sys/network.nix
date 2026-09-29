@@ -25,6 +25,10 @@
       allowPing = false;
       logReversePathDrops = true;
     };
+
+    # This kernel doesn't build the legacy xtables modules, so nftables is
+    # required (also makes the waydroid module pick pkgs.waydroid-nftables).
+    nftables.enable = true;
   };
 
   systemd.services.NetworkManager-wait-online.enable = false;

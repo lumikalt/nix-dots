@@ -20,4 +20,7 @@
   };
 
   environment.systemPackages = [ pkgs.wineWow64Packages.staging ];
+
+  # Android container, for games with no native Linux build (e.g. Arknights).
+  virtualisation.waydroid.enable = true;
 }
