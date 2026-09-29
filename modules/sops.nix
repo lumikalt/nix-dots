@@ -27,6 +27,16 @@
           path = "${home}/.ssh/id_ed25519_fatima2";
         };
 
+        "ssh/fatima2/password" = {
+          owner = "lumi";
+          mode = "0400";
+        };
+
+        "ssh/csph30/password" = {
+          owner = "lumi";
+          mode = "0400";
+        };
+
         "vpn/tecnico/auth" = {
           owner = "lumi";
           mode = "0600";
@@ -42,14 +52,11 @@
       enable = true;
       enableDefaultConfig = false;
 
-      matchBlocks."*" = {
-        user = "lumi";
-        identityFile = "~/.ssh/id_ed25519";
+      settings."*" = {
+        User = "lumi";
+        IdentityFile = "~/.ssh/id_ed25519";
+        AddKeysToAgent = "yes";
       };
-
-      extraConfig = ''
-        AddKeysToAgent yes
-      '';
     };
   };
 }
