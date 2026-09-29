@@ -61,7 +61,7 @@
       packages = with pkgs; [
         dconf
         udisks2
-        gcr
+        gcr_4
       ];
       implementation = "broker";
     };
@@ -73,10 +73,10 @@
 
     udisks2.enable = true;
 
-    journald.extraConfig = ''
-      SystemMaxUse=50M
-      RuntimeMaxUse=10M
-    '';
+    journald.settings.Journal = {
+      SystemMaxUse = "50M";
+      RuntimeMaxUse = "10M";
+    };
 
     # Extra power services in `power.nix`
 
