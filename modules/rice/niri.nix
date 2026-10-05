@@ -91,6 +91,8 @@ in
 
               "Mod+Q".action = close-window;
               "Mod+Shift+Q".action = quit;
+
+              "Mod+Escape".action = toggle-overview;
             }
             // lib.listToAttrs (
               lib.concatMap (n: [
@@ -139,7 +141,7 @@ in
                 '';
               };
             }
-            // lib.genAttrs [ "Super_L" "Mod+L" ] (_: {
+            // lib.genAttrs [ "Mod+L" ] (_: {
               repeat = false;
               action.spawn = [
                 loginctl
