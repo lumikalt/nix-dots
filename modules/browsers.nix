@@ -6,15 +6,17 @@
       tor-browser
       w3m
       speechd # TTS
-      # bitwarden-desktop # club logins
     ];
 
     programs.firefox = {
       enable = true;
-    };
 
-    programs.floorp = {
-      enable = true;
+      # Adopt the existing profile in place (keeps tabs, extensions, logins).
+      profiles.default = {
+        id = 0;
+        isDefault = true;
+        path = "dxmdnxam.default";
+      };
     };
   };
 }
