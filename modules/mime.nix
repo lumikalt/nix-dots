@@ -64,6 +64,15 @@
               "audio/ogg"
               "audio/*"
             ];
+            archive = [
+              "application/zip"
+              "application/x-tar"
+              "application/gzip"
+              "application/x-7z-compressed"
+              "application/vnd.rar"
+              "application/x-xz-compressed-tar"
+              "application/x-compressed-tar"
+            ];
             web = [
               "text/html"
               "x-scheme-handler/http"
@@ -77,13 +86,15 @@
             ];
             table = {
               "application/json" = [ "firefox.desktop" ];
-              "application/zip" = [ "thunar.desktop" ];
               "application/x.bittorrent" = [ "qbittorrent.desktop" ];
+              "application/epub+zip" = [ "calibre-ebook-viewer.desktop" ];
+              "inode/directory" = [ "nemo.desktop" ];
               "x-scheme-handler/discord" = [ "discord.desktop" ];
             }
             // lib.genAttrs image (_: [ "feh.desktop" ])
             // lib.genAttrs video (_: [ "mpv.desktop" ])
             // lib.genAttrs audio (_: [ "mpv.desktop" ])
+            // lib.genAttrs archive (_: [ "org.gnome.FileRoller.desktop" ])
             // lib.genAttrs web (_: [ "firefox.desktop" ]);
           in
           {

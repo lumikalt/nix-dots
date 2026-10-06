@@ -1,20 +1,11 @@
 { pkgs, ... }:
 {
-  programs.thunar = {
-    enable = true;
-
-    plugins = with pkgs; [
-      thunar-volman
-      thunar-vcs-plugin
-      thunar-archive-plugin
-      thunar-media-tags-plugin
-    ];
-  };
-
   programs.nix-ld.dev.enable = true;
 
   environment.systemPackages = with pkgs; [
     seahorse
+    file-roller # archive manager (used by nemo)
+    nemo-with-extensions # file manager
     displaylink
     setxkbmap
     xauth
