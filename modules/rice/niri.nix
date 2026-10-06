@@ -68,6 +68,13 @@ in
 
             hotkey-overlay.skip-at-startup = true;
 
+            window-rules = [
+              {
+                matches = [ { app-id = "^nemo$"; } ];
+                open-floating = true;
+              }
+            ];
+
             input = {
               touchpad.enable = false;
 
@@ -130,6 +137,11 @@ in
                 action.spawn = "firefox";
               };
 
+              "Mod+P" = {
+                repeat = false;
+                action.spawn = "nemo";
+              };
+
               "Mod+D" = {
                 repeat = false;
                 action.spawn = [
@@ -142,6 +154,9 @@ in
               # media
               "Print".action.screenshot = [ ];
               "Mod+Print".action.screenshot-screen = {
+                show-pointer = false;
+              };
+              "Alt+Print".action.screenshot-window = {
                 show-pointer = false;
               };
 
