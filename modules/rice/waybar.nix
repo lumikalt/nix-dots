@@ -68,9 +68,6 @@
         font-size: 12px;
       }
 
-      window#waybar {
-        background: black;
-      }
 
       #workspaces {
         margin: 3px;
@@ -96,7 +93,7 @@
       }
 
       #workspaces button.urgent {
-        color: #ff0000;
+        color: @base08;
         border-radius: 5px;
       }
 
@@ -112,7 +109,7 @@
       }
 
       #clock {
-       color: lavender;
+       color: @base0D;
       }
 
       #battery {
@@ -120,11 +117,11 @@
       }
 
       #battery.charging {
-        color: green;
+        color: @base0B;
       }
 
       #battery.warning:not(.charging) {
-        color: #ff0000;
+        color: @base08;
       }
     '';
   };

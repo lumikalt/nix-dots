@@ -44,6 +44,11 @@
       url = "github:Mic92/nix-ld";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -59,6 +64,7 @@
       rust-overlay,
       niri,
       nix-ld,
+      stylix,
     }@inputs:
     let
       system = "x86_64-linux";
@@ -84,6 +90,7 @@
           niri.nixosModules.niri
           nix-ld.nixosModules.nix-ld
           sops-nix.nixosModules.sops
+          stylix.nixosModules.stylix
 
           ./system.nix
 

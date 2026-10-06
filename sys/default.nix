@@ -9,5 +9,6 @@
     ./power.nix
     ./security.nix
     ./services.nix
+    ./stylix.nix
   ];
 }

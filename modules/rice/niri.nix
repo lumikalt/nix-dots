@@ -28,6 +28,9 @@ in
           settings = {
             screenshot-path = null;
 
+            # Tell clients not to draw their own (GTK) titlebars.
+            prefer-no-csd = true;
+
             environment = {
               NIXOS_OZONE_WL = "1"; # support electron and chromium based apps
               # DISPLAY = ":0"; # important for xwayland-satellite
