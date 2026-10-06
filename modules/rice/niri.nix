@@ -40,6 +40,19 @@ in
 
             spawn-at-startup = [
               # { command = [ "xwayland-satellite" ]; }
+              # Xwayland ignores niri's keymap and defaults to us; set it explicitly.
+              # satellite is socket-activated, so this also starts it.
+              {
+                argv = [
+                  (lib.getExe pkgs.setxkbmap)
+                  "-display"
+                  ":0"
+                  "-layout"
+                  "pt"
+                  "-option"
+                  "compose:caps"
+                ];
+              }
               {
                 argv = [
                   "swaybg"
