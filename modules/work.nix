@@ -74,8 +74,6 @@
         (aspellWithDicts (
           dicts: with dicts; [
             en
-            en-science
-            en-computers
             pt_PT
           ]
         ))
