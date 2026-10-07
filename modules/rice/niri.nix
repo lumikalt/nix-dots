@@ -13,6 +13,15 @@ in
   };
   niri-flake.cache.enable = true;
 
+  # Stylix's Qt target makes the qt5ct platform theme report the "kvantum"
+  # style, which the Qt Quick polkit agent tries to load as a QML module and
+  # segfaults (no auth dialog, pkexec fails). Give the agent a plain Qt env.
+  systemd.user.services.niri-flake-polkit.environment = {
+    QT_QPA_PLATFORMTHEME = "";
+    QT_STYLE_OVERRIDE = "";
+    QT_QUICK_CONTROLS_STYLE = "Fusion";
+  };
+
   home-manager.users.lumi =
     { config, lib, ... }:
     lib.mkIf enable {
@@ -80,6 +89,10 @@ in
 
             input = {
               touchpad.enable = false;
+
+              # Huion H420 (16:9 active area) -> the 16:9 external monitor,
+              # otherwise the pen spans both outputs and is stretched.
+              tablet.map-to-output = "DVI-I-1";
 
               focus-follows-mouse.enable = true;
               focus-follows-mouse.max-scroll-amount = "50%";
