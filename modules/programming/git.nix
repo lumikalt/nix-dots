@@ -26,7 +26,11 @@
       enableGitIntegration = true;
     };
 
-    programs.gh.enable = true;
+    programs.gh = {
+      enable = true;
+      # Clone/push over SSH (uses the github key configured below)
+      settings.git_protocol = "ssh";
+    };
 
     # SSH over HTTPS for Github; SSH port 22 is blocked in the home network.
     programs.ssh.settings = lib.genAttrs [ "github.com" "ssh.github.com" ] (_: {
