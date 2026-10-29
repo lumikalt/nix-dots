@@ -48,6 +48,7 @@
       pamixer
       playerctl
       vlc
+      livecaptions
       qbittorrent
 
       spotify
