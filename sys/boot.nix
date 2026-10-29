@@ -9,8 +9,6 @@
       timeout = 30;
     };
 
-    initrd.systemd.enable = true;
-
     kernelPackages = pkgs.linuxPackages;
 
     kernelParams = [

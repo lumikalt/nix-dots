@@ -39,6 +39,16 @@
     ];
   };
 
+  fileSystems."/home/lumi/data" = {
+    device = "/dev/disk/by-uuid/af6028d7-410f-46e0-8dc6-99e26211a4ba";
+    fsType = "btrfs";
+    options = [
+      "compress=zstd"
+      "noatime"
+      "nofail"
+    ];
+  };
+
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
