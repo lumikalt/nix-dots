@@ -82,8 +82,6 @@
         hunspellDicts.pt-pt
         hunspellDicts.tok
         libspelling
-
-        ltspice
       ];
     };
 }

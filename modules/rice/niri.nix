@@ -85,6 +85,11 @@ in
                 matches = [ { app-id = "^nemo$"; } ];
                 open-floating = true;
               }
+              {
+                # Caption overlay: keep it in the floating layer so it sits above tiled windows.
+                matches = [ { app-id = "^net\\.sapples\\.LiveCaptions$"; } ];
+                open-floating = true;
+              }
             ];
 
             input = {
@@ -124,6 +129,7 @@ in
 
               "Mod+F".action = maximize-column;
               "Mod+Shift+F".action = fullscreen-window;
+              "Mod+Ctrl+F".action = toggle-windowed-fullscreen;
 
               "Mod+Q".action = close-window;
               "Mod+Shift+Q".action = quit;

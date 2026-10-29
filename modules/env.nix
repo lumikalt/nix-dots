@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
     seahorse
     file-roller # archive manager (used by nemo)
+    unar # extracts rar and other formats (free alternative to unrar)
     nemo-with-extensions # file manager
     displaylink
     setxkbmap

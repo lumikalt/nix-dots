@@ -68,6 +68,29 @@
           '';
         };
 
+        # Force kill (SIGKILL): `fkill <name>` matches the full command line,
+        # `fkill` alone lets you click a window to kill its process.
+        fkill = ''
+          if count $argv > /dev/null
+            pkill -9 -f -- "$argv"
+            return
+          end
+
+          set -l win (niri msg --json pick-window)
+          or return
+          set -l pid (echo $win | ${lib.getExe pkgs.jq} -r '.pid // empty')
+          set -l app (echo $win | ${lib.getExe pkgs.jq} -r '.app_id // empty')
+
+          # X11 windows report xwayland-satellite's pid; killing it would take
+          # down every X11 app, so fall back to matching by app id.
+          if string match -q '*xwayland-satellite*' (ps -o cmd= -p $pid)
+            echo "X11 window ($app): killing by name instead"
+            pkill -9 -f -- "$app"
+          else
+            kill -9 $pid
+          end
+        '';
+
         nix-where = {
           argumentNames = [ "exe" ];
           body = ''
