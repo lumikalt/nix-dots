@@ -14,7 +14,7 @@
       carlito
       ipafont
       kochi-substitute
-      ttf_bitstream_vera
+      ttf-bitstream-vera
     ];
 
     enableDefaultPackages = true;
