@@ -18,7 +18,7 @@
 
   home-manager.users.lumi = {
     home.username = "lumi";
-    home.stateVersion = "26.05";
+    home.stateVersion = "26.11";
     fonts.fontconfig.enable = true;
     nixpkgs.config.allowUnfree = true;
   };
