@@ -2,6 +2,7 @@
   imports = [
     ./bluetooth.nix
     ./boot.nix
+    ./disk-health.nix
     ./extraHardware.nix
     ./fonts.nix
     # ./keyboard.nix
