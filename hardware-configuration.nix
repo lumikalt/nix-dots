@@ -24,10 +24,39 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  # btrfs on nvme0n1p3. The old ext4 root (667ea435-1355-450d-a469-55de8f88a2db,
+  # nvme0n1p5) is kept as a fallback until the new root is confirmed working.
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/667ea435-1355-450d-a469-55de8f88a2db";
+    device = "/dev/disk/by-uuid/af6028d7-410f-46e0-8dc6-99e26211a4ba";
+    fsType = "btrfs";
+    options = [
+      "subvol=@"
+      "compress=zstd"
+      "noatime"
+    ];
+  };
 
-    fsType = "ext4";
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/af6028d7-410f-46e0-8dc6-99e26211a4ba";
+    fsType = "btrfs";
+    options = [
+      "subvol=@home"
+      "compress=zstd"
+      "noatime"
+    ];
+    # sops-nix reads its age key from /home/lumi/.config/sops/age during activation.
+    neededForBoot = true;
+  };
+
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-uuid/af6028d7-410f-46e0-8dc6-99e26211a4ba";
+    fsType = "btrfs";
+    options = [
+      "subvol=@nix"
+      "compress=zstd"
+      "noatime"
+    ];
+    neededForBoot = true;
   };
 
   fileSystems."/boot" = {
@@ -43,6 +72,7 @@
     device = "/dev/disk/by-uuid/af6028d7-410f-46e0-8dc6-99e26211a4ba";
     fsType = "btrfs";
     options = [
+      "subvol=@data"
       "compress=zstd"
       "noatime"
       "nofail"
