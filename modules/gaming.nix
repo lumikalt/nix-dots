@@ -19,7 +19,11 @@
     };
   };
 
-  environment.systemPackages = [ pkgs.wineWow64Packages.staging ];
+  environment.systemPackages = [
+    pkgs.wineWow64Packages.staging
+    # PPSSPP core for PSP games (e.g. LocoRoco 2).
+    (pkgs.retroarch.withCores (cores: [ cores.ppsspp ]))
+  ];
 
   # Android container, for games with no native Linux build (e.g. Arknights).
   virtualisation.waydroid.enable = true;
