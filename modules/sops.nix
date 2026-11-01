@@ -32,6 +32,12 @@
           mode = "0400";
         };
 
+        "ssh/csph30/private_key" = {
+          owner = "lumi";
+          mode = "0600";
+          path = "${home}/.ssh/id_ed25519_csph30";
+        };
+
         "ssh/csph30/password" = {
           owner = "lumi";
           mode = "0400";
