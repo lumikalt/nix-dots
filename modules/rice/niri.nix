@@ -90,6 +90,22 @@ in
                 matches = [ { app-id = "^net\\.sapples\\.LiveCaptions$"; } ];
                 open-floating = true;
               }
+              {
+                # Steam friend/notification toasts: bottom-right, without grabbing focus.
+                matches = [
+                  {
+                    app-id = "^steam$";
+                    title = "^notificationtoasts_";
+                  }
+                ];
+                open-floating = true;
+                open-focused = false;
+                default-floating-position = {
+                  x = 10;
+                  y = 10;
+                  relative-to = "bottom-right";
+                };
+              }
             ];
 
             input = {
